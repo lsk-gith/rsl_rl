@@ -27,10 +27,10 @@ class PPO:
     """
 
     actor: MLPModel
-    """The actor model."""
+    """The actor model.（策略网络）：输出动作的概率分布。"""
 
     critic: MLPModel
-    """The critic model."""
+    """The critic model.（价值网络）：评估状态的价值，用于计算优势函数（Advantage Function）。"""
 
     def __init__(
         self,
