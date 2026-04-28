@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a5a7561" />
-    
-    
+
+
 
 
 <style>
@@ -22,31 +22,31 @@
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
       }
     }
   }
 </style></head>
   <body>
-    
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
-    
+
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -185,14 +185,14 @@
   </header>
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
-      
+
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   <div class="sidebar-logo-container">
     <img class="sidebar-logo only-light" src="../_static/rsl_rl_logo_light.svg" alt="Light Logo"/>
     <img class="sidebar-logo only-dark" src="../_static/rsl_rl_logo_dark.svg" alt="Dark Logo"/>
   </div>
-  
-  
+
+
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
@@ -227,7 +227,7 @@
 </div>
 
       </div>
-      
+
     </div>
   </aside>
   <div class="main">
@@ -266,7 +266,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.algorithms.ppo.</span></span><span class="sig-name descname"><span class="pre">PPO</span></span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO" title="Link to this definition">¶</a></dt>
-<dd><p>Proximal Policy Optimization algorithm.</p>
+<dd><p>Proximal Policy Optimization algorithm. (近端策略优化算法。)</p>
 <dl class="simple">
 <dt>Reference:</dt><dd><ul class="simple">
 <li><p>Schulman et al. “Proximal policy optimization algorithms.” arXiv preprint arXiv:1707.06347 (2017).</p></li>
@@ -276,7 +276,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critic</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_learning_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_mini_batches</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clip_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lam</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_loss_coef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entropy_coef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_grad_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_clipped_value_loss</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adaptive'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_kl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_advantage_per_mini_batch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rnd_cfg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetry_cfg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_gpu_cfg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the algorithm with models, storage, and optimization settings.</p>
+<dd><p>Initialize the algorithm with models, storage, and optimization settings. (使用模型、存储和优化设置初始化算法。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -312,19 +312,19 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.actor">
 <span class="sig-name descname"><span class="pre">actor</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><span class="pre">MLPModel</span></a></em><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.actor" title="Link to this definition">¶</a></dt>
-<dd><p>The actor model.（策略网络）：输出动作的概率分布。</p>
+<dd><p>The actor model.（策略网络）：输出动作的概率分布。(The actor model. (策略网络)：输出动作的概率分布。)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.critic">
 <span class="sig-name descname"><span class="pre">critic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><span class="pre">MLPModel</span></a></em><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.critic" title="Link to this definition">¶</a></dt>
-<dd><p>The critic model.（价值网络）：评估状态的价值，用于计算优势函数（Advantage Function）。</p>
+<dd><p>The critic model.（价值网络）：评估状态的价值，用于计算优势函数（Advantage Function）。(The critic model. (价值网络)：评估状态的价值，用于计算优势函数（Advantage Function）。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.act">
 <span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.act" title="Link to this definition">¶</a></dt>
-<dd><p>Sample actions and store transition data.</p>
+<dd><p>Sample actions and store transition data. (采样动作并存储转换数据。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>obs</strong> (<em>tensordict.TensorDict</em>)</p>
@@ -338,7 +338,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.process_env_step">
 <span class="sig-name descname"><span class="pre">process_env_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rewards</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extras</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.process_env_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.process_env_step" title="Link to this definition">¶</a></dt>
-<dd><p>Record one environment step and update the normalizers.</p>
+<dd><p>Record one environment step and update the normalizers. (记录一个环境步骤并更新归一化器。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -357,7 +357,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.compute_returns">
 <span class="sig-name descname"><span class="pre">compute_returns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.compute_returns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.compute_returns" title="Link to this definition">¶</a></dt>
-<dd><p>Compute return and advantage targets from stored transitions.</p>
+<dd><p>Compute return and advantage targets from stored transitions. (从存储的转换中计算回报和优势目标。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>obs</strong> (<em>tensordict.TensorDict</em>)</p>
@@ -371,7 +371,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.update" title="Link to this definition">¶</a></dt>
-<dd><p>Run optimization epochs over stored batches and return mean losses.</p>
+<dd><p>Run optimization epochs over stored batches and return mean losses. (在存储的批次上运行优化轮次并返回平均损失。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict[str, float]</p>
@@ -382,7 +382,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.train_mode">
 <span class="sig-name descname"><span class="pre">train_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.train_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.train_mode" title="Link to this definition">¶</a></dt>
-<dd><p>Set train mode for learnable models.</p>
+<dd><p>Set train mode for learnable models. (为可学习模型设置训练模式。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None</p>
@@ -393,7 +393,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.eval_mode">
 <span class="sig-name descname"><span class="pre">eval_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.eval_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.eval_mode" title="Link to this definition">¶</a></dt>
-<dd><p>Set evaluation mode for learnable models.</p>
+<dd><p>Set evaluation mode for learnable models. (为可学习模型设置评估模式。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None</p>
@@ -404,7 +404,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.save">
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.save" title="Link to this definition">¶</a></dt>
-<dd><p>Return a dict of all models for saving.</p>
+<dd><p>Return a dict of all models for saving. (返回所有模型的字典以进行保存。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
@@ -415,7 +415,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.load">
 <span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loaded_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.load" title="Link to this definition">¶</a></dt>
-<dd><p>Load specified models from a saved dict.</p>
+<dd><p>Load specified models from a saved dict. (从保存的字典中加载指定的模型。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -433,7 +433,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.get_policy">
 <span class="sig-name descname"><span class="pre">get_policy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.get_policy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.get_policy" title="Link to this definition">¶</a></dt>
-<dd><p>Get the policy model.</p>
+<dd><p>Get the policy model. (获取策略模型。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><em>MLPModel</em></a></p>
@@ -444,7 +444,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.construct_algorithm">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.construct_algorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.construct_algorithm" title="Link to this definition">¶</a></dt>
-<dd><p>Construct the PPO algorithm.</p>
+<dd><p>Construct the PPO algorithm. (构建 PPO 算法。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -463,7 +463,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.broadcast_parameters">
 <span class="sig-name descname"><span class="pre">broadcast_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.broadcast_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.broadcast_parameters" title="Link to this definition">¶</a></dt>
-<dd><p>Broadcast model parameters to all GPUs.</p>
+<dd><p>Broadcast model parameters to all GPUs. (将模型参数广播到所有 GPU。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None</p>
@@ -474,8 +474,8 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.ppo.PPO.reduce_parameters">
 <span class="sig-name descname"><span class="pre">reduce_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/ppo.html#PPO.reduce_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.ppo.PPO.reduce_parameters" title="Link to this definition">¶</a></dt>
-<dd><p>Collect gradients from all GPUs and average them.</p>
-<p>This function is called after the backward pass to synchronize the gradients across all GPUs.</p>
+<dd><p>Collect gradients from all GPUs and average them. (从所有 GPU 收集梯度并取平均。)</p>
+<p>This function is called after the backward pass to synchronize the gradients across all GPUs. (此函数在反向传播之后调用，以同步所有 GPU 上的梯度。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None</p>
@@ -491,17 +491,17 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.algorithms.distillation.</span></span><span class="sig-name descname"><span class="pre">Distillation</span></span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation" title="Link to this definition">¶</a></dt>
-<dd><p>Distillation algorithm for training a student model to mimic a teacher model.</p>
+<dd><p>Distillation algorithm for training a student model to mimic a teacher model. (用于训练学生模型以模仿教师模型的蒸馏算法。)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.teacher_loaded">
 <span class="sig-name descname"><span class="pre">teacher_loaded</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.teacher_loaded" title="Link to this definition">¶</a></dt>
-<dd><p>Indicates whether the teacher model parameters have been loaded.</p>
+<dd><p>Indicates whether the teacher model parameters have been loaded. (指示教师模型的参数是否已加载。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">teacher</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_learning_epochs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gradient_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learning_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_grad_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mse'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optimizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'adam'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multi_gpu_cfg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the algorithm with models, storage, and optimization settings.</p>
+<dd><p>Initialize the algorithm with models, storage, and optimization settings. (使用模型、存储和优化设置初始化算法。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -528,19 +528,19 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.student">
 <span class="sig-name descname"><span class="pre">student</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><span class="pre">MLPModel</span></a></em><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.student" title="Link to this definition">¶</a></dt>
-<dd><p>The student model.</p>
+<dd><p>The student model. (学生模型。)</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.teacher">
 <span class="sig-name descname"><span class="pre">teacher</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><span class="pre">MLPModel</span></a></em><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.teacher" title="Link to this definition">¶</a></dt>
-<dd><p>The teacher model.</p>
+<dd><p>The teacher model. (教师模型。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.act">
 <span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.act" title="Link to this definition">¶</a></dt>
-<dd><p>Sample actions and store transition data.</p>
+<dd><p>Sample actions and store transition data. (采样动作并存储转换数据。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>obs</strong> (<em>tensordict.TensorDict</em>)</p>
@@ -554,7 +554,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.process_env_step">
 <span class="sig-name descname"><span class="pre">process_env_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rewards</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extras</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.process_env_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.process_env_step" title="Link to this definition">¶</a></dt>
-<dd><p>Record one environment step and update the normalizers.</p>
+<dd><p>Record one environment step and update the normalizers. (记录一个环境步骤并更新归一化器。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -573,7 +573,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.compute_returns">
 <span class="sig-name descname"><span class="pre">compute_returns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.compute_returns"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.compute_returns" title="Link to this definition">¶</a></dt>
-<dd><p>No-op since distillation does not use return targets.</p>
+<dd><p>No-op since distillation does not use return targets. (空操作，因为蒸馏不使用回报目标。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>obs</strong> (<em>tensordict.TensorDict</em>)</p>
@@ -587,7 +587,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.update" title="Link to this definition">¶</a></dt>
-<dd><p>Run optimization epochs over stored batches and return mean losses.</p>
+<dd><p>Run optimization epochs over stored batches and return mean losses. (在存储的批次上运行优化轮次并返回平均损失。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict[str, float]</p>
@@ -598,7 +598,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.train_mode">
 <span class="sig-name descname"><span class="pre">train_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.train_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.train_mode" title="Link to this definition">¶</a></dt>
-<dd><p>Set train mode for the student and keep the teacher in eval mode.</p>
+<dd><p>Set train mode for the student and keep the teacher in eval mode. (为学生模型设置训练模式，并保持教师模型处于评估模式。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None</p>
@@ -609,7 +609,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.eval_mode">
 <span class="sig-name descname"><span class="pre">eval_mode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.eval_mode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.eval_mode" title="Link to this definition">¶</a></dt>
-<dd><p>Set evaluation mode for student and teacher models.</p>
+<dd><p>Set evaluation mode for student and teacher models. (为学生模型和教师模型设置评估模式。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None</p>
@@ -620,7 +620,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.save">
 <span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.save" title="Link to this definition">¶</a></dt>
-<dd><p>Return a dict of all models for saving.</p>
+<dd><p>Return a dict of all models for saving. (返回所有模型的字典以进行保存。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
@@ -631,7 +631,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.load">
 <span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loaded_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.load" title="Link to this definition">¶</a></dt>
-<dd><p>Load specified models from a saved dict.</p>
+<dd><p>Load specified models from a saved dict. (从保存的字典中加载指定的模型。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -649,7 +649,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.get_policy">
 <span class="sig-name descname"><span class="pre">get_policy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.get_policy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.get_policy" title="Link to this definition">¶</a></dt>
-<dd><p>Get the policy model.</p>
+<dd><p>Get the policy model. (获取策略模型。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><em>MLPModel</em></a></p>
@@ -660,7 +660,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.construct_algorithm">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">construct_algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.construct_algorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.construct_algorithm" title="Link to this definition">¶</a></dt>
-<dd><p>Construct the distillation algorithm.</p>
+<dd><p>Construct the distillation algorithm. (构建蒸馏算法。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -679,7 +679,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.broadcast_parameters">
 <span class="sig-name descname"><span class="pre">broadcast_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.broadcast_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.broadcast_parameters" title="Link to this definition">¶</a></dt>
-<dd><p>Broadcast model parameters to all GPUs.</p>
+<dd><p>Broadcast model parameters to all GPUs. (将模型参数广播到所有 GPU。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None</p>
@@ -690,8 +690,8 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.algorithms.distillation.Distillation.reduce_parameters">
 <span class="sig-name descname"><span class="pre">reduce_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/algorithms/distillation.html#Distillation.reduce_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.algorithms.distillation.Distillation.reduce_parameters" title="Link to this definition">¶</a></dt>
-<dd><p>Collect gradients from all GPUs and average them.</p>
-<p>This function is called after the backward pass to synchronize the gradients across all GPUs.</p>
+<dd><p>Collect gradients from all GPUs and average them. (从所有 GPU 收集梯度并取平均。)</p>
+<p>This function is called after the backward pass to synchronize the gradients across all GPUs. (此函数在反向传播之后调用，以同步所有 GPU 上的梯度。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None</p>

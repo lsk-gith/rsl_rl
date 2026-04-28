@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a5a7561" />
-    
-    
+
+
 
 
 <style>
@@ -22,31 +22,31 @@
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
       }
     }
   }
 </style></head>
   <body>
-    
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
-    
+
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -185,14 +185,14 @@
   </header>
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
-      
+
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   <div class="sidebar-logo-container">
     <img class="sidebar-logo only-light" src="../_static/rsl_rl_logo_light.svg" alt="Light Logo"/>
     <img class="sidebar-logo only-dark" src="../_static/rsl_rl_logo_dark.svg" alt="Dark Logo"/>
   </div>
-  
-  
+
+
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
@@ -227,7 +227,7 @@
 </div>
 
       </div>
-      
+
     </div>
   </aside>
   <div class="main">
@@ -263,7 +263,7 @@
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
 <p>Before installing RSL-RL, ensure that Python <code class="docutils literal notranslate"><span class="pre">3.9+</span></code> is available. It is recommended to install the library in a
 virtual environment (e.g. using <code class="docutils literal notranslate"><span class="pre">venv</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>), which is often already created by the used environment library
-(e.g. Isaac Lab). If so, make sure to activate it before installing RSL-RL.</p>
+(e.g. Isaac Lab). If so, make sure to activate it before installing RSL-RL.(在安装 RSL-RL 之前，请确保 Python <code class="docutils literal notranslate"><span class="pre">3.9+</span></code> 可用。建议在虚拟环境中安装该库（例如使用 <code class="docutils literal notranslate"><span class="pre">venv</span></code> 或 <code class="docutils literal notranslate"><span class="pre">conda</span></code>），这种环境通常已经由所使用的环境库（例如 Isaac Lab）创建。如果是这样，请确保在安装 RSL-RL 之前激活它。)</p>
 <section id="installing-rsl-rl-as-a-dependency">
 <h2>Installing RSL-RL as a dependency<a class="headerlink" href="#installing-rsl-rl-as-a-dependency" title="Link to this heading">¶</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>rsl-rl-lib

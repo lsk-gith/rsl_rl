@@ -1,20 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Algorithms" href="../api/algorithms.html"><link rel="prev" title="Configuration" href="configuration.html">
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Configuration" href="configuration.html"><link rel="prev" title="Overview" href="overview.html">
         <link rel="prefetch" href="../_static/rsl_rl_logo_light.svg" as="image">
         <link rel="prefetch" href="../_static/rsl_rl_logo_dark.svg" as="image">
 
     <!-- Generated with Sphinx 7.4.7 and Furo 2025.12.19 -->
-        <title>Contribution - RSL-RL</title>
+        <title>Installation - RSL-RL</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a5a7561" />
-    
-    
+
+
 
 
 <style>
@@ -22,31 +22,31 @@
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
       }
     }
   }
 </style></head>
   <body>
-    
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
-    
+
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -185,14 +185,14 @@
   </header>
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
-      
+
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   <div class="sidebar-logo-container">
     <img class="sidebar-logo only-light" src="../_static/rsl_rl_logo_light.svg" alt="Light Logo"/>
     <img class="sidebar-logo only-dark" src="../_static/rsl_rl_logo_dark.svg" alt="Dark Logo"/>
   </div>
-  
-  
+
+
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
@@ -202,9 +202,9 @@
   <p class="caption" role="heading"><span class="caption-text">Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribution.html">Contribution</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -227,7 +227,7 @@
 </div>
 
       </div>
-      
+
     </div>
   </aside>
   <div class="main">
@@ -241,7 +241,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/guide/contribution.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/guide/installation.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -259,59 +259,50 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="contribution">
-<h1>Contribution<a class="headerlink" href="#contribution" title="Link to this heading">¶</a></h1>
-<p>We welcome contributions from the community. For new features, we recommend first opening an issue to discuss the
-proposed contribution before opening a pull request.</p>
-<section id="code-style">
-<h2>Code Style<a class="headerlink" href="#code-style" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>Follow the <a class="reference external" href="https://peps.python.org/pep-0008/">PEP 8</a> style guide for code.</p></li>
-<li><p>Follow the <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">Google Style Guide</a> for
-docstrings.</p></li>
-<li><p>Use the <a class="reference external" href="https://github.com/astral-sh/ruff">ruff</a> linter and formatter to maintain code quality.</p></li>
-</ul>
-</section>
-<section id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">¶</a></h2>
-<ol class="arabic simple">
-<li><p>For new features, open an issue to discuss the proposed contribution.</p></li>
-<li><p>Fork the repository and implement the contribution.</p></li>
-<li><p>Add yourself to the <a class="reference external" href="https://github.com/leggedrobotics/rsl_rl/blob/main/CONTRIBUTORS.md">CONTRIBUTORS.md</a> file.</p></li>
-<li><p>Run <a class="reference external" href="https://pre-commit.com/">pre-commit</a> to format and lint code with:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files
+          <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
+<p>Before installing RSL-RL, ensure that Python <code class="docutils literal notranslate"><span class="pre">3.9+</span></code> is available. It is recommended to install the library in a
+virtual environment (e.g. using <code class="docutils literal notranslate"><span class="pre">venv</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>), which is often already created by the used environment library
+(e.g. Isaac Lab). If so, make sure to activate it before installing RSL-RL. (在安装 RSL-RL 之前，请确保 Python <code class="docutils literal notranslate"><span class="pre">3.9+</span></code> 可用。建议在虚拟环境中安装该库（例如使用 <code class="docutils literal notranslate"><span class="pre">venv</span></code> 或 <code class="docutils literal notranslate"><span class="pre">conda</span></code>），这种环境通常已经由所使用的环境库（例如 Isaac Lab）创建。如果是这样，请确保在安装 RSL-RL 之前激活它。)</p>
+<section id="installing-rsl-rl-as-a-dependency">
+<h2>Installing RSL-RL as a dependency<a class="headerlink" href="#installing-rsl-rl-as-a-dependency" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>rsl-rl-lib
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
-<li><p>Open a pull request to the main branch.</p></li>
-</ol>
+</section>
+<section id="installing-rsl-rl-for-development">
+<h2>Installing RSL-RL for development<a class="headerlink" href="#installing-rsl-rl-for-development" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/leggedrobotics/rsl_rl
+<span class="nb">cd</span><span class="w"> </span>rsl_rl
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
 </section>
 </section>
 
         </article>
       </div>
       <footer>
-        
+
         <div class="related-pages">
-          <a class="next-page" href="../api/algorithms.html">
+          <a class="next-page" href="configuration.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Algorithms</div>
+                <div class="title">Configuration</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="configuration.html">
+          <a class="prev-page" href="overview.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
-                
-                <div class="title">Configuration</div>
-                
+
+                <div class="title">Overview</div>
+
               </div>
             </a>
         </div>
@@ -321,20 +312,20 @@ docstrings.</p></li>
                 Copyright &#169; 2021-2026, ETH Zurich and NVIDIA CORPORATION
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-            
+
             <a href="https://github.com/pradyunsg/furo">Furo</a>
-            
+
           </div>
           <div class="right-details">
-            
+
           </div>
         </div>
-        
+
       </footer>
     </div>
     <aside class="toc-drawer">
-      
-      
+
+
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
@@ -344,9 +335,9 @@ docstrings.</p></li>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Contribution</a><ul>
-<li><a class="reference internal" href="#code-style">Code Style</a></li>
-<li><a class="reference internal" href="#workflow">Workflow</a></li>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#installing-rsl-rl-as-a-dependency">Installing RSL-RL as a dependency</a></li>
+<li><a class="reference internal" href="#installing-rsl-rl-for-development">Installing RSL-RL for development</a></li>
 </ul>
 </li>
 </ul>

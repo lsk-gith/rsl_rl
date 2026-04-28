@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a5a7561" />
-    
-    
+
+
 
 
 <style>
@@ -22,31 +22,31 @@
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
       }
     }
   }
 </style></head>
   <body>
-    
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
-    
+
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -185,14 +185,14 @@
   </header>
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
-      
+
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   <div class="sidebar-logo-container">
     <img class="sidebar-logo only-light" src="../_static/rsl_rl_logo_light.svg" alt="Light Logo"/>
     <img class="sidebar-logo only-dark" src="../_static/rsl_rl_logo_dark.svg" alt="Dark Logo"/>
   </div>
-  
-  
+
+
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
@@ -227,7 +227,7 @@
 </div>
 
       </div>
-      
+
     </div>
   </aside>
   <div class="main">
@@ -266,7 +266,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.extensions.rnd.RandomNetworkDistillation">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.extensions.rnd.</span></span><span class="sig-name descname"><span class="pre">RandomNetworkDistillation</span></span><a class="reference internal" href="../_modules/rsl_rl/extensions/rnd.html#RandomNetworkDistillation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.extensions.rnd.RandomNetworkDistillation" title="Link to this definition">¶</a></dt>
-<dd><p>Implementation of Random Network Distillation (RND).</p>
+<dd><p>Implementation of Random Network Distillation (RND).(随机网络蒸馏 (RND) 的实现。)</p>
 <p class="rubric">References</p>
 <ul class="simple">
 <li><p>Schwarke et al. “Curiosity-Driven Learning of Joint Locomotion and Manipulation Tasks.” CoRL (2023).</p></li>
@@ -275,50 +275,50 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.extensions.rnd.RandomNetworkDistillation.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_outputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictor_hidden_dims</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_hidden_dims</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_normalization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward_normalization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_schedule</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/extensions/rnd.html#RandomNetworkDistillation.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.extensions.rnd.RandomNetworkDistillation.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the RND module.</p>
+<dd><p>Initialize the RND module.(初始化 RND 模块。)</p>
 <ul class="simple">
 <li><p>If <code class="xref py py-attr docutils literal notranslate"><span class="pre">state_normalization</span></code> is True, then the input state is normalized using an Empirical Normalization
-layer.</p></li>
+layer.(如果 <code class="xref py py-attr docutils literal notranslate"><span class="pre">state_normalization</span></code> 为 True，则使用经验归一化层对输入状态进行归一化。)</p></li>
 <li><p>If <code class="xref py py-attr docutils literal notranslate"><span class="pre">reward_normalization</span></code> is True, then the intrinsic reward is normalized using an Empirical Discounted
-Variation Normalization layer.</p></li>
+Variation Normalization layer.(如果 <code class="xref py py-attr docutils literal notranslate"><span class="pre">reward_normalization</span></code> 为 True，则使用经验折扣变化归一化层对内在奖励进行归一化。)</p></li>
 <li><p>If the hidden dimensions are -1 in the predictor and target networks configuration, then the number of states
-is used as the hidden dimension.</p></li>
+is used as the hidden dimension.(如果预测网络和目标网络配置中的隐藏维度为 -1，则使用状态数量作为隐藏维度。)</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>num_states</strong> (<em>int</em>) – Number of states/inputs to the predictor and target networks.</p></li>
-<li><p><strong>obs_groups</strong> (<em>dict</em>) – Dictionary of observation groups.</p></li>
-<li><p><strong>num_outputs</strong> (<em>int</em>) – Number of outputs (embedding size) of the predictor and target networks.</p></li>
-<li><p><strong>predictor_hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of hidden dimensions of the predictor network.</p></li>
-<li><p><strong>target_hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of hidden dimensions of the target network.</p></li>
-<li><p><strong>activation</strong> (<em>str</em>) – Activation function.</p></li>
-<li><p><strong>weight</strong> (<em>float</em>) – Scaling factor of the intrinsic reward.</p></li>
-<li><p><strong>state_normalization</strong> (<em>bool</em>) – Whether to normalize the input state.</p></li>
-<li><p><strong>reward_normalization</strong> (<em>bool</em>) – Whether to normalize the intrinsic reward.</p></li>
-<li><p><strong>device</strong> (<em>str</em>) – Device to use.</p></li>
-<li><p><strong>weight_schedule</strong> (<em>dict</em><em> | </em><em>None</em>) – <p>Type of schedule to use for the RND weight parameter.
-It is a dictionary with the following keys:</p>
+<li><p><strong>num_states</strong> (<em>int</em>) – Number of states/inputs to the predictor and target networks.(预测网络和目标网络的状态/输入数量。)</p></li>
+<li><p><strong>obs_groups</strong> (<em>dict</em>) – Dictionary of observation groups.(观测组字典。)</p></li>
+<li><p><strong>num_outputs</strong> (<em>int</em>) – Number of outputs (embedding size) of the predictor and target networks.(预测网络和目标网络的输出数量（嵌入大小）。)</p></li>
+<li><p><strong>predictor_hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of hidden dimensions of the predictor network.(预测网络隐藏维度列表。)</p></li>
+<li><p><strong>target_hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of hidden dimensions of the target network.(目标网络隐藏维度列表。)</p></li>
+<li><p><strong>activation</strong> (<em>str</em>) – Activation function.(激活函数。)</p></li>
+<li><p><strong>weight</strong> (<em>float</em>) – Scaling factor of the intrinsic reward.(内在奖励的缩放因子。)</p></li>
+<li><p><strong>state_normalization</strong> (<em>bool</em>) – Whether to normalize the input state.(是否对输入状态进行归一化。)</p></li>
+<li><p><strong>reward_normalization</strong> (<em>bool</em>) – Whether to normalize the intrinsic reward.(是否对内在奖励进行归一化。)</p></li>
+<li><p><strong>device</strong> (<em>str</em>) – Device to use.(要使用的设备。)</p></li>
+<li><p><strong>weight_schedule</strong> (<em>dict</em><em> | </em><em>None</em>) – <p>Type of schedule to use for the RND weight parameter.(用于 RND 权重参数的计划类型。)
+It is a dictionary with the following keys:(它是一个包含以下键的字典：)</p>
 <ul>
 <li><dl class="simple">
-<dt>”mode”: Type of schedule to use for the RND weight parameter.</dt><dd><ul>
-<li><p>”constant”: Constant weight schedule.</p></li>
-<li><p>”step”: Step weight schedule.</p></li>
-<li><p>”linear”: Linear weight schedule.</p></li>
+<dt>”mode”: Type of schedule to use for the RND weight parameter.(用于 RND 权重参数的计划类型。)</dt><dd><ul>
+<li><p>”constant”: Constant weight schedule.(常数权重计划。)</p></li>
+<li><p>”step”: Step weight schedule.(阶梯权重计划。)</p></li>
+<li><p>”linear”: Linear weight schedule.(线性权重计划。)</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-<p>For the “step” weight schedule, the following parameters are required:</p>
+<p>For the “step” weight schedule, the following parameters are required:(对于“阶梯”权重计划，需要以下参数：)</p>
 <ul>
-<li><p>”final_step”: Step at which the weight parameter is set to the final value.</p></li>
-<li><p>”final_value”: Final value of the weight parameter.</p></li>
+<li><p>”final_step”: Step at which the weight parameter is set to the final value.(权重参数设置为最终值的步数。)</p></li>
+<li><p>”final_value”: Final value of the weight parameter.(权重参数的最终值。)</p></li>
 </ul>
-<p>For the “linear” weight schedule, the following parameters are required:
-- “initial_step”: Step at which the weight parameter is set to the initial value.
-- “final_step”: Step at which the weight parameter is set to the final value.
-- “final_value”: Final value of the weight parameter.</p>
+<p>For the “linear” weight schedule, the following parameters are required:(对于“线性”权重计划，需要以下参数：)
+- “initial_step”: Step at which the weight parameter is set to the initial value.(权重参数设置为初始值的步数。)
+- “final_step”: Step at which the weight parameter is set to the final value.(权重参数设置为最终值的步数。)
+- “final_value”: Final value of the weight parameter.(权重参数的最终值。)</p>
 </p></li>
 </ul>
 </dd>
@@ -331,7 +331,7 @@ It is a dictionary with the following keys:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.extensions.rnd.RandomNetworkDistillation.get_intrinsic_reward">
 <span class="sig-name descname"><span class="pre">get_intrinsic_reward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/extensions/rnd.html#RandomNetworkDistillation.get_intrinsic_reward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.extensions.rnd.RandomNetworkDistillation.get_intrinsic_reward" title="Link to this definition">¶</a></dt>
-<dd><p>Compute weighted intrinsic rewards from prediction error in embedding space.</p>
+<dd><p>Compute weighted intrinsic rewards from prediction error in embedding space.(根据嵌入空间中的预测误差计算加权的内在奖励。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>obs</strong> (<em>tensordict.TensorDict</em>)</p>
@@ -345,7 +345,7 @@ It is a dictionary with the following keys:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.extensions.rnd.RandomNetworkDistillation.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/extensions/rnd.html#RandomNetworkDistillation.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.extensions.rnd.RandomNetworkDistillation.forward" title="Link to this definition">¶</a></dt>
-<dd><p>Disallow generic forward calls for this module.</p>
+<dd><p>Disallow generic forward calls for this module.(禁止对此模块进行通用前向调用。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -362,7 +362,7 @@ It is a dictionary with the following keys:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.extensions.rnd.RandomNetworkDistillation.train">
 <span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/extensions/rnd.html#RandomNetworkDistillation.train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.extensions.rnd.RandomNetworkDistillation.train" title="Link to this definition">¶</a></dt>
-<dd><p>Set training mode for predictor and optional normalizers.</p>
+<dd><p>Set training mode for predictor and optional normalizers.(为预测器和可选的归一化器设置训练模式。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mode</strong> (<em>bool</em>)</p>
@@ -376,7 +376,7 @@ It is a dictionary with the following keys:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.extensions.rnd.RandomNetworkDistillation.eval">
 <span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/extensions/rnd.html#RandomNetworkDistillation.eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.extensions.rnd.RandomNetworkDistillation.eval" title="Link to this definition">¶</a></dt>
-<dd><p>Set the module to evaluation mode.</p>
+<dd><p>Set the module to evaluation mode.(将模块设置为评估模式。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#rsl_rl.extensions.rnd.RandomNetworkDistillation" title="rsl_rl.extensions.rnd.RandomNetworkDistillation"><em>RandomNetworkDistillation</em></a></p>
@@ -387,7 +387,7 @@ It is a dictionary with the following keys:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.extensions.rnd.RandomNetworkDistillation.get_rnd_state">
 <span class="sig-name descname"><span class="pre">get_rnd_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/extensions/rnd.html#RandomNetworkDistillation.get_rnd_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.extensions.rnd.RandomNetworkDistillation.get_rnd_state" title="Link to this definition">¶</a></dt>
-<dd><p>Extract and concatenate observation groups used as theRND state.</p>
+<dd><p>Extract and concatenate observation groups used as theRND state.(提取并连接用作 RND 状态的观测组。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>obs</strong> (<em>tensordict.TensorDict</em>)</p>
@@ -401,7 +401,7 @@ It is a dictionary with the following keys:</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.extensions.rnd.RandomNetworkDistillation.update_normalization">
 <span class="sig-name descname"><span class="pre">update_normalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/extensions/rnd.html#RandomNetworkDistillation.update_normalization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.extensions.rnd.RandomNetworkDistillation.update_normalization" title="Link to this definition">¶</a></dt>
-<dd><p>Update state-normalization statistics from observations.</p>
+<dd><p>Update state-normalization statistics from observations.(根据观测值更新状态归一化统计量。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>obs</strong> (<em>tensordict.TensorDict</em>)</p>
@@ -417,18 +417,18 @@ It is a dictionary with the following keys:</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="rsl_rl.extensions.rnd.resolve_rnd_config">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.extensions.rnd.</span></span><span class="sig-name descname"><span class="pre">resolve_rnd_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alg_cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/extensions/rnd.html#resolve_rnd_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.extensions.rnd.resolve_rnd_config" title="Link to this definition">¶</a></dt>
-<dd><p>Resolve the RND configuration.</p>
+<dd><p>Resolve the RND configuration.(解析 RND 配置。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>alg_cfg</strong> (<em>dict</em>) – Algorithm configuration dictionary.</p></li>
-<li><p><strong>obs</strong> (<em>tensordict.TensorDict</em>) – Observation dictionary.</p></li>
-<li><p><strong>obs_groups</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Observation groups dictionary.</p></li>
-<li><p><strong>env</strong> (<a class="reference internal" href="env.html#rsl_rl.env.vec_env.VecEnv" title="rsl_rl.env.vec_env.VecEnv"><em>VecEnv</em></a>) – Environment object.</p></li>
+<li><p><strong>alg_cfg</strong> (<em>dict</em>) – Algorithm configuration dictionary.(算法配置字典。)</p></li>
+<li><p><strong>obs</strong> (<em>tensordict.TensorDict</em>) – Observation dictionary.(观测字典。)</p></li>
+<li><p><strong>obs_groups</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Observation groups dictionary.(观测组字典。)</p></li>
+<li><p><strong>env</strong> (<a class="reference internal" href="env.html#rsl_rl.env.vec_env.VecEnv" title="rsl_rl.env.vec_env.VecEnv"><em>VecEnv</em></a>) – Environment object.(环境对象。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The resolved algorithm configuration dictionary.</p>
+<dd class="field-even"><p>The resolved algorithm configuration dictionary.(解析后的算法配置字典。)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
@@ -442,16 +442,16 @@ It is a dictionary with the following keys:</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="rsl_rl.extensions.symmetry.resolve_symmetry_config">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.extensions.symmetry.</span></span><span class="sig-name descname"><span class="pre">resolve_symmetry_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alg_cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/extensions/symmetry.html#resolve_symmetry_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.extensions.symmetry.resolve_symmetry_config" title="Link to this definition">¶</a></dt>
-<dd><p>Resolve the symmetry configuration.</p>
+<dd><p>Resolve the symmetry configuration.(解析对称性配置。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>alg_cfg</strong> (<em>dict</em>) – Algorithm configuration dictionary.</p></li>
-<li><p><strong>env</strong> (<a class="reference internal" href="env.html#rsl_rl.env.vec_env.VecEnv" title="rsl_rl.env.vec_env.VecEnv"><em>VecEnv</em></a>) – Environment object.</p></li>
+<li><p><strong>alg_cfg</strong> (<em>dict</em>) – Algorithm configuration dictionary.(算法配置字典。)</p></li>
+<li><p><strong>env</strong> (<a class="reference internal" href="env.html#rsl_rl.env.vec_env.VecEnv" title="rsl_rl.env.vec_env.VecEnv"><em>VecEnv</em></a>) – Environment object.(环境对象。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The resolved algorithm configuration dictionary.</p>
+<dd class="field-even"><p>The resolved algorithm configuration dictionary.(解析后的算法配置字典。)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>

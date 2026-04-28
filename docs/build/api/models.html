@@ -266,32 +266,29 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.models.mlp_model.</span></span><span class="sig-name descname"><span class="pre">MLPModel</span></span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel" title="Link to this definition">¶</a></dt>
-<dd><p>MLP-based neural model.</p>
-<p>This model uses a simple multi-layer perceptron (MLP) to process 1D observation groups. Observations can be
-normalized before being passed to the MLP. The output of the model can be either deterministic or
-stochastic, in which case a distribution module is used to sample the outputs.</p>
+<dd><p>MLP-based neural model. (基于 MLP 的神经模型。)</p>
+<p>This model uses a simple multi-layer perceptron (MLP) to process 1D observation groups. (该模型使用简单的多层感知机（MLP）处理一维观测组。) Observations can be normalized before being passed to the MLP. (观测数据在传入 MLP 之前可以被归一化。) The output of the model can be either deterministic or stochastic, in which case a distribution module is used to sample the outputs. (模型的输出可以是确定性或随机性的，如果是随机性的，则使用分布模块对输出进行采样。)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.is_recurrent">
 <span class="sig-name descname"><span class="pre">is_recurrent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.is_recurrent" title="Link to this definition">¶</a></dt>
-<dd><p>Whether the model contains a recurrent module.</p>
+<dd><p>Whether the model contains a recurrent module. (模型是否包含循环模块。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_normalization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution_cfg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the MLP-based model.</p>
+<dd><p>Initialize the MLP-based model. (初始化基于 MLP 的模型。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>obs</strong> (<em>TensorDict</em>) – Observation Dictionary.</p></li>
-<li><p><strong>obs_groups</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Dictionary mapping observation sets to lists of observation groups.</p></li>
-<li><p><strong>obs_set</strong> (<em>str</em>) – Observation set to use for this model (e.g., “actor” or “critic”).</p></li>
-<li><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the output.</p></li>
-<li><p><strong>hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Hidden dimensions of the MLP.</p></li>
-<li><p><strong>activation</strong> (<em>str</em>) – Activation function of the MLP.</p></li>
-<li><p><strong>obs_normalization</strong> (<em>bool</em>) – Whether to normalize the observations before feeding them to the MLP.</p></li>
-<li><p><strong>distribution_cfg</strong> (<em>dict</em><em> | </em><em>None</em>) – Configuration dictionary for the output distribution. If provided, the model outputs
-stochastic values sampled from the distribution.</p></li>
+<li><p><strong>obs</strong> (<em>TensorDict</em>) – Observation Dictionary. (观测字典。)</p></li>
+<li><p><strong>obs_groups</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Dictionary mapping observation sets to lists of observation groups. (将观测集映射到观测组列表的字典。)</p></li>
+<li><p><strong>obs_set</strong> (<em>str</em>) – Observation set to use for this model (e.g., “actor” or “critic”). (用于此模型的观测集，例如 “actor” 或 “critic”。)</p></li>
+<li><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the output. (输出的维度。)</p></li>
+<li><p><strong>hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Hidden dimensions of the MLP. (MLP 的隐藏层维度。)</p></li>
+<li><p><strong>activation</strong> (<em>str</em>) – Activation function of the MLP. (MLP 的激活函数。)</p></li>
+<li><p><strong>obs_normalization</strong> (<em>bool</em>) – Whether to normalize the observations before feeding them to the MLP. (在将观测数据传入 MLP 之前是否对其进行归一化。)</p></li>
+<li><p><strong>distribution_cfg</strong> (<em>dict</em><em> | </em><em>None</em>) – Configuration dictionary for the output distribution. (输出分布的配置字典。) If provided, the model outputs stochastic values sampled from the distribution. (如果提供，模型将输出从该分布中采样的随机值。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -303,11 +300,9 @@ stochastic values sampled from the distribution.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stochastic_output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.forward" title="Link to this definition">¶</a></dt>
-<dd><p>Forward pass of the MLP model.</p>
+<dd><p>Forward pass of the MLP model. (MLP 模型的前向传播。)</p>
 <dl class="simple">
-<dt>..note::</dt><dd><p>The <cite>stochastic_output</cite> flag only has an effect if the model has a distribution (i.e., <code class="docutils literal notranslate"><span class="pre">distribution_cfg</span></code>
-was provided) and defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>, meaning that even stochastic models will return deterministic
-outputs by default.</p>
+<dt>..note::</dt><dd><p>The <cite>stochastic_output</cite> flag only has an effect if the model has a distribution (i.e., <code class="docutils literal notranslate"><span class="pre">distribution_cfg</span></code> was provided) and defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>, meaning that even stochastic models will return deterministic outputs by default. (<cite>stochastic_output</cite> 标志仅在模型具有分布（即提供了 <code class="docutils literal notranslate"><span class="pre">distribution_cfg</span></code>）时有效，并且默认为 <code class="docutils literal notranslate"><span class="pre">False</span></code>，这意味着即使是随机模型也会默认返回确定性输出。)</p>
 </dd>
 </dl>
 <dl class="field-list simple">
@@ -328,7 +323,7 @@ outputs by default.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.get_latent">
 <span class="sig-name descname"><span class="pre">get_latent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.get_latent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.get_latent" title="Link to this definition">¶</a></dt>
-<dd><p>Build the model latent by concatenating and normalizing selected observation groups.</p>
+<dd><p>Build the model latent by concatenating and normalizing selected observation groups. (通过拼接和归一化选定的观测组来构建模型的潜在表示。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -346,7 +341,7 @@ outputs by default.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.reset">
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.reset" title="Link to this definition">¶</a></dt>
-<dd><p>Reset the internal state for recurrent models (no-op).</p>
+<dd><p>Reset the internal state for recurrent models (no-op). (重置循环模型的内部状态（无操作）。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -363,7 +358,7 @@ outputs by default.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.get_hidden_state">
 <span class="sig-name descname"><span class="pre">get_hidden_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.get_hidden_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.get_hidden_state" title="Link to this definition">¶</a></dt>
-<dd><p>Return the recurrent hidden state (<code class="docutils literal notranslate"><span class="pre">None</span></code> for MLP).</p>
+<dd><p>Return the recurrent hidden state (<code class="docutils literal notranslate"><span class="pre">None</span></code> for MLP). (返回循环隐藏状态（对于 MLP 为 <code class="docutils literal notranslate"><span class="pre">None</span></code>）。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.Tensor | tuple[torch.Tensor, torch.Tensor] | None</p>
@@ -374,7 +369,7 @@ outputs by default.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.detach_hidden_state">
 <span class="sig-name descname"><span class="pre">detach_hidden_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.detach_hidden_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.detach_hidden_state" title="Link to this definition">¶</a></dt>
-<dd><p>Detach therecurrent hidden state for truncated backpropagation (no-op).</p>
+<dd><p>Detach therecurrent hidden state for truncated backpropagation (no-op). (为截断反向传播分离循环隐藏状态（无操作）。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dones</strong> (<em>torch.Tensor</em><em> | </em><em>None</em>)</p>
@@ -388,31 +383,31 @@ outputs by default.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.output_mean">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_mean</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.output_mean" title="Link to this definition">¶</a></dt>
-<dd><p>Return the mean of the current output distribution.</p>
+<dd><p>Return the mean of the current output distribution. (返回当前输出分布的均值。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.output_std">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_std</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.output_std" title="Link to this definition">¶</a></dt>
-<dd><p>Return the standard deviation of the current output distribution.</p>
+<dd><p>Return the standard deviation of the current output distribution. (返回当前输出分布的标准差。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.output_entropy">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_entropy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.output_entropy" title="Link to this definition">¶</a></dt>
-<dd><p>Return the entropy of the current output distribution.</p>
+<dd><p>Return the entropy of the current output distribution. (返回当前输出分布的熵。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.output_distribution_params">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_distribution_params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.output_distribution_params" title="Link to this definition">¶</a></dt>
-<dd><p>Return raw parameters of the current output distribution.</p>
+<dd><p>Return raw parameters of the current output distribution. (返回当前输出分布的原始参数。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.get_output_log_prob">
 <span class="sig-name descname"><span class="pre">get_output_log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.get_output_log_prob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.get_output_log_prob" title="Link to this definition">¶</a></dt>
-<dd><p>Compute log-probabilities of outputs under the current distribution.</p>
+<dd><p>Compute log-probabilities of outputs under the current distribution. (计算在当前分布下输出的对数概率。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>outputs</strong> (<em>torch.Tensor</em>)</p>
@@ -426,7 +421,7 @@ outputs by default.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.get_kl_divergence">
 <span class="sig-name descname"><span class="pre">get_kl_divergence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.get_kl_divergence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.get_kl_divergence" title="Link to this definition">¶</a></dt>
-<dd><p>Compute KL divergence between two parameterizations of the distribution.</p>
+<dd><p>Compute KL divergence between two parameterizations of the distribution. (计算分布的两种参数化之间的 KL 散度。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -443,7 +438,7 @@ outputs by default.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.as_jit">
 <span class="sig-name descname"><span class="pre">as_jit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.as_jit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.as_jit" title="Link to this definition">¶</a></dt>
-<dd><p>Return a version of the model compatible with Torch JIT export.</p>
+<dd><p>Return a version of the model compatible with Torch JIT export. (返回与 Torch JIT 导出兼容的模型版本。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.nn.Module</p>
@@ -454,7 +449,7 @@ outputs by default.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.as_onnx">
 <span class="sig-name descname"><span class="pre">as_onnx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.as_onnx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.as_onnx" title="Link to this definition">¶</a></dt>
-<dd><p>Return a version of the model compatible with ONNX export.</p>
+<dd><p>Return a version of the model compatible with ONNX export. (返回与 ONNX 导出兼容的模型版本。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>verbose</strong> (<em>bool</em>)</p>
@@ -468,7 +463,7 @@ outputs by default.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.mlp_model.MLPModel.update_normalization">
 <span class="sig-name descname"><span class="pre">update_normalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/mlp_model.html#MLPModel.update_normalization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.mlp_model.MLPModel.update_normalization" title="Link to this definition">¶</a></dt>
-<dd><p>Update observation-normalization statistics from a batch of observations.</p>
+<dd><p>Update observation-normalization statistics from a batch of observations. (从一批观测数据中更新观测归一化统计量。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>obs</strong> (<em>tensordict.TensorDict</em>)</p>
@@ -487,35 +482,32 @@ outputs by default.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.models.rnn_model.RNNModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.models.rnn_model.</span></span><span class="sig-name descname"><span class="pre">RNNModel</span></span><a class="reference internal" href="../_modules/rsl_rl/models/rnn_model.html#RNNModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.rnn_model.RNNModel" title="Link to this definition">¶</a></dt>
-<dd><p>RNN-based neural model.</p>
-<p>This model uses a recurrent neural network (RNN) to process 1D observation groups before passing the resulting
-latent to an MLP. Available RNN types are “lstm” and “gru”. Observations can be normalized before being passed to
-the RNN. The output of the model can be either deterministic or stochastic, in which case a distribution module is
-used to sample the outputs.</p>
+<dd><p>RNN-based neural model. (基于 RNN 的神经模型。)</p>
+<p>This model uses a recurrent neural network (RNN) to process 1D observation groups before passing the resulting latent to an MLP. (该模型使用循环神经网络（RNN）处理一维观测组，然后将得到的潜在特征传递给 MLP。) Available RNN types are “lstm” and “gru”. (可用的 RNN 类型为“lstm”和“gru”。) Observations can be normalized before being passed to the RNN. (观测数据在传入 RNN 之前可以被归一化。) The output of the model can be either deterministic or stochastic, in which case a distribution module is used to sample the outputs. (模型的输出可以是确定性或随机性的，如果是随机性的，则使用分布模块对输出进行采样。)</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rsl_rl.models.rnn_model.RNNModel.is_recurrent">
 <span class="sig-name descname"><span class="pre">is_recurrent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#rsl_rl.models.rnn_model.RNNModel.is_recurrent" title="Link to this definition">¶</a></dt>
-<dd><p>Whether the model contains a recurrent module.</p>
+<dd><p>Whether the model contains a recurrent module. (模型是否包含循环模块。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.rnn_model.RNNModel.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_normalization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution_cfg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rnn_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lstm'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rnn_hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rnn_num_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/rnn_model.html#RNNModel.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.rnn_model.RNNModel.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the RNN-based model.</p>
+<dd><p>Initialize the RNN-based model. (初始化基于 RNN 的模型。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>obs</strong> (<em>TensorDict</em>) – Observation Dictionary.</p></li>
-<li><p><strong>obs_groups</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Dictionary mapping observation sets to lists of observation groups.</p></li>
-<li><p><strong>obs_set</strong> (<em>str</em>) – Observation set to use for this model (e.g., “actor” or “critic”).</p></li>
-<li><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the output.</p></li>
-<li><p><strong>hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Hidden dimensions of the MLP.</p></li>
-<li><p><strong>activation</strong> (<em>str</em>) – Activation function of the MLP.</p></li>
-<li><p><strong>obs_normalization</strong> (<em>bool</em>) – Whether to normalize the observations before feeding them to the MLP.</p></li>
-<li><p><strong>distribution_cfg</strong> (<em>dict</em><em> | </em><em>None</em>) – Configuration dictionary for the output distribution.</p></li>
-<li><p><strong>rnn_type</strong> (<em>str</em>) – Type of RNN to use (“lstm” or “gru”).</p></li>
-<li><p><strong>rnn_hidden_dim</strong> (<em>int</em>) – Dimension of the RNN hidden state.</p></li>
-<li><p><strong>rnn_num_layers</strong> (<em>int</em>) – Number of RNN layers.</p></li>
+<li><p><strong>obs</strong> (<em>TensorDict</em>) – Observation Dictionary. (观测字典。)</p></li>
+<li><p><strong>obs_groups</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Dictionary mapping observation sets to lists of observation groups. (将观测集映射到观测组列表的字典。)</p></li>
+<li><p><strong>obs_set</strong> (<em>str</em>) – Observation set to use for this model (e.g., “actor” or “critic”). (用于此模型的观测集，例如 “actor” 或 “critic”。)</p></li>
+<li><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the output. (输出的维度。)</p></li>
+<li><p><strong>hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Hidden dimensions of the MLP. (MLP 的隐藏层维度。)</p></li>
+<li><p><strong>activation</strong> (<em>str</em>) – Activation function of the MLP. (MLP 的激活函数。)</p></li>
+<li><p><strong>obs_normalization</strong> (<em>bool</em>) – Whether to normalize the observations before feeding them to the MLP. (在将观测数据传入 MLP 之前是否对其进行归一化。)</p></li>
+<li><p><strong>distribution_cfg</strong> (<em>dict</em><em> | </em><em>None</em>) – Configuration dictionary for the output distribution. (输出分布的配置字典。)</p></li>
+<li><p><strong>rnn_type</strong> (<em>str</em>) – Type of RNN to use (“lstm” or “gru”). (要使用的 RNN 类型（“lstm” 或 “gru”）。)</p></li>
+<li><p><strong>rnn_hidden_dim</strong> (<em>int</em>) – Dimension of the RNN hidden state. (RNN 隐藏状态的维度。)</p></li>
+<li><p><strong>rnn_num_layers</strong> (<em>int</em>) – Number of RNN layers. (RNN 的层数。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -527,7 +519,7 @@ used to sample the outputs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.rnn_model.RNNModel.get_latent">
 <span class="sig-name descname"><span class="pre">get_latent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/rnn_model.html#RNNModel.get_latent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.rnn_model.RNNModel.get_latent" title="Link to this definition">¶</a></dt>
-<dd><p>Build the model latent by passing normalized observation groups through the RNN.</p>
+<dd><p>Build the model latent by passing normalized observation groups through the RNN. (通过将归一化的观测组传递给 RNN 来构建模型的潜在表示。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -545,7 +537,7 @@ used to sample the outputs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.rnn_model.RNNModel.reset">
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/rnn_model.html#RNNModel.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.rnn_model.RNNModel.reset" title="Link to this definition">¶</a></dt>
-<dd><p>Reset the recurrent hidden state of the RNN.</p>
+<dd><p>Reset the recurrent hidden state of the RNN. (重置 RNN 的循环隐藏状态。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -562,7 +554,7 @@ used to sample the outputs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.rnn_model.RNNModel.get_hidden_state">
 <span class="sig-name descname"><span class="pre">get_hidden_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/rnn_model.html#RNNModel.get_hidden_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.rnn_model.RNNModel.get_hidden_state" title="Link to this definition">¶</a></dt>
-<dd><p>Return the recurrent hidden state of the RNN.</p>
+<dd><p>Return the recurrent hidden state of the RNN. (返回 RNN 的循环隐藏状态。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.Tensor | tuple[torch.Tensor, torch.Tensor] | None</p>
@@ -573,7 +565,7 @@ used to sample the outputs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.rnn_model.RNNModel.detach_hidden_state">
 <span class="sig-name descname"><span class="pre">detach_hidden_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/rnn_model.html#RNNModel.detach_hidden_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.rnn_model.RNNModel.detach_hidden_state" title="Link to this definition">¶</a></dt>
-<dd><p>Detach the recurrent hidden state for truncated backpropagation.</p>
+<dd><p>Detach the recurrent hidden state for truncated backpropagation. (为截断反向传播分离循环隐藏状态。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dones</strong> (<em>torch.Tensor</em><em> | </em><em>None</em>)</p>
@@ -587,7 +579,7 @@ used to sample the outputs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.rnn_model.RNNModel.as_jit">
 <span class="sig-name descname"><span class="pre">as_jit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/rnn_model.html#RNNModel.as_jit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.rnn_model.RNNModel.as_jit" title="Link to this definition">¶</a></dt>
-<dd><p>Return a version of the model compatible with Torch JIT export.</p>
+<dd><p>Return a version of the model compatible with Torch JIT export. (返回与 Torch JIT 导出兼容的模型版本。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.nn.Module</p>
@@ -598,7 +590,7 @@ used to sample the outputs.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.rnn_model.RNNModel.as_onnx">
 <span class="sig-name descname"><span class="pre">as_onnx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/rnn_model.html#RNNModel.as_onnx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.rnn_model.RNNModel.as_onnx" title="Link to this definition">¶</a></dt>
-<dd><p>Return a version of the model compatible with ONNX export.</p>
+<dd><p>Return a version of the model compatible with ONNX export. (返回与 ONNX 导出兼容的模型版本。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>verbose</strong> (<em>bool</em>)</p>
@@ -617,28 +609,25 @@ used to sample the outputs.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.models.cnn_model.CNNModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.models.cnn_model.</span></span><span class="sig-name descname"><span class="pre">CNNModel</span></span><a class="reference internal" href="../_modules/rsl_rl/models/cnn_model.html#CNNModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.cnn_model.CNNModel" title="Link to this definition">¶</a></dt>
-<dd><p>CNN-based neural model.</p>
-<p>This model uses one or more convolutional neural network (CNN) encoders to process one or more 2D observation groups
-before passing the resulting latent to an MLP. Any 1D observation groups are directly concatenated with the CNN
-latent and passed to the MLP. 1D observations can be normalized before being passed to the MLP. The output of the
-model can be either deterministic or stochastic, in which case a distribution module is used to sample the outputs.</p>
+<dd><p>CNN-based neural model. (基于 CNN 的神经模型。)</p>
+<p>This model uses one or more convolutional neural network (CNN) encoders to process one or more 2D observation groups before passing the resulting latent to an MLP. (该模型使用一个或多个卷积神经网络（CNN）编码器处理一个或多个二维观测组，然后将得到的潜在特征传递给 MLP。) Any 1D observation groups are directly concatenated with the CNN latent and passed to the MLP. (任何一维观测组会直接与 CNN 潜在特征拼接后传入 MLP。) 1D observations can be normalized before being passed to the MLP. (一维观测数据在传入 MLP 之前可以被归一化。) The output of the model can be either deterministic or stochastic, in which case a distribution module is used to sample the outputs. (模型的输出可以是确定性或随机性的，如果是随机性的，则使用分布模块对输出进行采样。)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.cnn_model.CNNModel.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(256,</span> <span class="pre">256,</span> <span class="pre">256)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_normalization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution_cfg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnn_cfg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cnns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/cnn_model.html#CNNModel.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.cnn_model.CNNModel.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the CNN-based model.</p>
+<dd><p>Initialize the CNN-based model. (初始化基于 CNN 的模型。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>obs</strong> (<em>TensorDict</em>) – Observation Dictionary.</p></li>
-<li><p><strong>obs_groups</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Dictionary mapping observation sets to lists of observation groups.</p></li>
-<li><p><strong>obs_set</strong> (<em>str</em>) – Observation set to use for this model (e.g., “actor” or “critic”).</p></li>
-<li><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the output.</p></li>
-<li><p><strong>hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Hidden dimensions of the MLP.</p></li>
-<li><p><strong>activation</strong> (<em>str</em>) – Activation function of the CNN and MLP.</p></li>
-<li><p><strong>obs_normalization</strong> (<em>bool</em>) – Whether to normalize the observations before feeding them to the MLP.</p></li>
-<li><p><strong>distribution_cfg</strong> (<em>dict</em><em> | </em><em>None</em>) – Configuration dictionary for the output distribution.</p></li>
-<li><p><strong>cnn_cfg</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>] </em><em>| </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Configuration of the CNN encoder(s).</p></li>
-<li><p><strong>cnns</strong> (<em>nn.ModuleDict</em><em> | </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>nn.Module</em><em>] </em><em>| </em><em>None</em>) – CNN modules to use, e.g., for sharing CNNs between actor and critic. If None, new CNNs are created.</p></li>
+<li><p><strong>obs</strong> (<em>TensorDict</em>) – Observation Dictionary. (观测字典。)</p></li>
+<li><p><strong>obs_groups</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Dictionary mapping observation sets to lists of observation groups. (将观测集映射到观测组列表的字典。)</p></li>
+<li><p><strong>obs_set</strong> (<em>str</em>) – Observation set to use for this model (e.g., “actor” or “critic”). (用于此模型的观测集，例如 “actor” 或 “critic”。)</p></li>
+<li><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the output. (输出的维度。)</p></li>
+<li><p><strong>hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Hidden dimensions of the MLP. (MLP 的隐藏层维度。)</p></li>
+<li><p><strong>activation</strong> (<em>str</em>) – Activation function of the CNN and MLP. (CNN 和 MLP 的激活函数。)</p></li>
+<li><p><strong>obs_normalization</strong> (<em>bool</em>) – Whether to normalize the observations before feeding them to the MLP. (在将观测数据传入 MLP 之前是否对其进行归一化。)</p></li>
+<li><p><strong>distribution_cfg</strong> (<em>dict</em><em> | </em><em>None</em>) – Configuration dictionary for the output distribution. (输出分布的配置字典。)</p></li>
+<li><p><strong>cnn_cfg</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>] </em><em>| </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Configuration of the CNN encoder(s). (CNN 编码器的配置。)</p></li>
+<li><p><strong>cnns</strong> (<em>nn.ModuleDict</em><em> | </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>nn.Module</em><em>] </em><em>| </em><em>None</em>) – CNN modules to use, e.g., for sharing CNNs between actor and critic. (要使用的 CNN 模块，例如在 actor 和 critic 之间共享 CNN。) If None, new CNNs are created. (如果为 None，则创建新的 CNN。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -650,7 +639,7 @@ model can be either deterministic or stochastic, in which case a distribution mo
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.cnn_model.CNNModel.get_latent">
 <span class="sig-name descname"><span class="pre">get_latent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/cnn_model.html#CNNModel.get_latent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.cnn_model.CNNModel.get_latent" title="Link to this definition">¶</a></dt>
-<dd><p>Build the model latent by combining normalized 1D and CNN-encoded 2D observation groups.</p>
+<dd><p>Build the model latent by combining normalized 1D and CNN-encoded 2D observation groups. (通过组合归一化的一维观测组和 CNN 编码的二维观测组来构建模型的潜在表示。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -668,7 +657,7 @@ model can be either deterministic or stochastic, in which case a distribution mo
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.cnn_model.CNNModel.as_jit">
 <span class="sig-name descname"><span class="pre">as_jit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/cnn_model.html#CNNModel.as_jit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.cnn_model.CNNModel.as_jit" title="Link to this definition">¶</a></dt>
-<dd><p>Return a version of the model compatible with Torch JIT export.</p>
+<dd><p>Return a version of the model compatible with Torch JIT export. (返回与 Torch JIT 导出兼容的模型版本。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.nn.Module</p>
@@ -679,7 +668,7 @@ model can be either deterministic or stochastic, in which case a distribution mo
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.models.cnn_model.CNNModel.as_onnx">
 <span class="sig-name descname"><span class="pre">as_onnx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/models/cnn_model.html#CNNModel.as_onnx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.models.cnn_model.CNNModel.as_onnx" title="Link to this definition">¶</a></dt>
-<dd><p>Return a version of the model compatible with ONNX export.</p>
+<dd><p>Return a version of the model compatible with ONNX export. (返回与 ONNX 导出兼容的模型版本。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>verbose</strong> (<em>bool</em>)</p>

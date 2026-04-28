@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a5a7561" />
-    
-    
+
+
 
 
 <style>
@@ -22,31 +22,31 @@
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
       }
     }
   }
 </style></head>
   <body>
-    
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
-    
+
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -185,14 +185,14 @@
   </header>
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
-      
+
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   <div class="sidebar-logo-container">
     <img class="sidebar-logo only-light" src="../_static/rsl_rl_logo_light.svg" alt="Light Logo"/>
     <img class="sidebar-logo only-dark" src="../_static/rsl_rl_logo_dark.svg" alt="Dark Logo"/>
   </div>
-  
-  
+
+
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
@@ -227,7 +227,7 @@
 </div>
 
       </div>
-      
+
     </div>
   </aside>
   <div class="main">
@@ -264,23 +264,23 @@
 <p>This guide provides an overview of the features and structure of RSL-RL. After introducing the currently available
 <a class="reference internal" href="#library-features"><span class="std std-ref">features</span></a>, we explain the <a class="reference internal" href="#core-components"><span class="std std-ref">core components</span></a> and
 <a class="reference internal" href="#additional-components"><span class="std std-ref">additional components</span></a> of the library. Finally, we provide a
-<a class="reference internal" href="#example-integration"><span class="std std-ref">minimal example</span></a> of how to integrate RSL-RL into a project.</p>
+<a class="reference internal" href="#example-integration"><span class="std std-ref">minimal example</span></a> of how to integrate RSL-RL into a project.(本指南概述了 RSL-RL 的功能和结构。在介绍当前可用的<a class="reference internal" href="#library-features"><span class="std std-ref">功能</span></a>之后，我们将解释该库的<a class="reference internal" href="#core-components"><span class="std std-ref">核心组件</span></a>和<a class="reference internal" href="#additional-components"><span class="std std-ref">附加组件</span></a>。最后，我们提供了一个关于如何将 RSL-RL 集成到项目中的<a class="reference internal" href="#example-integration"><span class="std std-ref">最小示例</span></a>。)</p>
 <section id="library-features">
 <span id="id1"></span><h2>Library Features<a class="headerlink" href="#library-features" title="Link to this heading">¶</a></h2>
 <p>RSL-RL is intentionally kept minimal and focuses on a small set of components that cover common robotics workflows while
-remaining easy to adapt. The following sections summarize the main features currently available.</p>
+remaining easy to adapt. The following sections summarize the main features currently available.(RSL-RL 有意保持最小化，专注于一小部分组件，这些组件涵盖常见的机器人工作流，同时易于适应。以下部分总结了当前可用的主要功能。)</p>
 <section id="algorithms">
 <h3>Algorithms<a class="headerlink" href="#algorithms" title="Link to this heading">¶</a></h3>
 <dl class="simple">
 <dt><a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a></dt><dd><p>PPO is a model-free, on-policy RL algorithm for continuous control. In each iteration, the algorithm collects
 rollouts, computes GAE-based return targets, and optimizes actor and critic losses over multiple mini-batches. The
 implementation includes clipped surrogate and value losses, entropy regularization, gradient clipping, and optional
-adaptive learning-rate scheduling based on the observed KL divergence.</p>
+adaptive learning-rate scheduling based on the observed KL divergence.(PPO 是一种用于连续控制的无模型、同策略强化学习算法。在每次迭代中，该算法收集轨迹，计算基于 GAE 的回报目标，并在多个小批量上优化策略和价值网络损失。该实现包括裁剪的代理损失和价值损失、熵正则化、梯度裁剪，以及基于观察到的 KL 散度的可选自适应学习率调度。)</p>
 </dd>
 <dt><a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.distillation.Distillation" title="rsl_rl.algorithms.distillation.Distillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distillation</span></code></a></dt><dd><p>Distillation is a student-teacher behavior cloning algorithm. During data collection, the student acts while the
 teacher provides supervision targets. The student is then optimized with a configurable behavior loss, making this
 algorithm useful for transferring policies from training-time privileged observation sets to observations available
-during real-world deployment.</p>
+during real-world deployment.(蒸馏是一种师生行为克隆算法。在数据收集期间，学生执行动作，而教师提供监督目标。然后使用可配置的行为损失对学生进行优化，这使得该算法可用于将策略从训练时的特权观测集迁移到实际部署时可用的观测。)</p>
 </dd>
 </dl>
 </section>
@@ -289,16 +289,16 @@ during real-world deployment.</p>
 <dl class="simple">
 <dt><a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a></dt><dd><p>A feed-forward baseline model for actor, critic, student, or teacher networks. It concatenates selected observation
 groups, optionally normalizes them, processes them through an MLP, and optionally maps outputs through a stochastic
-action distribution.</p>
+action distribution.(一种用于策略、价值、学生或教师网络的前馈基线模型。它连接选定的观测组，可选地对它们进行归一化，通过 MLP 处理它们，并可选择通过随机动作分布映射输出。)</p>
 </dd>
 <dt><a class="reference internal" href="../api/models.html#rsl_rl.models.rnn_model.RNNModel" title="rsl_rl.models.rnn_model.RNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">RNNModel</span></code></a></dt><dd><p>A recurrent extension of the <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a> for partially observable settings. The
 recurrent network can be either a Long Short-Term Memory (LSTM) or a Gated Recurrent Unit (GRU). Its output is passed
-through the MLP to produce the final output.</p>
+through the MLP to produce the final output.(<a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a> 的循环扩展，用于部分可观测环境。循环网络可以是长短期记忆网络 (LSTM) 或门控循环单元 (GRU)。其输出通过 MLP 传递以产生最终输出。)</p>
 </dd>
 <dt><a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a></dt><dd><p>A model for mixed 1D + 2D observations. It combines an MLP pathway for 1D observations with one or more CNN encoders
 for 2D observations. Each 2D observation group is encoded with a separate CNN encoder that can be configured
 independently. When used in conjunction with <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a>, the encoders may be shared between
-actor and critic to save memory.</p>
+actor and critic to save memory.(一种用于混合 1D + 2D 观测的模型。它将用于 1D 观测的 MLP 通路与一个或多个用于 2D 观测的 CNN 编码器相结合。每个 2D 观测组由一个可独立配置的单独 CNN 编码器进行编码。当与 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> 结合使用时，编码器可以在策略和价值网络之间共享以节省内存。)</p>
 </dd>
 </dl>
 </section>
@@ -307,11 +307,11 @@ actor and critic to save memory.</p>
 <dl class="simple">
 <dt><a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.GaussianDistribution" title="rsl_rl.modules.distribution.GaussianDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">GaussianDistribution</span></code></a></dt><dd><p>A diagonal Gaussian distribution with state-independent standard deviation parameters. The mean is produced by the
 model’s MLP network output, while the standard deviation is learned globally and can use either a scalar or a
-log-scale.</p>
+log-scale.(一种对角高斯分布，具有状态无关的标准差参数。均值由模型的 MLP 网络输出产生，而标准差是全局学习的，可以使用标量或对数尺度。)</p>
 </dd>
 <dt><a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution" title="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeteroscedasticGaussianDistribution</span></code></a></dt><dd><p>A diagonal Gaussian distribution with state-dependent standard deviation. The model’s MLP network predicts both mean
 and standard-deviation terms per sample, allowing uncertainty to vary with the observation. As with the standard
-Gaussian variant, both scalar and log-scale parameterizations are supported.</p>
+Gaussian variant, both scalar and log-scale parameterizations are supported.(一种具有状态相关标准差的对角高斯分布。模型的 MLP 网络为每个样本预测均值和标准差项，允许不确定性随观测变化。与标准高斯变体一样，支持标量和对数尺度参数化。)</p>
 </dd>
 </dl>
 </section>
@@ -322,29 +322,29 @@ Gaussian variant, both scalar and log-scale parameterizations are supported.</p>
 predictor network and a fixed target network. The implementation supports selecting dedicated observation groups for
 curiosity, optional state and reward normalization, and configurable weight schedules for annealing the intrinsic
 reward contribution over the training. This extension is compatible with the <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a>
-algorithm. For more details, please check <a class="reference external" href="https://proceedings.mlr.press/v229/schwarke23a.html">this paper</a>.</p>
+algorithm. For more details, please check <a class="reference external" href="https://proceedings.mlr.press/v229/schwarke23a.html">this paper</a>.(随机网络蒸馏 (RND) 基于可训练的预测网络与固定目标网络之间的预测误差添加内在奖励。该实现支持选择用于好奇心的专用观测组、可选的状态和奖励归一化，以及用于在训练过程中退火内在奖励贡献的可配置权重调度。此扩展与 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> 算法兼容。更多详情请参阅 <a class="reference external" href="https://proceedings.mlr.press/v229/schwarke23a.html">本文</a>。)</p>
 </dd>
-<dt>Symmetry</dt><dd><p>Symmetry augments the collected environment interaction data with mirrored data using a user-provided symmetry
+<dt>Symmetry<a class="headerlink" href="#symmetry" title="Link to this heading">¶</a></dt><dd><p>Symmetry augments the collected environment interaction data with mirrored data using a user-provided symmetry
 function that defines how observations and actions are transformed. This can improve sample efficiency and promote
 symmetric behaviors for robots with structured morphology. Additionally, a mirror-loss regularization term can be
 added to the loss function to actively encourage symmetry in the policy. This extension is compatible with the
 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> algorithm. For more details, please check
-<a class="reference external" href="https://arxiv.org/abs/2403.04359">this paper</a>.</p>
+<a class="reference external" href="https://arxiv.org/abs/2403.04359">this paper</a>.(对称性使用用户提供的对称函数（定义观测和动作如何变换）用镜像数据增强收集到的环境交互数据。这可以提高样本效率，并促进具有结构化形态的机器人的对称行为。此外，可以在损失函数中添加镜像损失正则化项，以主动鼓励策略中的对称性。此扩展与 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> 算法兼容。更多详情请参阅 <a class="reference external" href="https://arxiv.org/abs/2403.04359">本文</a>。)</p>
 </dd>
 </dl>
 </section>
 <section id="loggers">
 <h3>Loggers<a class="headerlink" href="#loggers" title="Link to this heading">¶</a></h3>
 <dl class="simple">
-<dt>TensorBoard</dt><dd><p>The default local logging backend for scalar metrics.</p>
+<dt>TensorBoard</dt><dd><p>The default local logging backend for scalar metrics.(用于标量指标的默认本地日志记录后端。)</p>
 </dd>
-<dt>Weights &amp; Biases</dt><dd><p>Cloud-based experiment tracking with support for remote monitoring and model uploads.</p>
+<dt>Weights &amp; Biases</dt><dd><p>Cloud-based experiment tracking with support for remote monitoring and model uploads.(基于云的实验跟踪，支持远程监控和模型上传。)</p>
 </dd>
-<dt>Neptune</dt><dd><p>A cloud-based experiment tracking alternative to W&amp;B.</p>
+<dt>Neptune</dt><dd><p>A cloud-based experiment tracking alternative to W&amp;B.(一种基于云的实验跟踪替代方案，类似 W&amp;B。)</p>
 </dd>
 </dl>
 <p>All logging backends are accessed through a common logger interface, and can be used with both single-GPU and
-distributed multi-GPU training workflows.</p>
+distributed multi-GPU training workflows.(所有日志记录后端都通过一个通用的记录器接口访问，并且可以用于单 GPU 和分布式多 GPU 训练工作流。)</p>
 </section>
 </section>
 <section id="core-components">
@@ -353,7 +353,7 @@ distributed multi-GPU training workflows.</p>
 <a class="reference internal" href="../api/models.html"><span class="doc">Models</span></a>, and <a class="reference internal" href="../api/modules.html"><span class="doc">Modules</span></a>, implementing the learning loop, algorithmic logic,
 and neural network architectures. In conjunction with the library’s additional components:
 <a class="reference internal" href="../api/env.html"><span class="doc">Environment</span></a>, <a class="reference internal" href="../api/storage.html"><span class="doc">Storage</span></a>, <a class="reference internal" href="../api/extensions.html"><span class="doc">Extensions</span></a>, and
-<a class="reference internal" href="../api/utils.html"><span class="doc">Utils</span></a>, described in the next section, they form a complete learning pipeline.</p>
+<a class="reference internal" href="../api/utils.html"><span class="doc">Utils</span></a>, described in the next section, they form a complete learning pipeline.(RSL-RL 由四个核心组件组成：<a class="reference internal" href="../api/runners.html"><span class="doc">Runners</span></a>、<a class="reference internal" href="../api/algorithms.html"><span class="doc">Algorithms</span></a>、<a class="reference internal" href="../api/models.html"><span class="doc">Models</span></a> 和 <a class="reference internal" href="../api/modules.html"><span class="doc">Modules</span></a>，它们实现了学习循环、算法逻辑和神经网络架构。与下一节描述的库的附加组件：<a class="reference internal" href="../api/env.html"><span class="doc">Environment</span></a>、<a class="reference internal" href="../api/storage.html"><span class="doc">Storage</span></a>、<a class="reference internal" href="../api/extensions.html"><span class="doc">Extensions</span></a> 和 <a class="reference internal" href="../api/utils.html"><span class="doc">Utils</span></a> 相结合，它们构成了完整的学习流程。)</p>
 <figure class="align-center">
 <a class="light-only reference internal image-reference" href="../_images/rsl_rl_structure_light.svg"><img alt="../_images/rsl_rl_structure_light.svg" class="light-only" src="../_images/rsl_rl_structure_light.svg" style="width: 100%;" />
 </a>
@@ -365,7 +365,7 @@ and neural network architectures. In conjunction with the library’s additional
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In the following, functions are linked to implementations for a standard <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> training
-pipeline. Other learning pipelines may have different implementations of these functions.</p>
+pipeline. Other learning pipelines may have different implementations of these functions.(在下文中，函数链接到标准 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> 训练流程的实现。其他学习流程可能对这些函数有不同的实现。)</p>
 </div>
 <section id="runners">
 <h3>Runners<a class="headerlink" href="#runners" title="Link to this heading">¶</a></h3>
@@ -375,7 +375,7 @@ saving, loading, and exporting checkpoints and models via <code class="xref py p
 <code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code>,
 <code class="xref py py-func docutils literal notranslate"><span class="pre">export_policy_to_jit()</span></code>,
 and <code class="xref py py-func docutils literal notranslate"><span class="pre">export_policy_to_onnx()</span></code>. Additionally, it coordinates the
-initialization of the multi-GPU pipeline, the <strong>Algorithm</strong>, and the <code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code>.</p>
+initialization of the multi-GPU pipeline, the <strong>Algorithm</strong>, and the <code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code>.(<strong>Runner</strong> 在 <code class="xref py py-func docutils literal notranslate"><span class="pre">learn()</span></code> 中实现主学习循环，并协调与 <strong>Environment</strong> 的交互。它是库的主要 API，通过 <code class="xref py py-func docutils literal notranslate"><span class="pre">save()</span></code>、<code class="xref py py-func docutils literal notranslate"><span class="pre">load()</span></code>、<code class="xref py py-func docutils literal notranslate"><span class="pre">export_policy_to_jit()</span></code> 和 <code class="xref py py-func docutils literal notranslate"><span class="pre">export_policy_to_onnx()</span></code> 提供保存、加载和导出检查点及模型的功能。此外，它还协调多 GPU 流程、<strong>Algorithm</strong> 和 <code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code> 的初始化。)</p>
 </section>
 <section id="id4">
 <h3>Algorithms<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
@@ -385,24 +385,24 @@ environment interaction in <a class="reference internal" href="../api/algorithms
 learnable <strong>Model</strong> instances in <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO.update" title="rsl_rl.algorithms.ppo.PPO.update"><code class="xref py py-func docutils literal notranslate"><span class="pre">update()</span></code></a>. The <strong>Algorithm</strong> can make use of a
 <strong>Storage</strong> instance to store collected environment interaction data. The <strong>Algorithm</strong> manages one or more <strong>Model</strong>
 instances and possibly algorithmic <strong>Extensions</strong>, which are initialized in
-<a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO.construct_algorithm" title="rsl_rl.algorithms.ppo.PPO.construct_algorithm"><code class="xref py py-func docutils literal notranslate"><span class="pre">construct_algorithm()</span></code></a>.</p>
+<a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO.construct_algorithm" title="rsl_rl.algorithms.ppo.PPO.construct_algorithm"><code class="xref py py-func docutils literal notranslate"><span class="pre">construct_algorithm()</span></code></a>.(<strong>Algorithm</strong> 实现了核心学习过程的逻辑。它负责在 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO.act" title="rsl_rl.algorithms.ppo.PPO.act"><code class="xref py py-func docutils literal notranslate"><span class="pre">act()</span></code></a> 中根据 <strong>Environment</strong> 提供的观测采取行动，在 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO.process_env_step" title="rsl_rl.algorithms.ppo.PPO.process_env_step"><code class="xref py py-func docutils literal notranslate"><span class="pre">process_env_step()</span></code></a> 中处理从环境交互中收集的数据，并在 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO.update" title="rsl_rl.algorithms.ppo.PPO.update"><code class="xref py py-func docutils literal notranslate"><span class="pre">update()</span></code></a> 中更新可学习 <strong>Model</strong> 实例的参数。<strong>Algorithm</strong> 可以使用 <strong>Storage</strong> 实例来存储收集到的环境交互数据。<strong>Algorithm</strong> 管理一个或多个 <strong>Model</strong> 实例以及可能的算法 <strong>Extensions</strong>，这些扩展在 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO.construct_algorithm" title="rsl_rl.algorithms.ppo.PPO.construct_algorithm"><code class="xref py py-func docutils literal notranslate"><span class="pre">construct_algorithm()</span></code></a> 中初始化。)</p>
 </section>
 <section id="id5">
 <h3>Models<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
 <p>The <strong>Model</strong> implements a neural network that is used by the <strong>Algorithm</strong> for different purposes. For example,
 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> uses <strong>Model</strong> instances for the actor and critic networks, while
 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.distillation.Distillation" title="rsl_rl.algorithms.distillation.Distillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distillation</span></code></a> uses <strong>Model</strong> instances for the student and teacher networks. The
-<a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel.forward" title="rsl_rl.models.mlp_model.MLPModel.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> pass of a <strong>Model</strong> instance consists of three steps:</p>
+<a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel.forward" title="rsl_rl.models.mlp_model.MLPModel.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> pass of a <strong>Model</strong> instance consists of three steps:(<strong>Model</strong> 实现了一个神经网络，供 <strong>Algorithm</strong> 用于不同目的。例如，<a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> 使用 <strong>Model</strong> 实例作为策略网络和价值网络，而 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.distillation.Distillation" title="rsl_rl.algorithms.distillation.Distillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distillation</span></code></a> 使用 <strong>Model</strong> 实例作为学生网络和教师网络。<strong>Model</strong> 实例的 <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel.forward" title="rsl_rl.models.mlp_model.MLPModel.forward"><code class="xref py py-func docutils literal notranslate"><span class="pre">forward()</span></code></a> 前向传播包含三个步骤：)</p>
 <ol class="arabic simple">
 <li><p>A latent is computed from raw observations in <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel.get_latent" title="rsl_rl.models.mlp_model.MLPModel.get_latent"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_latent()</span></code></a>. This may involve
 normalization, recurrent processing for <a class="reference internal" href="../api/models.html#rsl_rl.models.rnn_model.RNNModel" title="rsl_rl.models.rnn_model.RNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">RNNModel</span></code></a> instances, or convolutional
-encoding for <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a> instances.</p></li>
-<li><p>The latent is passed to a Multi-Layer Perceptron (MLP).</p></li>
+encoding for <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a> instances.(从原始观测中通过 <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel.get_latent" title="rsl_rl.models.mlp_model.MLPModel.get_latent"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_latent()</span></code></a> 计算潜在向量。这可能涉及归一化、<a class="reference internal" href="../api/models.html#rsl_rl.models.rnn_model.RNNModel" title="rsl_rl.models.rnn_model.RNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">RNNModel</span></code></a> 实例的循环处理，或 <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a> 实例的卷积编码。)</p></li>
+<li><p>The latent is passed to a Multi-Layer Perceptron (MLP).(潜在向量被传递给一个多层感知机 (MLP)。)</p></li>
 <li><p>The output of the MLP is either returned as is or used to sample from a
-<a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.Distribution" title="rsl_rl.modules.distribution.Distribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></a>, in case stochastic outputs are requested.</p></li>
+<a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.Distribution" title="rsl_rl.modules.distribution.Distribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></a>, in case stochastic outputs are requested.(如果请求随机输出，MLP 的输出将按原样返回，或用于从 <a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.Distribution" title="rsl_rl.modules.distribution.Distribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distribution</span></code></a> 中采样。)</p></li>
 </ol>
 <p>The <strong>Model</strong> acts as a unified interface for the <strong>Algorithm</strong> and coordinates all <strong>Module</strong> instances needed to
-implement a certain network architecture.</p>
+implement a certain network architecture.(<strong>Model</strong> 充当 <strong>Algorithm</strong> 的统一接口，并协调实现特定网络架构所需的所有 <strong>Module</strong> 实例。)</p>
 </section>
 <section id="modules">
 <h3>Modules<a class="headerlink" href="#modules" title="Link to this heading">¶</a></h3>
@@ -410,34 +410,34 @@ implement a certain network architecture.</p>
 <a class="reference internal" href="../api/modules.html#rsl_rl.modules.mlp.MLP" title="rsl_rl.modules.mlp.MLP"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLP</span></code></a>, a normalizer, such as
 <a class="reference internal" href="../api/modules.html#rsl_rl.modules.normalization.EmpiricalNormalization" title="rsl_rl.modules.normalization.EmpiricalNormalization"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmpiricalNormalization</span></code></a>, or a distribution, such as the
 <a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.GaussianDistribution" title="rsl_rl.modules.distribution.GaussianDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">GaussianDistribution</span></code></a>. Modules are initialized in the <strong>Model</strong> constructor and
-managed by the <strong>Model</strong>.</p>
+managed by the <strong>Model</strong>.(<strong>Module</strong> 为 <strong>Model</strong> 实现了一个构建块。这可以是一个神经网络，例如 <a class="reference internal" href="../api/modules.html#rsl_rl.modules.mlp.MLP" title="rsl_rl.modules.mlp.MLP"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLP</span></code></a>；一个归一化器，例如 <a class="reference internal" href="../api/modules.html#rsl_rl.modules.normalization.EmpiricalNormalization" title="rsl_rl.modules.normalization.EmpiricalNormalization"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmpiricalNormalization</span></code></a>；或一个分布，例如 <a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.GaussianDistribution" title="rsl_rl.modules.distribution.GaussianDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">GaussianDistribution</span></code></a>。模块在 <strong>Model</strong> 构造函数中初始化，并由 <strong>Model</strong> 管理。)</p>
 </section>
 </section>
 <section id="additional-components">
 <span id="id6"></span><h2>Additional Components<a class="headerlink" href="#additional-components" title="Link to this heading">¶</a></h2>
 <p>Additional Components support the core components by either defining interfaces, adding optional functionality, or
-providing utilities, such as data storage or logging.</p>
+providing utilities, such as data storage or logging.(附加组件通过定义接口、添加可选功能或提供工具（如数据存储或日志记录）来支持核心组件。)</p>
 <section id="environment">
 <h3>Environment<a class="headerlink" href="#environment" title="Link to this heading">¶</a></h3>
 <p>The <strong>Environment</strong> implements an abstract interface that is used by the <strong>Runner</strong> to interact with the environment.
 Next to some required attributes, the <strong>Environment</strong> must implement the <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv.step" title="rsl_rl.env.vec_env.VecEnv.step"><code class="xref py py-func docutils literal notranslate"><span class="pre">step()</span></code></a>
-and <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv.get_observations" title="rsl_rl.env.vec_env.VecEnv.get_observations"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_observations()</span></code></a> methods.</p>
+and <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv.get_observations" title="rsl_rl.env.vec_env.VecEnv.get_observations"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_observations()</span></code></a> methods.(<strong>Environment</strong> 实现了一个抽象接口，供 <strong>Runner</strong> 与环境交互。除了一些必需的属性外，<strong>Environment</strong> 还必须实现 <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv.step" title="rsl_rl.env.vec_env.VecEnv.step"><code class="xref py py-func docutils literal notranslate"><span class="pre">step()</span></code></a> 和 <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv.get_observations" title="rsl_rl.env.vec_env.VecEnv.get_observations"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_observations()</span></code></a> 方法。)</p>
 </section>
 <section id="storage">
 <h3>Storage<a class="headerlink" href="#storage" title="Link to this heading">¶</a></h3>
 <p>The <strong>Storage</strong> implements a storage buffer that is used by the <strong>Algorithm</strong> to store collected environment interaction
 data. It returns the data to the <strong>Algorithm</strong> for its <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO.update" title="rsl_rl.algorithms.ppo.PPO.update"><code class="xref py py-func docutils literal notranslate"><span class="pre">update()</span></code></a> in a suitable format,
-for example in mini-batches.</p>
+for example in mini-batches.(<strong>Storage</strong> 实现了一个存储缓冲区，供 <strong>Algorithm</strong> 存储收集到的环境交互数据。它以合适的格式（例如小批量）将数据返回给 <strong>Algorithm</strong> 用于其 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO.update" title="rsl_rl.algorithms.ppo.PPO.update"><code class="xref py py-func docutils literal notranslate"><span class="pre">update()</span></code></a> 方法。)</p>
 </section>
 <section id="id7">
 <h3>Extensions<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
 <p>An <strong>Extension</strong> implements an augmentation to a specific <strong>Algorithm</strong> to modify its behavior. Currently, RSL-RL does
-not constrain the way an <strong>Extension</strong> may be implemented, allowing for arbitrary modifications to the learning process.</p>
+not constrain the way an <strong>Extension</strong> may be implemented, allowing for arbitrary modifications to the learning process.(<strong>Extension</strong> 实现了对特定 <strong>Algorithm</strong> 的增强，以修改其行为。目前，RSL-RL 不限制 <strong>Extension</strong> 的实现方式，允许对学习过程进行任意修改。)</p>
 </section>
 <section id="utils">
 <h3>Utils<a class="headerlink" href="#utils" title="Link to this heading">¶</a></h3>
 <p><strong>Utils</strong> include various helpers for the library, such as a <code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code> to record the learning
-process, or functions to resolve configuration settings.</p>
+process, or functions to resolve configuration settings.(<strong>Utils</strong> 包含库的各种辅助工具，例如用于记录学习过程的 <code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code>，或用于解析配置设置的函数。)</p>
 </section>
 </section>
 <section id="example-integration">
@@ -446,20 +446,23 @@ process, or functions to resolve configuration settings.</p>
 initializes an <code class="xref py py-class docutils literal notranslate"><span class="pre">OnPolicyRunner</span></code>, 4) runs the training, and 5) exports the
 trained policy for deployment. The environment is defined by the user and must implement the
 <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv" title="rsl_rl.env.vec_env.VecEnv"><code class="xref py py-class docutils literal notranslate"><span class="pre">VecEnv</span></code></a> interface. The configuration setup is described in the
-<a class="reference internal" href="configuration.html"><span class="doc">configuration guide</span></a>.</p>
+<a class="reference internal" href="configuration.html"><span class="doc">configuration guide</span></a>.(以下示例展示了一个简单的训练脚本，它：1) 创建一个环境，2) 加载一个 YAML 配置，3) 初始化一个 <code class="xref py py-class docutils literal notranslate"><span class="pre">OnPolicyRunner</span></code>，4) 运行训练，5) 导出训练好的策略以供部署。环境由用户定义，并且必须实现 <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv" title="rsl_rl.env.vec_env.VecEnv"><code class="xref py py-class docutils literal notranslate"><span class="pre">VecEnv</span></code></a> 接口。配置设置在 <a class="reference internal" href="configuration.html"><span class="doc">配置指南</span></a> 中描述。)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">rsl_rl.runners</span><span class="w"> </span><span class="kn">import</span> <span class="n">OnPolicyRunner</span>
 
 <span class="c1"># 1) Create your environment (usually provided by environment libraries such as Isaac Lab)</span>
+<span class="c1"># 1) 创建您的环境（通常由环境库提供，如 Isaac Lab）</span>
 <span class="n">env</span> <span class="o">=</span> <span class="n">make_env</span><span class="p">()</span>
 
 <span class="c1"># 2) Load a YAML configuration and extract the configuration dictionary expected by RSL-RL</span>
+<span class="c1"># 2) 加载一个 YAML 配置，并提取 RSL-RL 期望的配置字典</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config/my_training.yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">full_cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="n">train_cfg</span> <span class="o">=</span> <span class="n">full_cfg</span><span class="p">[</span><span class="s2">&quot;runner&quot;</span><span class="p">]</span>
 
 <span class="c1"># 3) Build the runner</span>
+<span class="c1"># 3) 构建 runner</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">OnPolicyRunner</span><span class="p">(</span>
     <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">,</span>
     <span class="n">train_cfg</span><span class="o">=</span><span class="n">train_cfg</span><span class="p">,</span>
@@ -468,28 +471,33 @@ trained policy for deployment. The environment is defined by the user and must i
 <span class="p">)</span>
 
 <span class="c1"># 4) Start training</span>
+<span class="c1"># 4) 开始训练</span>
 <span class="n">runner</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">num_learning_iterations</span><span class="o">=</span><span class="mi">1500</span><span class="p">)</span> <span class="c1"># Specify the number of desired iterations</span>
 
 <span class="c1"># 5) Export the trained policy for deployment</span>
+<span class="c1"># 5) 导出训练好的策略以供部署</span>
 <span class="n">runner</span><span class="o">.</span><span class="n">export_policy_to_jit</span><span class="p">(</span><span class="s2">&quot;logs/my_experiment/exported&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;policy.pt&quot;</span><span class="p">)</span>
 <span class="n">runner</span><span class="o">.</span><span class="n">export_policy_to_onnx</span><span class="p">(</span><span class="s2">&quot;logs/my_experiment/exported&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;policy.onnx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A trained policy can later be loaded to continue a previous training or to be replayed for evaluation as in the
-following replay script:</p>
+following replay script:(训练好的策略可以在以后加载，以继续之前的训练或用于评估回放，如下面的回放脚本所示：)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">rsl_rl.runners</span><span class="w"> </span><span class="kn">import</span> <span class="n">OnPolicyRunner</span>
 
 <span class="c1"># 1) Create your environment (usually provided by environment libraries such as Isaac Lab)</span>
+<span class="c1"># 1) 创建您的环境（通常由环境库提供，如 Isaac Lab）</span>
 <span class="n">env</span> <span class="o">=</span> <span class="n">make_env</span><span class="p">()</span>
 
 <span class="c1"># 2) Load the YAML configuration used during training</span>
+<span class="c1"># 2) 加载训练期间使用的 YAML 配置</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config/my_training.yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">full_cfg</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="n">train_cfg</span> <span class="o">=</span> <span class="n">full_cfg</span><span class="p">[</span><span class="s2">&quot;runner&quot;</span><span class="p">]</span>
 
 <span class="c1"># 3) Build the runner</span>
+<span class="c1"># 3) 构建 runner</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">OnPolicyRunner</span><span class="p">(</span>
     <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">,</span>
     <span class="n">train_cfg</span><span class="o">=</span><span class="n">train_cfg</span><span class="p">,</span>
@@ -497,12 +505,15 @@ following replay script:</p>
 <span class="p">)</span>
 
 <span class="c1"># 4) Load the trained policy</span>
+<span class="c1"># 4) 加载训练好的策略</span>
 <span class="n">runner</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;logs/my_experiment/model_1499.pt&quot;</span><span class="p">)</span>
 
 <span class="c1"># 5) Get the inference policy</span>
+<span class="c1"># 5) 获取推理策略</span>
 <span class="n">policy</span> <span class="o">=</span> <span class="n">runner</span><span class="o">.</span><span class="n">get_inference_policy</span><span class="p">()</span>
 
 <span class="c1"># 6) Run the policy in the environment for 1000 steps</span>
+<span class="c1"># 6) 在环境中运行策略 1000 步</span>
 <span class="n">obs</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">get_observations</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
     <span class="n">actions</span> <span class="o">=</span> <span class="n">policy</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a5a7561" />
-    
-    
+
+
 
 
 <style>
@@ -22,31 +22,31 @@
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
       }
     }
   }
 </style></head>
   <body>
-    
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
-    
+
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -185,14 +185,14 @@
   </header>
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
-      
+
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   <div class="sidebar-logo-container">
     <img class="sidebar-logo only-light" src="../_static/rsl_rl_logo_light.svg" alt="Light Logo"/>
     <img class="sidebar-logo only-dark" src="../_static/rsl_rl_logo_dark.svg" alt="Dark Logo"/>
   </div>
-  
-  
+
+
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
@@ -227,7 +227,7 @@
 </div>
 
       </div>
-      
+
     </div>
   </aside>
   <div class="main">
@@ -266,25 +266,27 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.modules.mlp.MLP">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.modules.mlp.</span></span><span class="sig-name descname"><span class="pre">MLP</span></span><a class="reference internal" href="../_modules/rsl_rl/modules/mlp.html#MLP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.mlp.MLP" title="Link to this definition">¶</a></dt>
-<dd><p>Multi-Layer Perceptron.</p>
+<dd><p>Multi-Layer Perceptron. (多层感知机。)</p>
 <p>The MLP network is a sequence of linear layers and activation functions. The last layer is a linear layer that
-outputs the desired dimension unless the last activation function is specified.</p>
+outputs the desired dimension unless the last activation function is specified. (MLP 网络是一个由线性层和激活函数组成的序列。最后一层是线性层，输出所需维度，除非指定了最后的激活函数。)</p>
 <p>It provides additional conveniences:
 - If the hidden dimensions have a value of <code class="docutils literal notranslate"><span class="pre">-1</span></code>, the dimension is inferred from the input dimension.
-- If the output dimension is a tuple, the output is reshaped to the desired shape.</p>
+- If the output dimension is a tuple, the output is reshaped to the desired shape. (它还提供了额外的便利：
+- 如果隐藏维度值为 <code class="docutils literal notranslate"><span class="pre">-1</span></code>，则从输入维度推断该维度。
+- 如果输出维度是元组，则输出将被重塑为所需的形状。)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.mlp.MLP.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dims</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/mlp.html#MLP.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.mlp.MLP.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the MLP.</p>
+<dd><p>Initialize the MLP. (初始化 MLP。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input_dim</strong> (<em>int</em>) – Dimension of the input.</p></li>
-<li><p><strong>output_dim</strong> (<em>int</em><em> | </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Dimension of the output.</p></li>
+<li><p><strong>input_dim</strong> (<em>int</em>) – Dimension of the input. (输入的维度。)</p></li>
+<li><p><strong>output_dim</strong> (<em>int</em><em> | </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Dimension of the output. (输出的维度。)</p></li>
 <li><p><strong>hidden_dims</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Dimensions of the hidden layers. A value of <code class="docutils literal notranslate"><span class="pre">-1</span></code> indicates that the dimension should be
-inferred from the input dimension.</p></li>
-<li><p><strong>activation</strong> (<em>str</em>) – Activation function.</p></li>
-<li><p><strong>last_activation</strong> (<em>str</em><em> | </em><em>None</em>) – Activation function of the last layer. None results in a linear last layer.</p></li>
+inferred from the input dimension. (隐藏层的维度。值 <code class="docutils literal notranslate"><span class="pre">-1</span></code> 表示该维度应从输入维度推断。)</p></li>
+<li><p><strong>activation</strong> (<em>str</em>) – Activation function. (激活函数。)</p></li>
+<li><p><strong>last_activation</strong> (<em>str</em><em> | </em><em>None</em>) – Activation function of the last layer. None results in a linear last layer. (最后一层的激活函数。None 表示最后一层为线性层。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -296,10 +298,10 @@ inferred from the input dimension.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.mlp.MLP.init_weights">
 <span class="sig-name descname"><span class="pre">init_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scales</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/mlp.html#MLP.init_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.mlp.MLP.init_weights" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the weights of the MLP.</p>
+<dd><p>Initialize the weights of the MLP. (初始化 MLP 的权重。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>scales</strong> (<em>float</em><em> | </em><em>tuple</em><em>[</em><em>float</em><em>]</em>) – Scale factor for the weights.</p>
+<dd class="field-odd"><p><strong>scales</strong> (<em>float</em><em> | </em><em>tuple</em><em>[</em><em>float</em><em>]</em>) – Scale factor for the weights. (权重的缩放因子。)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -310,7 +312,7 @@ inferred from the input dimension.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.mlp.MLP.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/mlp.html#MLP.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.mlp.MLP.forward" title="Link to this definition">¶</a></dt>
-<dd><p>Forward pass of the MLP.</p>
+<dd><p>Forward pass of the MLP. (MLP 的前向传播。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>x</strong> (<em>torch.Tensor</em>)</p>
@@ -329,20 +331,20 @@ inferred from the input dimension.</p></li>
 <dl class="py data">
 <dt class="sig sig-object py" id="rsl_rl.modules.rnn.HiddenState">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.modules.rnn.</span></span><span class="sig-name descname"><span class="pre">HiddenState</span></span><a class="headerlink" href="#rsl_rl.modules.rnn.HiddenState" title="Link to this definition">¶</a></dt>
-<dd><p>Type alias for the hidden state of RNNs (GRU/LSTM).</p>
-<p>For GRUs, this is a single tensor while for LSTMs, this is a tuple of two tensors (hidden state and cell state).</p>
+<dd><p>Type alias for the hidden state of RNNs (GRU/LSTM). (RNN (GRU/LSTM) 隐藏状态的类型别名。)</p>
+<p>For GRUs, this is a single tensor while for LSTMs, this is a tuple of two tensors (hidden state and cell state). (对于 GRU，这是一个单一的张量；而对于 LSTM，这是一个包含两个张量的元组（隐藏状态和细胞状态）。)</p>
 <p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.modules.rnn.RNN">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.modules.rnn.</span></span><span class="sig-name descname"><span class="pre">RNN</span></span><a class="reference internal" href="../_modules/rsl_rl/modules/rnn.html#RNN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.rnn.RNN" title="Link to this definition">¶</a></dt>
-<dd><p>Recurrent Neural Network.</p>
-<p>This network is used to store the hidden state of the policy. It currently supports GRU and LSTM.</p>
+<dd><p>Recurrent Neural Network. (循环神经网络。)</p>
+<p>This network is used to store the hidden state of the policy. It currently supports GRU and LSTM. (该网络用于存储策略的隐藏状态。目前支持 GRU 和 LSTM。)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.rnn.RNN.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lstm'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/rnn.html#RNN.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.rnn.RNN.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize a GRU or LSTM module with internal hidden-state storage.</p>
+<dd><p>Initialize a GRU or LSTM module with internal hidden-state storage. (使用内部隐藏状态存储初始化 GRU 或 LSTM 模块。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -361,7 +363,7 @@ inferred from the input dimension.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.rnn.RNN.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/rnn.html#RNN.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.rnn.RNN.forward" title="Link to this definition">¶</a></dt>
-<dd><p>Run recurrent inference in rollout mode or batched update mode.</p>
+<dd><p>Run recurrent inference in rollout mode or batched update mode. (在 rollout 模式或批量更新模式下运行循环推理。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -379,7 +381,7 @@ inferred from the input dimension.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.rnn.RNN.reset">
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/rnn.html#RNN.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.rnn.RNN.reset" title="Link to this definition">¶</a></dt>
-<dd><p>Reset hidden states for all or done environments.</p>
+<dd><p>Reset hidden states for all or done environments. (重置所有或已完成环境的隐藏状态。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -396,7 +398,7 @@ inferred from the input dimension.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.rnn.RNN.detach_hidden_state">
 <span class="sig-name descname"><span class="pre">detach_hidden_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/rnn.html#RNN.detach_hidden_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.rnn.RNN.detach_hidden_state" title="Link to this definition">¶</a></dt>
-<dd><p>Detach hidden states for all or done environments from the computation graph.</p>
+<dd><p>Detach hidden states for all or done environments from the computation graph. (将所有或已完成环境的隐藏状态从计算图中分离。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>dones</strong> (<em>torch.Tensor</em><em> | </em><em>None</em>)</p>
@@ -415,30 +417,30 @@ inferred from the input dimension.</p></li>
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.modules.cnn.CNN">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.modules.cnn.</span></span><span class="sig-name descname"><span class="pre">CNN</span></span><a class="reference internal" href="../_modules/rsl_rl/modules/cnn.html#CNN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.cnn.CNN" title="Link to this definition">¶</a></dt>
-<dd><p>Convolutional Neural Network.</p>
+<dd><p>Convolutional Neural Network. (卷积神经网络。)</p>
 <p>The CNN network is a sequence of convolutional layers, optional normalization layers, optional activation functions,
-and optional pooling. The final output can be flattened.</p>
+and optional pooling. The final output can be flattened. (CNN 网络是一个由卷积层、可选归一化层、可选激活函数和可选池化层组成的序列。最终输出可以被展平。)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.cnn.CNN.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_channels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dilation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'elu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_pool</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatten</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/cnn.html#CNN.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.cnn.CNN.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the CNN.</p>
+<dd><p>Initialize the CNN. (初始化 CNN。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input_dim</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Height and width of the input.</p></li>
-<li><p><strong>input_channels</strong> (<em>int</em>) – Number of input channels.</p></li>
-<li><p><strong>output_channels</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of output channels for each convolutional layer.</p></li>
-<li><p><strong>kernel_size</strong> (<em>int</em><em> | </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of kernel sizes for each convolutional layer or a single kernel size for all layers.</p></li>
-<li><p><strong>stride</strong> (<em>int</em><em> | </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of strides for each convolutional layer or a single stride for all layers.</p></li>
-<li><p><strong>dilation</strong> (<em>int</em><em> | </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of dilations for each convolutional layer or a single dilation for all layers.</p></li>
-<li><p><strong>padding</strong> (<em>str</em>) – Padding type to use. Either ‘none’, ‘zeros’, ‘reflect’, ‘replicate’, or ‘circular’.</p></li>
+<li><p><strong>input_dim</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em>) – Height and width of the input. (输入的高度和宽度。)</p></li>
+<li><p><strong>input_channels</strong> (<em>int</em>) – Number of input channels. (输入通道数。)</p></li>
+<li><p><strong>output_channels</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of output channels for each convolutional layer. (每个卷积层的输出通道列表。)</p></li>
+<li><p><strong>kernel_size</strong> (<em>int</em><em> | </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of kernel sizes for each convolutional layer or a single kernel size for all layers. (每个卷积层的卷积核大小列表，或适用于所有层的单个卷积核大小。)</p></li>
+<li><p><strong>stride</strong> (<em>int</em><em> | </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of strides for each convolutional layer or a single stride for all layers. (每个卷积层的步长列表，或适用于所有层的单个步长。)</p></li>
+<li><p><strong>dilation</strong> (<em>int</em><em> | </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – List of dilations for each convolutional layer or a single dilation for all layers. (每个卷积层的膨胀系数列表，或适用于所有层的单个膨胀系数。)</p></li>
+<li><p><strong>padding</strong> (<em>str</em>) – Padding type to use. Either ‘none’, ‘zeros’, ‘reflect’, ‘replicate’, or ‘circular’. (要使用的填充类型。可选值：'none'、'zeros'、'reflect'、'replicate' 或 'circular'。)</p></li>
 <li><p><strong>norm</strong> (<em>str</em><em> | </em><em>tuple</em><em>[</em><em>str</em><em>] </em><em>| </em><em>list</em><em>[</em><em>str</em><em>]</em>) – List of normalization types for each convolutional layer or a single type for all layers. Either
-‘none’, ‘batch’, or ‘layer’.</p></li>
-<li><p><strong>activation</strong> (<em>str</em>) – Activation function to use.</p></li>
+‘none’, ‘batch’, or ‘layer’. (每个卷积层的归一化类型列表，或适用于所有层的单个类型。可选值：'none'、'batch' 或 'layer'。)</p></li>
+<li><p><strong>activation</strong> (<em>str</em>) – Activation function to use. (要使用的激活函数。)</p></li>
 <li><p><strong>max_pool</strong> (<em>bool</em><em> | </em><em>tuple</em><em>[</em><em>bool</em><em>] </em><em>| </em><em>list</em><em>[</em><em>bool</em><em>]</em>) – List of booleans indicating whether to apply max pooling after each convolutional layer or a
-single boolean for all layers.</p></li>
-<li><p><strong>global_pool</strong> (<em>str</em>) – Global pooling type to apply at the end. Either ‘none’, ‘max’, or ‘avg’.</p></li>
-<li><p><strong>flatten</strong> (<em>bool</em>) – Whether to flatten the output tensor.</p></li>
+single boolean for all layers. (布尔值列表，指示是否在每个卷积层后应用最大池化，或适用于所有层的单个布尔值。)</p></li>
+<li><p><strong>global_pool</strong> (<em>str</em>) – Global pooling type to apply at the end. Either ‘none’, ‘max’, or ‘avg’. (最后应用的全局池化类型。可选值：'none'、'max' 或 'avg'。)</p></li>
+<li><p><strong>flatten</strong> (<em>bool</em>) – Whether to flatten the output tensor. (是否展平输出张量。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -450,19 +452,19 @@ single boolean for all layers.</p></li>
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.cnn.CNN.output_channels">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_channels</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#rsl_rl.modules.cnn.CNN.output_channels" title="Link to this definition">¶</a></dt>
-<dd><p>Get the number of output channels or None if output is flattened.</p>
+<dd><p>Get the number of output channels or None if output is flattened. (获取输出通道数，如果输出被展平则返回 None。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.cnn.CNN.output_dim">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#rsl_rl.modules.cnn.CNN.output_dim" title="Link to this definition">¶</a></dt>
-<dd><p>Get the output height and width or total output dimension if output is flattened.</p>
+<dd><p>Get the output height and width or total output dimension if output is flattened. (获取输出的高度和宽度，如果输出被展平则返回总输出维度。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.cnn.CNN.init_weights">
 <span class="sig-name descname"><span class="pre">init_weights</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/cnn.html#CNN.init_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.cnn.CNN.init_weights" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the weights of the CNN with Kaiming initialization.</p>
+<dd><p>Initialize the weights of the CNN with Kaiming initialization. (使用 Kaiming 初始化方法初始化 CNN 的权重。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None</p>
@@ -473,7 +475,7 @@ single boolean for all layers.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.cnn.CNN.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/cnn.html#CNN.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.cnn.CNN.forward" title="Link to this definition">¶</a></dt>
-<dd><p>Forward pass of the CNN.</p>
+<dd><p>Forward pass of the CNN. (CNN 的前向传播。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>x</strong> (<em>torch.Tensor</em>)</p>
@@ -492,21 +494,21 @@ single boolean for all layers.</p></li>
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.modules.normalization.EmpiricalNormalization">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.modules.normalization.</span></span><span class="sig-name descname"><span class="pre">EmpiricalNormalization</span></span><a class="reference internal" href="../_modules/rsl_rl/modules/normalization.html#EmpiricalNormalization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.normalization.EmpiricalNormalization" title="Link to this definition">¶</a></dt>
-<dd><p>Normalize mean and variance of values based on empirical values.</p>
+<dd><p>Normalize mean and variance of values based on empirical values. (基于经验值对值的均值和方差进行归一化。)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.normalization.EmpiricalNormalization.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">until</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/normalization.html#EmpiricalNormalization.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.normalization.EmpiricalNormalization.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize EmpiricalNormalization module.</p>
+<dd><p>Initialize EmpiricalNormalization module. (初始化 EmpiricalNormalization 模块。)</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The normalization parameters are computed over the whole batch, not for each environment separately.</p>
+<p>The normalization parameters are computed over the whole batch, not for each environment separately. (归一化参数是在整个批次上计算的，而不是针对每个环境单独计算。)</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>shape</strong> (<em>int</em><em> | </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Shape of input values except batch axis.</p></li>
-<li><p><strong>eps</strong> (<em>float</em>) – Small value for stability.</p></li>
-<li><p><strong>until</strong> (<em>int</em><em> | </em><em>None</em>) – If this arg is specified, the module learns input values until the sum of batch sizes exceeds it.</p></li>
+<li><p><strong>shape</strong> (<em>int</em><em> | </em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>list</em><em>[</em><em>int</em><em>]</em>) – Shape of input values except batch axis. (除批次轴外的输入值形状。)</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – Small value for stability. (用于稳定性的小值。)</p></li>
+<li><p><strong>until</strong> (<em>int</em><em> | </em><em>None</em>) – If this arg is specified, the module learns input values until the sum of batch sizes exceeds it. (如果指定了此参数，模块将学习输入值，直到批次大小的总和超过该值。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -518,19 +520,19 @@ single boolean for all layers.</p></li>
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.normalization.EmpiricalNormalization.mean">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mean</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.modules.normalization.EmpiricalNormalization.mean" title="Link to this definition">¶</a></dt>
-<dd><p>Return the current running mean.</p>
+<dd><p>Return the current running mean. (返回当前的运行均值。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.normalization.EmpiricalNormalization.std">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">std</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.modules.normalization.EmpiricalNormalization.std" title="Link to this definition">¶</a></dt>
-<dd><p>Return the current running standard deviation.</p>
+<dd><p>Return the current running standard deviation. (返回当前的运行标准差。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.normalization.EmpiricalNormalization.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/normalization.html#EmpiricalNormalization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.normalization.EmpiricalNormalization.forward" title="Link to this definition">¶</a></dt>
-<dd><p>Normalize mean and variance of values based on empirical values.</p>
+<dd><p>Normalize mean and variance of values based on empirical values. (基于经验值对值的均值和方差进行归一化。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>x</strong> (<em>torch.Tensor</em>)</p>
@@ -544,7 +546,7 @@ single boolean for all layers.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.normalization.EmpiricalNormalization.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rsl_rl.modules.normalization.EmpiricalNormalization.update" title="Link to this definition">¶</a></dt>
-<dd><p>Learn input values without computing the output values of them.</p>
+<dd><p>Learn input values without computing the output values of them. (学习输入值，但不计算它们的输出值。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>x</strong> (<em>torch.Tensor</em>)</p>
@@ -558,7 +560,7 @@ single boolean for all layers.</p></li>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.normalization.EmpiricalNormalization.inverse">
 <span class="sig-name descname"><span class="pre">inverse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rsl_rl.modules.normalization.EmpiricalNormalization.inverse" title="Link to this definition">¶</a></dt>
-<dd><p>De-normalize values based on empirical values.</p>
+<dd><p>De-normalize values based on empirical values. (基于经验值对值进行反归一化。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>y</strong> (<em>torch.Tensor</em>)</p>
@@ -574,14 +576,14 @@ single boolean for all layers.</p></li>
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.modules.normalization.EmpiricalDiscountedVariationNormalization">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.modules.normalization.</span></span><span class="sig-name descname"><span class="pre">EmpiricalDiscountedVariationNormalization</span></span><a class="reference internal" href="../_modules/rsl_rl/modules/normalization.html#EmpiricalDiscountedVariationNormalization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.normalization.EmpiricalDiscountedVariationNormalization" title="Link to this definition">¶</a></dt>
-<dd><p>Reward normalization from Pathak’s large scale study on PPO.</p>
+<dd><p>Reward normalization from Pathak’s large scale study on PPO. (来自 Pathak 等人对 PPO 的大规模研究的奖励归一化方法。)</p>
 <p>Reward normalization. Since the reward function is non-stationary, it is useful to normalize the scale of the
 rewards so that the value function can learn quickly. We did this by dividing the rewards by a running estimate of
-the standard deviation of the sum of discounted rewards.</p>
+the standard deviation of the sum of discounted rewards. (奖励归一化。由于奖励函数是非平稳的，对奖励的尺度进行归一化有助于价值函数快速学习。我们通过将奖励除以折现奖励总和的运行标准差估计值来实现这一点。)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.normalization.EmpiricalDiscountedVariationNormalization.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">until</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/normalization.html#EmpiricalDiscountedVariationNormalization.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.normalization.EmpiricalDiscountedVariationNormalization.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize discounted-reward normalization with running moments.</p>
+<dd><p>Initialize discounted-reward normalization with running moments. (使用运行矩初始化折现奖励归一化。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -600,7 +602,7 @@ the standard deviation of the sum of discounted rewards.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.normalization.EmpiricalDiscountedVariationNormalization.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rew</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/normalization.html#EmpiricalDiscountedVariationNormalization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.normalization.EmpiricalDiscountedVariationNormalization.forward" title="Link to this definition">¶</a></dt>
-<dd><p>Normalize rewards using the running std of discounted returns.</p>
+<dd><p>Normalize rewards using the running std of discounted returns. (使用折现回报的运行标准差对奖励进行归一化。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>rew</strong> (<em>torch.Tensor</em>)</p>
@@ -619,18 +621,18 @@ the standard deviation of the sum of discounted rewards.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.modules.distribution.</span></span><span class="sig-name descname"><span class="pre">Distribution</span></span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#Distribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution" title="Link to this definition">¶</a></dt>
-<dd><p>Base class for distribution modules.</p>
+<dd><p>Base class for distribution modules. (分布模块的基类。)</p>
 <p>Distribution modules encapsulate the stochastic output of a neural model. They define the output structure expected
 from the MLP, manage learnable distribution parameters, and provide methods for sampling, log probability
-computation, and entropy calculation.</p>
-<p>Subclasses must implement all abstract methods and properties to define a specific distribution type.</p>
+computation, and entropy calculation. (分布模块封装了神经模型的随机输出。它们定义了 MLP 预期的输出结构，管理可学习的分布参数，并提供采样、对数概率计算和熵计算的方法。)</p>
+<p>Subclasses must implement all abstract methods and properties to define a specific distribution type. (子类必须实现所有抽象方法和属性以定义特定的分布类型。) </p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#Distribution.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the distribution module.</p>
+<dd><p>Initialize the distribution module. (初始化分布模块。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the action/output space.</p>
+<dd class="field-odd"><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the action/output space. (动作/输出空间的维度。)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -641,10 +643,10 @@ computation, and entropy calculation.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mlp_output</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#Distribution.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.update" title="Link to this definition">¶</a></dt>
-<dd><p>Update the distribution parameters given the MLP output.</p>
+<dd><p>Update the distribution parameters given the MLP output. (根据 MLP 输出更新分布参数。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mlp_output</strong> (<em>torch.Tensor</em>) – Raw output from the MLP.</p>
+<dd class="field-odd"><p><strong>mlp_output</strong> (<em>torch.Tensor</em>) – Raw output from the MLP. (来自 MLP 的原始输出。)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -655,10 +657,10 @@ computation, and entropy calculation.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.sample">
 <span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#Distribution.sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.sample" title="Link to this definition">¶</a></dt>
-<dd><p>Sample from the distribution.</p>
+<dd><p>Sample from the distribution. (从分布中采样。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Sampled values.</p>
+<dd class="field-odd"><p>Sampled values. (采样值。)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>torch.Tensor</p>
@@ -669,13 +671,13 @@ computation, and entropy calculation.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.deterministic_output">
 <span class="sig-name descname"><span class="pre">deterministic_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mlp_output</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#Distribution.deterministic_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.deterministic_output" title="Link to this definition">¶</a></dt>
-<dd><p>Extract the deterministic (mean) output from the raw MLP output.</p>
+<dd><p>Extract the deterministic (mean) output from the raw MLP output. (从原始 MLP 输出中提取确定性（均值）输出。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mlp_output</strong> (<em>torch.Tensor</em>) – Raw output from the MLP.</p>
+<dd class="field-odd"><p><strong>mlp_output</strong> (<em>torch.Tensor</em>) – Raw output from the MLP. (来自 MLP 的原始输出。)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The deterministic output (typically the distribution mean).</p>
+<dd class="field-even"><p>The deterministic output (typically the distribution mean). (确定性输出，通常是分布的均值。)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.Tensor</p>
@@ -686,7 +688,7 @@ computation, and entropy calculation.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.as_deterministic_output_module">
 <span class="sig-name descname"><span class="pre">as_deterministic_output_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#Distribution.as_deterministic_output_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.as_deterministic_output_module" title="Link to this definition">¶</a></dt>
-<dd><p>Return an export-friendly module that extracts the deterministic output from the MLP output.</p>
+<dd><p>Return an export-friendly module that extracts the deterministic output from the MLP output. (返回一个适合导出的模块，该模块从 MLP 输出中提取确定性输出。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.nn.Module</p>
@@ -697,45 +699,45 @@ computation, and entropy calculation.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.input_dim">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.input_dim" title="Link to this definition">¶</a></dt>
-<dd><p>Return the input dimension required by the distribution.</p>
+<dd><p>Return the input dimension required by the distribution. (返回分布所需的输入维度。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.mean">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mean</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.mean" title="Link to this definition">¶</a></dt>
-<dd><p>Return the mean of the distribution.</p>
+<dd><p>Return the mean of the distribution. (返回分布的均值。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.std">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">std</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.std" title="Link to this definition">¶</a></dt>
-<dd><p>Return the standard deviation (or spread measure) of the distribution.</p>
+<dd><p>Return the standard deviation (or spread measure) of the distribution. (返回分布的标准差（或离散程度度量）。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.entropy">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">entropy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.entropy" title="Link to this definition">¶</a></dt>
-<dd><p>Return the entropy of the distribution, summed over the last dimension.</p>
+<dd><p>Return the entropy of the distribution, summed over the last dimension. (返回分布的熵，在最后一个维度上求和。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.params">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.params" title="Link to this definition">¶</a></dt>
-<dd><p>Return the distribution parameters as a tuple of tensors.</p>
+<dd><p>Return the distribution parameters as a tuple of tensors. (将分布参数作为张量元组返回。)</p>
 <p>These are the distribution-specific parameters needed to reconstruct the distribution (e.g., mean and std for
-Gaussian, alpha and beta for Beta). They are stored during rollouts and used for KL divergence computation.</p>
+Gaussian, alpha and beta for Beta). They are stored during rollouts and used for KL divergence computation. (这些是重建分布所需的分布特定参数（例如，高斯分布的均值和标准差，Beta 分布的 alpha 和 beta）。它们在 rollout 期间存储，并用于 KL 散度计算。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.log_prob">
 <span class="sig-name descname"><span class="pre">log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#Distribution.log_prob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.log_prob" title="Link to this definition">¶</a></dt>
-<dd><p>Compute the log probability of the given outputs, summed over the last dimension.</p>
+<dd><p>Compute the log probability of the given outputs, summed over the last dimension. (计算给定输出的对数概率，在最后一个维度上求和。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>outputs</strong> (<em>torch.Tensor</em>) – Values to compute the log probability for.</p>
+<dd class="field-odd"><p><strong>outputs</strong> (<em>torch.Tensor</em>) – Values to compute the log probability for. (要计算对数概率的值。)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Log probability summed over the last dimension.</p>
+<dd class="field-even"><p>Log probability summed over the last dimension. (在最后一个维度上求和的对数概率。)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.Tensor</p>
@@ -746,18 +748,18 @@ Gaussian, alpha and beta for Beta). They are stored during rollouts and used for
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.kl_divergence">
 <span class="sig-name descname"><span class="pre">kl_divergence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#Distribution.kl_divergence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.kl_divergence" title="Link to this definition">¶</a></dt>
-<dd><p>Compute the KL divergence KL(old || new) between two distributions of this type.</p>
+<dd><p>Compute the KL divergence KL(old || new) between two distributions of this type. (计算两个同类型分布之间的 KL 散度 KL(old || new)。)</p>
 <p>The KL divergence measures how the old distribution diverges from the new distribution.
-This is used for adaptive learning rate scheduling in policy optimization.</p>
+This is used for adaptive learning rate scheduling in policy optimization. (KL 散度衡量旧分布与新分布的差异程度。这用于策略优化中的自适应学习率调度。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>old_params</strong> (<em>tuple</em><em>[</em><em>torch.Tensor</em><em>, </em><em>...</em><em>]</em>) – Parameters of the old distribution (as returned by <a class="reference internal" href="#rsl_rl.modules.distribution.Distribution.params" title="rsl_rl.modules.distribution.Distribution.params"><code class="xref py py-attr docutils literal notranslate"><span class="pre">params</span></code></a>).</p></li>
-<li><p><strong>new_params</strong> (<em>tuple</em><em>[</em><em>torch.Tensor</em><em>, </em><em>...</em><em>]</em>) – Parameters of the new distribution (as returned by <a class="reference internal" href="#rsl_rl.modules.distribution.Distribution.params" title="rsl_rl.modules.distribution.Distribution.params"><code class="xref py py-attr docutils literal notranslate"><span class="pre">params</span></code></a>).</p></li>
+<li><p><strong>old_params</strong> (<em>tuple</em><em>[</em><em>torch.Tensor</em><em>, </em><em>...</em><em>]</em>) – Parameters of the old distribution (as returned by <a class="reference internal" href="#rsl_rl.modules.distribution.Distribution.params" title="rsl_rl.modules.distribution.Distribution.params"><code class="xref py py-attr docutils literal notranslate"><span class="pre">params</span></code></a>). (旧分布的参数（由 <a class="reference internal" href="#rsl_rl.modules.distribution.Distribution.params" title="rsl_rl.modules.distribution.Distribution.params"><code class="xref py py-attr docutils literal notranslate"><span class="pre">params</span></code></a> 返回）。)</p></li>
+<li><p><strong>new_params</strong> (<em>tuple</em><em>[</em><em>torch.Tensor</em><em>, </em><em>...</em><em>]</em>) – Parameters of the new distribution (as returned by <a class="reference internal" href="#rsl_rl.modules.distribution.Distribution.params" title="rsl_rl.modules.distribution.Distribution.params"><code class="xref py py-attr docutils literal notranslate"><span class="pre">params</span></code></a>). (新分布的参数（由 <a class="reference internal" href="#rsl_rl.modules.distribution.Distribution.params" title="rsl_rl.modules.distribution.Distribution.params"><code class="xref py py-attr docutils literal notranslate"><span class="pre">params</span></code></a> 返回）。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>KL divergence summed over the last dimension.</p>
+<dd class="field-even"><p>KL divergence summed over the last dimension. (在最后一个维度上求和的 KL 散度。)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.Tensor</p>
@@ -768,12 +770,12 @@ This is used for adaptive learning rate scheduling in policy optimization.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.Distribution.init_mlp_weights">
 <span class="sig-name descname"><span class="pre">init_mlp_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mlp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#Distribution.init_mlp_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.Distribution.init_mlp_weights" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize distribution-specific weights in the MLP.</p>
+<dd><p>Initialize distribution-specific weights in the MLP. (初始化 MLP 中特定于分布的权重。)</p>
 <p>This is called after MLP creation to set up any special weight initialization
-required by the distribution (e.g., initializing std head weights).</p>
+required by the distribution (e.g., initializing std head weights). (在 MLP 创建后调用，以设置分布所需的任何特殊权重初始化（例如，初始化标准差头的权重）。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>mlp</strong> (<em>torch.nn.Module</em>) – The MLP module whose weights may need initialization.</p>
+<dd class="field-odd"><p><strong>mlp</strong> (<em>torch.nn.Module</em>) – The MLP module whose weights may need initialization. (可能需要初始化权重的 MLP 模块。)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -786,20 +788,20 @@ required by the distribution (e.g., initializing std head weights).</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.modules.distribution.</span></span><span class="sig-name descname"><span class="pre">GaussianDistribution</span></span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#GaussianDistribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution" title="Link to this definition">¶</a></dt>
-<dd><p>Gaussian (Normal) distribution module with state-independent standard deviation.</p>
+<dd><p>Gaussian (Normal) distribution module with state-independent standard deviation. (具有状态无关标准差的高斯分布模块。)</p>
 <p>This distribution parameterizes actions using a multivariate Gaussian with diagonal covariance. The standard
 deviation is a learnable parameter that is independent of the model input. It can be parameterized in either
-“scalar” space (directly) or “log” space.</p>
+“scalar” space (directly) or “log” space. (该分布使用具有对角协方差的多元高斯分布参数化动作。标准差是一个可学习的参数，独立于模型输入。它可以在“标量”空间（直接）或“对数”空间中参数化。)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_std</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalar'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#GaussianDistribution.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the Gaussian distribution module.</p>
+<dd><p>Initialize the Gaussian distribution module. (初始化高斯分布模块。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the action/output space.</p></li>
-<li><p><strong>init_std</strong> (<em>float</em>) – Initial standard deviation.</p></li>
-<li><p><strong>std_type</strong> (<em>str</em>) – Parameterization of the standard deviation: “scalar” or “log”.</p></li>
+<li><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the action/output space. (动作/输出空间的维度。)</p></li>
+<li><p><strong>init_std</strong> (<em>float</em>) – Initial standard deviation. (初始标准差。)</p></li>
+<li><p><strong>std_type</strong> (<em>str</em>) – Parameterization of the standard deviation: “scalar” or “log”. (标准差的参数化形式：“scalar” 或 “log”。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -811,7 +813,7 @@ deviation is a learnable parameter that is independent of the model input. It ca
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mlp_output</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#GaussianDistribution.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.update" title="Link to this definition">¶</a></dt>
-<dd><p>Update the Gaussian distribution from MLP output.</p>
+<dd><p>Update the Gaussian distribution from MLP output. (根据 MLP 输出更新高斯分布。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mlp_output</strong> (<em>torch.Tensor</em>)</p>
@@ -825,7 +827,7 @@ deviation is a learnable parameter that is independent of the model input. It ca
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.sample">
 <span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#GaussianDistribution.sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.sample" title="Link to this definition">¶</a></dt>
-<dd><p>Sample from the Gaussian distribution.</p>
+<dd><p>Sample from the Gaussian distribution. (从高斯分布中采样。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.Tensor</p>
@@ -836,7 +838,7 @@ deviation is a learnable parameter that is independent of the model input. It ca
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.deterministic_output">
 <span class="sig-name descname"><span class="pre">deterministic_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mlp_output</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#GaussianDistribution.deterministic_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.deterministic_output" title="Link to this definition">¶</a></dt>
-<dd><p>Extract the mean from the MLP output.</p>
+<dd><p>Extract the mean from the MLP output. (从 MLP 输出中提取均值。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mlp_output</strong> (<em>torch.Tensor</em>)</p>
@@ -850,7 +852,7 @@ deviation is a learnable parameter that is independent of the model input. It ca
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.as_deterministic_output_module">
 <span class="sig-name descname"><span class="pre">as_deterministic_output_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#GaussianDistribution.as_deterministic_output_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.as_deterministic_output_module" title="Link to this definition">¶</a></dt>
-<dd><p>Return an export-friendly module that extracts the mean from the MLP output.</p>
+<dd><p>Return an export-friendly module that extracts the mean from the MLP output. (返回一个适合导出的模块，该模块从 MLP 输出中提取均值。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.nn.Module</p>
@@ -861,37 +863,37 @@ deviation is a learnable parameter that is independent of the model input. It ca
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.input_dim">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.input_dim" title="Link to this definition">¶</a></dt>
-<dd><p>Return the input dimension required by the distribution.</p>
+<dd><p>Return the input dimension required by the distribution. (返回分布所需的输入维度。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.mean">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mean</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.mean" title="Link to this definition">¶</a></dt>
-<dd><p>Return the mean of the Gaussian distribution.</p>
+<dd><p>Return the mean of the Gaussian distribution. (返回高斯分布的均值。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.std">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">std</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.std" title="Link to this definition">¶</a></dt>
-<dd><p>Return the standard deviation of the Gaussian distribution.</p>
+<dd><p>Return the standard deviation of the Gaussian distribution. (返回高斯分布的标准差。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.entropy">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">entropy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">torch.Tensor</span></em><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.entropy" title="Link to this definition">¶</a></dt>
-<dd><p>Return the entropy of the Gaussian distribution, summed over the last dimension.</p>
+<dd><p>Return the entropy of the Gaussian distribution, summed over the last dimension. (返回高斯分布的熵，在最后一个维度上求和。)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.params">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">torch.Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.params" title="Link to this definition">¶</a></dt>
-<dd><p>Return (mean, std) of the current Gaussian distribution.</p>
+<dd><p>Return (mean, std) of the current Gaussian distribution. (返回当前高斯分布的 (均值，标准差)。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.log_prob">
 <span class="sig-name descname"><span class="pre">log_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#GaussianDistribution.log_prob"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.log_prob" title="Link to this definition">¶</a></dt>
-<dd><p>Compute the log probability under the Gaussian, summed over the last dimension.</p>
+<dd><p>Compute the log probability under the Gaussian, summed over the last dimension. (计算高斯分布下的对数概率，在最后一个维度上求和。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>outputs</strong> (<em>torch.Tensor</em>)</p>
@@ -905,7 +907,7 @@ deviation is a learnable parameter that is independent of the model input. It ca
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.GaussianDistribution.kl_divergence">
 <span class="sig-name descname"><span class="pre">kl_divergence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#GaussianDistribution.kl_divergence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.GaussianDistribution.kl_divergence" title="Link to this definition">¶</a></dt>
-<dd><p>Compute KL(old || new) between two Gaussian distributions using torch.distributions.</p>
+<dd><p>Compute KL(old || new) between two Gaussian distributions using torch.distributions. (使用 torch.distributions 计算两个高斯分布之间的 KL(old || new)。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -924,20 +926,20 @@ deviation is a learnable parameter that is independent of the model input. It ca
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.modules.distribution.</span></span><span class="sig-name descname"><span class="pre">HeteroscedasticGaussianDistribution</span></span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#HeteroscedasticGaussianDistribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution" title="Link to this definition">¶</a></dt>
-<dd><p>Gaussian (Normal) distribution module with state-dependent standard deviation.</p>
+<dd><p>Gaussian (Normal) distribution module with state-dependent standard deviation. (具有状态相关标准差的高斯分布模块。)</p>
 <p>This distribution parameterizes actions using a multivariate Gaussian with diagonal covariance. The standard
 deviation is output by the MLP alongside the mean, making it state-dependent (heteroscedastic). It can be
-parameterized in either “scalar” space (directly) or “log” space.</p>
+parameterized in either “scalar” space (directly) or “log” space. (该分布使用具有对角协方差的多元高斯分布参数化动作。标准差由 MLP 与均值一起输出，使其具有状态相关性（异方差）。它可以在“标量”空间（直接）或“对数”空间中参数化。)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_std</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scalar'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#HeteroscedasticGaussianDistribution.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the heteroscedastic Gaussian distribution module.</p>
+<dd><p>Initialize the heteroscedastic Gaussian distribution module. (初始化异方差高斯分布模块。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the action/output space.</p></li>
-<li><p><strong>init_std</strong> (<em>float</em>) – Initial standard deviation (used to initialize MLP std head bias).</p></li>
-<li><p><strong>std_type</strong> (<em>str</em>) – Parameterization of the standard deviation: “scalar” or “log”.</p></li>
+<li><p><strong>output_dim</strong> (<em>int</em>) – Dimension of the action/output space. (动作/输出空间的维度。)</p></li>
+<li><p><strong>init_std</strong> (<em>float</em>) – Initial standard deviation (used to initialize MLP std head bias). (初始标准差（用于初始化 MLP 标准差头的偏置）。)</p></li>
+<li><p><strong>std_type</strong> (<em>str</em>) – Parameterization of the standard deviation: “scalar” or “log”. (标准差的参数化形式：“scalar” 或 “log”。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -949,7 +951,7 @@ parameterized in either “scalar” space (directly) or “log” space.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mlp_output</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#HeteroscedasticGaussianDistribution.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.update" title="Link to this definition">¶</a></dt>
-<dd><p>Update the Gaussian distribution from MLP output.</p>
+<dd><p>Update the Gaussian distribution from MLP output. (根据 MLP 输出更新高斯分布。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mlp_output</strong> (<em>torch.Tensor</em>)</p>
@@ -963,7 +965,7 @@ parameterized in either “scalar” space (directly) or “log” space.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.deterministic_output">
 <span class="sig-name descname"><span class="pre">deterministic_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mlp_output</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#HeteroscedasticGaussianDistribution.deterministic_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.deterministic_output" title="Link to this definition">¶</a></dt>
-<dd><p>Extract the mean from the MLP output (first slice of the second-to-last dimension).</p>
+<dd><p>Extract the mean from the MLP output (first slice of the second-to-last dimension). (从 MLP 输出中提取均值（倒数第二维的第一个切片）。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mlp_output</strong> (<em>torch.Tensor</em>)</p>
@@ -977,7 +979,7 @@ parameterized in either “scalar” space (directly) or “log” space.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.as_deterministic_output_module">
 <span class="sig-name descname"><span class="pre">as_deterministic_output_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#HeteroscedasticGaussianDistribution.as_deterministic_output_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.as_deterministic_output_module" title="Link to this definition">¶</a></dt>
-<dd><p>Return export-friendly module that extracts the mean from the MLP output.</p>
+<dd><p>Return export-friendly module that extracts the mean from the MLP output. (返回一个适合导出的模块，该模块从 MLP 输出中提取均值。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>torch.nn.Module</p>
@@ -988,15 +990,15 @@ parameterized in either “scalar” space (directly) or “log” space.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.input_dim">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_dim</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.input_dim" title="Link to this definition">¶</a></dt>
-<dd><p>Return the input dimension required by the distribution.</p>
+<dd><p>Return the input dimension required by the distribution. (返回分布所需的输入维度。)</p>
 <p>The MLP must output a tensor of shape <code class="docutils literal notranslate"><span class="pre">[...,</span> <span class="pre">2,</span> <span class="pre">output_dim]</span></code> where the first slice along the second-to-last
-dimension is the mean and the second is the standard deviation (or log standard deviation).</p>
+dimension is the mean and the second is the standard deviation (or log standard deviation). (MLP 必须输出形状为 <code class="docutils literal notranslate"><span class="pre">[...,</span> <span class="pre">2,</span> <span class="pre">output_dim]</span></code> 的张量，其中沿倒数第二维的第一个切片是均值，第二个切片是标准差（或对数标准差）。)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.init_mlp_weights">
 <span class="sig-name descname"><span class="pre">init_mlp_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mlp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/modules/distribution.html#HeteroscedasticGaussianDistribution.init_mlp_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution.init_mlp_weights" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize the std head weights in the MLP.</p>
+<dd><p>Initialize the std head weights in the MLP. (初始化 MLP 中标准差头的权重。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>mlp</strong> (<em>torch.nn.Module</em>)</p>
@@ -1015,7 +1017,7 @@ dimension is the mean and the second is the standard deviation (or log standard 
         </article>
       </div>
       <footer>
-        
+
         <div class="related-pages">
           <a class="next-page" href="runners.html">
               <div class="page-info">
@@ -1032,9 +1034,9 @@ dimension is the mean and the second is the standard deviation (or log standard 
                 <div class="context">
                   <span>Previous</span>
                 </div>
-                
+
                 <div class="title">Models</div>
-                
+
               </div>
             </a>
         </div>
@@ -1044,20 +1046,20 @@ dimension is the mean and the second is the standard deviation (or log standard 
                 Copyright &#169; 2021-2026, ETH Zurich and NVIDIA CORPORATION
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-            
+
             <a href="https://github.com/pradyunsg/furo">Furo</a>
-            
+
           </div>
           <div class="right-details">
-            
+
           </div>
         </div>
-        
+
       </footer>
     </div>
     <aside class="toc-drawer">
-      
-      
+
+
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
@@ -1105,13 +1107,10 @@ dimension is the mean and the second is the standard deviation (or log standard 
 <li><a class="reference internal" href="#rsl_rl.modules.normalization.EmpiricalNormalization.mean"><code class="docutils literal notranslate"><span class="pre">EmpiricalNormalization.mean</span></code></a></li>
 <li><a class="reference internal" href="#rsl_rl.modules.normalization.EmpiricalNormalization.std"><code class="docutils literal notranslate"><span class="pre">EmpiricalNormalization.std</span></code></a></li>
 <li><a class="reference internal" href="#rsl_rl.modules.normalization.EmpiricalNormalization.forward"><code class="docutils literal notranslate"><span class="pre">EmpiricalNormalization.forward()</span></code></a></li>
-<li><a class="reference internal" href="#rsl_rl.modules.normalization.EmpiricalNormalization.update"><code class="docutils literal notranslate"><span class="pre">EmpiricalNormalization.update()</span></code></a></li>
-<li><a class="reference internal" href="#rsl_rl.modules.normalization.EmpiricalNormalization.inverse"><code class="docutils literal notranslate"><span class="pre">EmpiricalNormalization.inverse()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#rsl_rl.modules.normalization.EmpiricalDiscountedVariationNormalization"><code class="docutils literal notranslate"><span class="pre">EmpiricalDiscountedVariationNormalization</span></code></a><ul>
 <li><a class="reference internal" href="#rsl_rl.modules.normalization.EmpiricalDiscountedVariationNormalization.__init__"><code class="docutils literal notranslate"><span class="pre">EmpiricalDiscountedVariationNormalization.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#rsl_rl.modules.normalization.EmpiricalDiscountedVariationNormalization.forward"><code class="docutils literal notranslate"><span class="pre">EmpiricalDiscountedVariationNormalization.forward()</span></code></a></li>
 </ul>
 </li>
 </ul>

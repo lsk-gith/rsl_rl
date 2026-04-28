@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en" data-content_root="../">
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a5a7561" />
-    
-    
+
+
 
 
 <style>
@@ -22,31 +22,31 @@
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
       }
     }
   }
 </style></head>
   <body>
-    
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
-    
+
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -185,14 +185,14 @@
   </header>
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
-      
+
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   <div class="sidebar-logo-container">
     <img class="sidebar-logo only-light" src="../_static/rsl_rl_logo_light.svg" alt="Light Logo"/>
     <img class="sidebar-logo only-dark" src="../_static/rsl_rl_logo_dark.svg" alt="Dark Logo"/>
   </div>
-  
-  
+
+
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
@@ -227,7 +227,7 @@
 </div>
 
       </div>
-      
+
     </div>
   </aside>
   <div class="main">
@@ -264,7 +264,7 @@
 <p>RSL-RL is configured with a dictionary that is passed to RSL-RL’s runner during initialization. The dictionary is
 usually read from a YAML file or constructed from Python dataclasses, such as in
 <a class="reference external" href="https://github.com/isaac-sim/IsaacLab/blob/main/source/isaaclab_rl/isaaclab_rl/rsl_rl/rl_cfg.py">Isaac Lab</a>.
-It is nested to reflect the structure of the library, and follows this pattern:</p>
+It is nested to reflect the structure of the library, and follows this pattern:(RSL-RL 使用一个字典进行配置，该字典在初始化时传递给 RSL-RL 的运行器。这个字典通常从 YAML 文件读取，或者从 Python 数据类（例如在 <a class="reference external" href="https://github.com/isaac-sim/IsaacLab/blob/main/source/isaaclab_rl/isaaclab_rl/rsl_rl/rl_cfg.py">Isaac Lab</a> 中）构建。该字典是嵌套的，用以反映库的结构，并遵循以下模式：)</p>
 <figure class="align-center">
 <a class="light-only reference internal image-reference" href="../_images/rsl_rl_config_light.svg"><img alt="../_images/rsl_rl_config_light.svg" class="light-only" src="../_images/rsl_rl_config_light.svg" style="width: 100%;" />
 </a>
@@ -277,16 +277,18 @@ It is nested to reflect the structure of the library, and follows this pattern:<
 for the algorithm (e.g. PPO), as well as for the models used by the algorithm (e.g. actor and critic). The algorithm
 dictionary contains the parameters of the algorithm, and may contain one or more configuration dictionaries for
 extensions. The model dictionaries contain the parameters of the models, and may contain a configuration dictionary for
-a distribution.</p>
+a distribution.(顶层表示运行器配置，由通用设置以及算法（例如 PPO）和算法使用的模型（例如策略网络和价值网络）的配置字典组成。算法字典包含算法的参数，并可能包含一个或多个扩展的配置字典。模型字典包含模型的参数，并可能包含一个分布的配置字典。)</p>
 <p>In the following sections, we list the available settings for each configuration component, provide a minimal
 <a class="reference internal" href="#example-configuration"><span class="std std-ref">example configuration in YAML format</span></a>, and explain how
-<a class="reference internal" href="#observation-configuration"><span class="std std-ref">observations are configured</span></a>.</p>
+<a class="reference internal" href="#observation-configuration"><span class="std std-ref">observations are configured</span></a>.(在以下部分中，我们将列出每个配置组件的可用设置，提供一个最小的 <a class="reference internal" href="#example-configuration"><span class="std std-ref">YAML 格式示例配置</span></a>，并解释如何 <a class="reference internal" href="#observation-configuration"><span class="std std-ref">配置观测值</span></a>。)</p>
 <section id="runner-configuration">
 <span id="id1"></span><h2>Runner Configuration<a class="headerlink" href="#runner-configuration" title="Link to this heading">¶</a></h2>
 <p>Currently, RSL-RL implements two runner classes:
 <code class="xref py py-class docutils literal notranslate"><span class="pre">OnPolicyRunner</span></code> and
 <code class="xref py py-class docutils literal notranslate"><span class="pre">DistillationRunner</span></code>. The
-<code class="xref py py-class docutils literal notranslate"><span class="pre">OnPolicyRunner</span></code> is configured as follows:</p>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">OnPolicyRunner</span></code> is configured as follows:(目前，RSL-RL 实现了两个运行器类：
+<code class="xref py py-class docutils literal notranslate"><span class="pre">OnPolicyRunner</span></code> 和
+<code class="xref py py-class docutils literal notranslate"><span class="pre">DistillationRunner</span></code>。<code class="xref py py-class docutils literal notranslate"><span class="pre">OnPolicyRunner</span></code> 的配置如下：)</p>
 <div class="table-wrapper no-wrap-type-column docutils container">
 <table class="no-wrap-type-column docutils align-default">
 <thead>
@@ -300,63 +302,63 @@ a distribution.</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">num_steps_per_env</span></code></p></td>
 <td><p>int</p></td>
 <td><p>required</p></td>
-<td><p>Number of environment steps collected per iteration.</p></td>
+<td><p>Number of environment steps collected per iteration.(每次迭代收集的环境步数。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">obs_groups</span></code></p></td>
 <td><p>dict[str, list[str]]</p></td>
 <td><p>required</p></td>
-<td><p>Mapping from observation sets to observation groups coming from the environment. See <a class="reference internal" href="#observation-configuration"><span class="std std-ref">here</span></a> for more details.</p></td>
+<td><p>Mapping from observation sets to observation groups coming from the environment. See <a class="reference internal" href="#observation-configuration"><span class="std std-ref">here</span></a> for more details.(从观测集到来自环境的观测组的映射。更多详情见 <a class="reference internal" href="#observation-configuration"><span class="std std-ref">此处</span></a>。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">save_interval</span></code></p></td>
 <td><p>int</p></td>
 <td><p>required</p></td>
-<td><p>Number of iterations between checkpoints.</p></td>
+<td><p>Number of iterations between checkpoints.(检查点之间的迭代次数。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">logger</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;tensorboard&quot;</span></code></p></td>
-<td><p>Logging service to use. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;tensorboard&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;wandb&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;neptune&quot;</span></code>.</p></td>
+<td><p>Logging service to use. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;tensorboard&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;wandb&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;neptune&quot;</span></code>.(要使用的日志记录服务。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;tensorboard&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;wandb&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;neptune&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">wandb_project</span></code></p></td>
 <td><p>str</p></td>
 <td><p>required for W&amp;B</p></td>
-<td><p>W&amp;B project name used by the W&amp;B writer.</p></td>
+<td><p>W&amp;B project name used by the W&amp;B writer.(W&B 写入器使用的 W&B 项目名称。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">neptune_project</span></code></p></td>
 <td><p>str</p></td>
 <td><p>required for Neptune</p></td>
-<td><p>Neptune project name used by the Neptune writer.</p></td>
+<td><p>Neptune project name used by the Neptune writer.(Neptune 写入器使用的 Neptune 项目名称。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">run_name</span></code></p></td>
 <td><p>str</p></td>
 <td><p>missing</p></td>
-<td><p>Optional run label shown in the console output.</p></td>
+<td><p>Optional run label shown in the console output.(可选运行标签，显示在控制台输出中。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">check_for_nan</span></code></p></td>
 <td><p>bool</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
-<td><p>Whether to check for NaN values coming from the environment.</p></td>
+<td><p>Whether to check for NaN values coming from the environment.(是否检查来自环境的 NaN 值。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">algorithm</span></code></p></td>
 <td><p>dict</p></td>
 <td><p>required</p></td>
-<td><p>RL algorithm configuration.</p></td>
+<td><p>RL algorithm configuration.(强化学习算法配置。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">actor</span></code></p></td>
 <td><p>dict</p></td>
 <td><p>required</p></td>
-<td><p>Actor model configuration.</p></td>
+<td><p>Actor model configuration.(策略模型配置。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">critic</span></code></p></td>
 <td><p>dict</p></td>
 <td><p>required</p></td>
-<td><p>Critic model configuration.</p></td>
+<td><p>Critic model configuration.(价值模型配置。)</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p>For the <code class="xref py py-class docutils literal notranslate"><span class="pre">DistillationRunner</span></code>, the <code class="docutils literal notranslate"><span class="pre">actor</span></code> and <code class="docutils literal notranslate"><span class="pre">critic</span></code> keys are simply
-replaced by <code class="docutils literal notranslate"><span class="pre">student</span></code> and <code class="docutils literal notranslate"><span class="pre">teacher</span></code> keys, respectively:</p>
+replaced by <code class="docutils literal notranslate"><span class="pre">student</span></code> and <code class="docutils literal notranslate"><span class="pre">teacher</span></code> keys, respectively:(对于 <code class="xref py py-class docutils literal notranslate"><span class="pre">DistillationRunner</span></code>，<code class="docutils literal notranslate"><span class="pre">actor</span></code> 和 <code class="docutils literal notranslate"><span class="pre">critic</span></code> 键被分别替换为 <code class="docutils literal notranslate"><span class="pre">student</span></code> 和 <code class="docutils literal notranslate"><span class="pre">teacher</span></code> 键：)</p>
 <div class="table-wrapper no-wrap-type-column docutils container">
 <table class="no-wrap-type-column docutils align-default">
 <thead>
@@ -375,12 +377,12 @@ replaced by <code class="docutils literal notranslate"><span class="pre">student
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">student</span></code></p></td>
 <td><p>dict</p></td>
 <td><p>required</p></td>
-<td><p>Student model configuration.</p></td>
+<td><p>Student model configuration.(学生模型配置。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">teacher</span></code></p></td>
 <td><p>dict</p></td>
 <td><p>required</p></td>
-<td><p>Teacher model configuration.</p></td>
+<td><p>Teacher model configuration.(教师模型配置。)</p></td>
 </tr>
 </tbody>
 </table>
@@ -389,7 +391,7 @@ replaced by <code class="docutils literal notranslate"><span class="pre">student
 <section id="algorithm-configuration">
 <h2>Algorithm Configuration<a class="headerlink" href="#algorithm-configuration" title="Link to this heading">¶</a></h2>
 <p>RSL-RL implements two algorithms, <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> and
-<a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.distillation.Distillation" title="rsl_rl.algorithms.distillation.Distillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distillation</span></code></a>, which are configured as follows.</p>
+<a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.distillation.Distillation" title="rsl_rl.algorithms.distillation.Distillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distillation</span></code></a>, which are configured as follows.(RSL-RL 实现了两种算法，<a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> 和 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.distillation.Distillation" title="rsl_rl.algorithms.distillation.Distillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distillation</span></code></a>，它们的配置如下。)</p>
 <section id="ppo">
 <h3>PPO<a class="headerlink" href="#ppo" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper no-wrap-type-column docutils container">
@@ -405,93 +407,93 @@ replaced by <code class="docutils literal notranslate"><span class="pre">student
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">class_name</span></code></p></td>
 <td><p>str</p></td>
 <td><p>required</p></td>
-<td><p>Algorithm class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;PPO&quot;</span></code>.</p></td>
+<td><p>Algorithm class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;PPO&quot;</span></code>.(算法类名。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;PPO&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">optimizer</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;adam&quot;</span></code></p></td>
-<td><p>Optimizer used for policy/value updates. Valid values: see <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_optimizer" title="rsl_rl.utils.utils.resolve_optimizer"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_optimizer()</span></code></a>.</p></td>
+<td><p>Optimizer used for policy/value updates. Valid values: see <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_optimizer" title="rsl_rl.utils.utils.resolve_optimizer"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_optimizer()</span></code></a>.(用于策略/价值更新的优化器。有效值：参见 <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_optimizer" title="rsl_rl.utils.utils.resolve_optimizer"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_optimizer()</span></code></a>。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.001</span></code></p></td>
-<td><p>Optimizer learning rate.</p></td>
+<td><p>Optimizer learning rate.(优化器学习率。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">num_learning_epochs</span></code></p></td>
 <td><p>int</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
-<td><p>Number of optimization epochs per iteration.</p></td>
+<td><p>Number of optimization epochs per iteration.(每次迭代的优化轮数。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">num_mini_batches</span></code></p></td>
 <td><p>int</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
-<td><p>Number of mini-batches per iteration.</p></td>
+<td><p>Number of mini-batches per iteration.(每次迭代的小批量数量。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">schedule</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;adaptive&quot;</span></code></p></td>
-<td><p>Learning-rate schedule. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;adaptive&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;fixed&quot;</span></code>.</p></td>
+<td><p>Learning-rate schedule. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;adaptive&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;fixed&quot;</span></code>.(学习率调度。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;adaptive&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;fixed&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">value_loss_coef</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
-<td><p>Coefficient for the value-function loss.</p></td>
+<td><p>Coefficient for the value-function loss.(价值函数损失的系数。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">clip_param</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.2</span></code></p></td>
-<td><p>PPO clipping parameter for surrogate/value clipping.</p></td>
+<td><p>PPO clipping parameter for surrogate/value clipping.(用于替代损失/价值裁剪的 PPO 裁剪参数。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">use_clipped_value_loss</span></code></p></td>
 <td><p>bool</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
-<td><p>Whether to clip the value loss.</p></td>
+<td><p>Whether to clip the value loss.(是否裁剪价值损失。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">desired_kl</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.01</span></code></p></td>
-<td><p>Target KL divergence used by the adaptive learning-rate schedule.</p></td>
+<td><p>Target KL divergence used by the adaptive learning-rate schedule.(自适应学习率调度使用的目标 KL 散度。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">entropy_coef</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.01</span></code></p></td>
-<td><p>Entropy regularization coefficient.</p></td>
+<td><p>Entropy regularization coefficient.(熵正则化系数。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">gamma</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.99</span></code></p></td>
-<td><p>Discount factor.</p></td>
+<td><p>Discount factor.(折扣因子。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lam</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.95</span></code></p></td>
-<td><p>GAE lambda parameter.</p></td>
+<td><p>GAE lambda parameter.(GAE lambda 参数。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_grad_norm</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
-<td><p>Maximum gradient norm for gradient clipping.</p></td>
+<td><p>Maximum gradient norm for gradient clipping.(梯度裁剪的最大梯度范数。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">normalize_advantage_per_mini_batch</span></code></p></td>
 <td><p>bool</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
-<td><p>Whether to normalize advantages for each mini-batch instead of across the entire rollout.</p></td>
+<td><p>Whether to normalize advantages for each mini-batch instead of across the entire rollout.(是否对每个小批量分别归一化优势，而不是在整个 rollout 上归一化。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">share_cnn_encoders</span></code></p></td>
 <td><p>bool</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 <td><p>Whether to share the CNN networks between actor and critic in case
-the <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a> is used.</p></td>
+the <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a> is used.(在使用 <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a> 时，是否在策略网络和价值网络之间共享 CNN 网络。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rnd_cfg</span></code></p></td>
 <td><p>dict | None</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
-<td><p>Optional RND extension configuration.</p></td>
+<td><p>Optional RND extension configuration.(可选的 RND 扩展配置。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">symmetry_cfg</span></code></p></td>
 <td><p>dict | None</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
-<td><p>Optional symmetry extension configuration.</p></td>
+<td><p>Optional symmetry extension configuration.(可选的对称性扩展配置。)</p></td>
 </tr>
 </tbody>
 </table>
@@ -512,37 +514,37 @@ the <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_mod
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">class_name</span></code></p></td>
 <td><p>str</p></td>
 <td><p>required</p></td>
-<td><p>Algorithm class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;Distillation&quot;</span></code>.</p></td>
+<td><p>Algorithm class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;Distillation&quot;</span></code>.(算法类名。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;Distillation&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">optimizer</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;adam&quot;</span></code></p></td>
-<td><p>Optimizer used for student updates. Valid values: see <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_optimizer" title="rsl_rl.utils.utils.resolve_optimizer"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_optimizer()</span></code></a>.</p></td>
+<td><p>Optimizer used for student updates. Valid values: see <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_optimizer" title="rsl_rl.utils.utils.resolve_optimizer"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_optimizer()</span></code></a>.(用于学生模型更新的优化器。有效值：参见 <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_optimizer" title="rsl_rl.utils.utils.resolve_optimizer"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_optimizer()</span></code></a>。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1e-3</span></code></p></td>
-<td><p>Optimizer learning rate.</p></td>
+<td><p>Optimizer learning rate.(优化器学习率。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">num_learning_epochs</span></code></p></td>
 <td><p>int</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
-<td><p>Number of optimization epochs per iteration.</p></td>
+<td><p>Number of optimization epochs per iteration.(每次迭代的优化轮数。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gradient_length</span></code></p></td>
 <td><p>int</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">15</span></code></p></td>
-<td><p>Gradient backpropagation length.</p></td>
+<td><p>Gradient backpropagation length.(梯度反向传播长度。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_grad_norm</span></code></p></td>
 <td><p>float | None</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
-<td><p>Maximum gradient norm for gradient clipping.</p></td>
+<td><p>Maximum gradient norm for gradient clipping.(梯度裁剪的最大梯度范数。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">loss_type</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;mse&quot;</span></code></p></td>
-<td><p>Loss type. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;mse&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;huber&quot;</span></code>.</p></td>
+<td><p>Loss type. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;mse&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;huber&quot;</span></code>.(损失类型。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;mse&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;huber&quot;</span></code>。)</p></td>
 </tr>
 </tbody>
 </table>
@@ -555,7 +557,7 @@ the <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_mod
 and a critic, while <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.distillation.Distillation" title="rsl_rl.algorithms.distillation.Distillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distillation</span></code></a> uses a student and a teacher. Even though
 their function might be different, they can all use the same underlying model classes. RSL-RL currently implements
 three different models: <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a>, <a class="reference internal" href="../api/models.html#rsl_rl.models.rnn_model.RNNModel" title="rsl_rl.models.rnn_model.RNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">RNNModel</span></code></a>, and
-<a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a>, which are configured as follows.</p>
+<a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a>, which are configured as follows.(不同的算法将模型用于不同的目的。例如，<a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> 使用策略网络和价值网络，而 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.distillation.Distillation" title="rsl_rl.algorithms.distillation.Distillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Distillation</span></code></a> 使用学生网络和教师网络。尽管它们的功能可能不同，但都可以使用相同的底层模型类。RSL-RL 目前实现了三种不同的模型：<a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a>、<a class="reference internal" href="../api/models.html#rsl_rl.models.rnn_model.RNNModel" title="rsl_rl.models.rnn_model.RNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">RNNModel</span></code></a> 和 <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a>，它们的配置如下。)</p>
 <section id="mlpmodel">
 <h3>MLPModel<a class="headerlink" href="#mlpmodel" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper no-wrap-type-column docutils container">
@@ -569,30 +571,30 @@ three different models: <a class="reference internal" href="../api/models.html#r
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">class_name</span></code></p></td>
-<td><p>str</p></td>
+<tr><p>str</p></td>
 <td><p>required</p></td>
-<td><p>Model class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;MLPModel&quot;</span></code>.</p></td>
+<td><p>Model class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;MLPModel&quot;</span></code>.(模型类名。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;MLPModel&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hidden_dims</span></code></p></td>
 <td><p>tuple[int] | list[int]</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">[256,</span> <span class="pre">256,</span> <span class="pre">256]</span></code></p></td>
-<td><p>Hidden dimensions of the MLP.</p></td>
+<td><p>Hidden dimensions of the MLP.(MLP 的隐藏层维度。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">activation</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;elu&quot;</span></code></p></td>
-<td><p>Activation function of the MLP. Valid values: see <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_nn_activation" title="rsl_rl.utils.utils.resolve_nn_activation"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_nn_activation()</span></code></a>.</p></td>
+<td><p>Activation function of the MLP. Valid values: see <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_nn_activation" title="rsl_rl.utils.utils.resolve_nn_activation"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_nn_activation()</span></code></a>.(MLP 的激活函数。有效值：参见 <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_nn_activation" title="rsl_rl.utils.utils.resolve_nn_activation"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_nn_activation()</span></code></a>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">obs_normalization</span></code></p></td>
 <td><p>bool</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
-<td><p>Whether to normalize the observations before passing them to the MLP.</p></td>
+<td><p>Whether to normalize the observations before passing them to the MLP.(是否在将观测值传递给 MLP 之前对其进行归一化。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">distribution_cfg</span></code></p></td>
 <td><p>dict | None</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
 <td><p>Optional output distribution configuration. If provided, the model can output stochastic values sampled from
-the distribution.</p></td>
+the distribution.(可选的输出分布配置。如果提供，模型可以输出从该分布中采样的随机值。)</p></td>
 </tr>
 </tbody>
 </table>
@@ -600,7 +602,7 @@ the distribution.</p></td>
 <p>The  <code class="docutils literal notranslate"><span class="pre">distribution_cfg</span></code> dictionary contains all parameters required by a specific distribution. RSL-RL implements two
 distributions by default: A simple Gaussian distribution (<a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.GaussianDistribution" title="rsl_rl.modules.distribution.GaussianDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">GaussianDistribution</span></code></a>)
 and a Gaussian distribution with state-dependent standard deviation
-(<a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution" title="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeteroscedasticGaussianDistribution</span></code></a>). Both require the same parameters:</p>
+(<a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution" title="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeteroscedasticGaussianDistribution</span></code></a>). Both require the same parameters:(<code class="docutils literal notranslate"><span class="pre">distribution_cfg</span></code> 字典包含了特定分布所需的所有参数。RSL-RL 默认实现了两种分布：简单高斯分布 (<a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.GaussianDistribution" title="rsl_rl.modules.distribution.GaussianDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">GaussianDistribution</span></code></a>) 和状态相关标准差的高斯分布 (<a class="reference internal" href="../api/modules.html#rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution" title="rsl_rl.modules.distribution.HeteroscedasticGaussianDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">HeteroscedasticGaussianDistribution</span></code></a>)。两者都需要相同的参数：)</p>
 <div class="table-wrapper no-wrap-type-column docutils container">
 <table class="no-wrap-type-column docutils align-default">
 <thead>
@@ -614,17 +616,17 @@ and a Gaussian distribution with state-dependent standard deviation
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">class_name</span></code></p></td>
 <td><p>str</p></td>
 <td><p>required</p></td>
-<td><p>Distribution class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;GaussianDistribution&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;HeteroscedasticGaussianDistribution&quot;</span></code>.</p></td>
+<td><p>Distribution class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;GaussianDistribution&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;HeteroscedasticGaussianDistribution&quot;</span></code>.(分布类名。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;GaussianDistribution&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;HeteroscedasticGaussianDistribution&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">init_std</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
-<td><p>Initial standard deviation.</p></td>
+<td><p>Initial standard deviation.(初始标准差。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">std_type</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;scalar&quot;</span></code></p></td>
-<td><p>Parameterization of the standard deviation. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;scalar&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;log&quot;</span></code>.</p></td>
+<td><p>Parameterization of the standard deviation. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;scalar&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;log&quot;</span></code>.(标准差的参数化形式。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;scalar&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;log&quot;</span></code>。)</p></td>
 </tr>
 </tbody>
 </table>
@@ -634,7 +636,7 @@ and a Gaussian distribution with state-dependent standard deviation
 <h3>RNNModel<a class="headerlink" href="#rnnmodel" title="Link to this heading">¶</a></h3>
 <p>The <a class="reference internal" href="../api/models.html#rsl_rl.models.rnn_model.RNNModel" title="rsl_rl.models.rnn_model.RNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">RNNModel</span></code></a> inherits from the <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a> and thus
 shares the same configuration keys as the <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a>, with the addition of the following
-keys:</p>
+keys:(<a class="reference internal" href="../api/models.html#rsl_rl.models.rnn_model.RNNModel" title="rsl_rl.models.rnn_model.RNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">RNNModel</span></code></a> 继承自 <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a>，因此与 <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a> 共享相同的配置键，并增加了以下键：)</p>
 <div class="table-wrapper no-wrap-type-column docutils container">
 <table class="no-wrap-type-column docutils align-default">
 <thead>
@@ -648,7 +650,7 @@ keys:</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">class_name</span></code></p></td>
 <td><p>str</p></td>
 <td><p>required</p></td>
-<td><p>Model class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;RNNModel&quot;</span></code>.</p></td>
+<td><p>Model class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;RNNModel&quot;</span></code>.(模型类名。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;RNNModel&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p>…</p></td>
 <td><p>…</p></td>
@@ -658,17 +660,17 @@ keys:</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rnn_type</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;lstm&quot;</span></code></p></td>
-<td><p>Type of RNN network. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;lstm&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;gru&quot;</span></code>.</p></td>
+<td><p>Type of RNN network. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;lstm&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;gru&quot;</span></code>.(RNN 网络的类型。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;lstm&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;gru&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rnn_hidden_dim</span></code></p></td>
 <td><p>int</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">256</span></code></p></td>
-<td><p>Hidden dimension of the RNN.</p></td>
+<tr><p><code class="docutils literal notranslate"><span class="pre">256</span></code></p></td>
+<td><p>Hidden dimension of the RNN.(RNN 的隐藏维度。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rnn_num_layers</span></code></p></td>
 <td><p>int</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
-<td><p>Number of RNN layers.</p></td>
+<td><p>Number of RNN layers.(RNN 层数。)</p></td>
 </tr>
 </tbody>
 </table>
@@ -678,7 +680,7 @@ keys:</p>
 <h3>CNNModel<a class="headerlink" href="#cnnmodel" title="Link to this heading">¶</a></h3>
 <p>The <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a> inherits from the <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a> and thus
 shares the same configuration keys as the <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a>, with the addition of the following
-keys:</p>
+keys:(<a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a> 继承自 <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a>，因此与 <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a> 共享相同的配置键，并增加了以下键：)</p>
 <div class="table-wrapper no-wrap-type-column docutils container">
 <table class="no-wrap-type-column docutils align-default">
 <thead>
@@ -692,7 +694,7 @@ keys:</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">class_name</span></code></p></td>
 <td><p>str</p></td>
 <td><p>required</p></td>
-<td><p>Model class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;CNNModel&quot;</span></code>.</p></td>
+<td><p>Model class name. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;CNNModel&quot;</span></code>.(模型类名。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;CNNModel&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p>…</p></td>
 <td><p>…</p></td>
@@ -701,8 +703,8 @@ keys:</p>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cnn_cfg</span></code></p></td>
 <td><p>dict[str, dict] | dict[str, Any] | None</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
-<td><p>Configuration of the CNN encoder(s).</p></td>
+<tr><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Configuration of the CNN encoder(s).(CNN 编码器的配置。)</p></td>
 </tr>
 </tbody>
 </table>
@@ -714,7 +716,7 @@ are grouped in a dictionary <code class="docutils literal notranslate"><span cla
 contain the CNN parameters. If multiple CNNs with different configurations are needed, the dictionary must contain a
 dictionary for each CNN configuration, with the key being the observation the configuration applies to. The
 <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a> will then create CNNs based on the provided configurations. A CNN
-configuration includes the following parameters:</p>
+configuration includes the following parameters:(与将 CNN 参数直接传递给 <a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a>（类似于 <a class="reference internal" href="../api/models.html#rsl_rl.models.mlp_model.MLPModel" title="rsl_rl.models.mlp_model.MLPModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MLPModel</span></code></a> 和 <a class="reference internal" href="../api/models.html#rsl_rl.models.rnn_model.RNNModel" title="rsl_rl.models.rnn_model.RNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">RNNModel</span></code></a> 的方式）不同，参数被分组在一个字典 <code class="docutils literal notranslate"><span class="pre">cnn_cfg</span></code> 中。这允许为不同的观测（例如不同的相机）传递多个 CNN 配置。如果只需要一个 CNN 或者所有 CNN 具有相同的配置，该字典可以直接包含 CNN 参数。如果需要多个具有不同配置的 CNN，该字典必须为每个 CNN 配置包含一个字典，键为该配置适用的观测。然后，<a class="reference internal" href="../api/models.html#rsl_rl.models.cnn_model.CNNModel" title="rsl_rl.models.cnn_model.CNNModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">CNNModel</span></code></a> 将根据提供的配置创建 CNN。一个 CNN 配置包含以下参数：)</p>
 <div class="table-wrapper no-wrap-type-column docutils container">
 <table class="no-wrap-type-column docutils align-default">
 <thead>
@@ -728,53 +730,53 @@ configuration includes the following parameters:</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">output_channels</span></code></p></td>
 <td><p>tuple[int] | list[int]</p></td>
 <td><p>required</p></td>
-<td><p>Output channels for each convolutional layer.</p></td>
+<td><p>Output channels for each convolutional layer.(每个卷积层的输出通道数。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kernel_size</span></code></p></td>
 <td><p>int | tuple[int] | list[int]</p></td>
 <td><p>required</p></td>
-<td><p>Kernel size for each convolutional layer or a single kernel size for all layers.</p></td>
+<td><p>Kernel size for each convolutional layer or a single kernel size for all layers.(每个卷积层的核大小，或适用于所有层的单个核大小。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stride</span></code></p></td>
 <td><p>int | tuple[int] | list[int]</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
-<td><p>Stride for each convolutional layer or a single stride for all layers.</p></td>
+<td><p>Stride for each convolutional layer or a single stride for all layers.(每个卷积层的步长，或适用于所有层的单个步长。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">dilation</span></code></p></td>
 <td><p>int | tuple[int] | list[int]</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
-<td><p>Dilation for each convolutional layer or a single dilation for all layers.</p></td>
+<td><p>Dilation for each convolutional layer or a single dilation for all layers.(每个卷积层的膨胀系数，或适用于所有层的单个膨胀系数。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">padding</span></code></p></td>
 <td><p>str</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></td>
-<td><p>Padding type to use. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;zeros&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;reflect&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;replicate&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;circular&quot;</span></code>.</p></td>
+<tr><p><code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></td>
+<td><p>Padding type to use. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;zeros&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;reflect&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;replicate&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;circular&quot;</span></code>.(要使用的填充类型。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;zeros&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;reflect&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;replicate&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;circular&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">norm</span></code></p></td>
 <td><p>str | tuple[str] | list[str]</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></td>
 <td><p>Normalization type for each convolutional layer or a single normalization type for all layers. Valid values:
-<code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;batch&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;layer&quot;</span></code>.</p></td>
+<code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;batch&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;layer&quot;</span></code>.(每个卷积层的归一化类型，或适用于所有层的单个归一化类型。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;batch&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;layer&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">activation</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;elu&quot;</span></code></p></td>
-<td><p>Activation function to use. Valid values: see <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_nn_activation" title="rsl_rl.utils.utils.resolve_nn_activation"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_nn_activation()</span></code></a>.</p></td>
+<td><p>Activation function to use. Valid values: see <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_nn_activation" title="rsl_rl.utils.utils.resolve_nn_activation"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_nn_activation()</span></code></a>.(要使用的激活函数。有效值：参见 <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_nn_activation" title="rsl_rl.utils.utils.resolve_nn_activation"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_nn_activation()</span></code></a>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_pool</span></code></p></td>
 <td><p>bool | tuple[bool] | list[bool]</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
-<td><p>Whether to apply max pooling after each convolutional layer or a single boolean for all layers.</p></td>
+<td><p>Whether to apply max pooling after each convolutional layer or a single boolean for all layers.(是否在每个卷积层后应用最大池化，或适用于所有层的单个布尔值。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">global_pool</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code></p></td>
-<td><p>Global pooling type to apply at the end. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;max&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;avg&quot;</span></code>.</p></td>
+<td><p>Global pooling type to apply at the end. Valid values: <code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;max&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;avg&quot;</span></code>.(最后应用的全局池化类型。有效值：<code class="docutils literal notranslate"><span class="pre">&quot;none&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;max&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;avg&quot;</span></code>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">flatten</span></code></p></td>
 <td><p>bool</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
-<td><p>Whether to flatten the output tensor.</p></td>
+<td><p>Whether to flatten the output tensor.(是否展平输出张量。)</p></td>
 </tr>
 </tbody>
 </table>
@@ -784,7 +786,7 @@ configuration includes the following parameters:</p>
 <section id="extension-configuration">
 <h2>Extension Configuration<a class="headerlink" href="#extension-configuration" title="Link to this heading">¶</a></h2>
 <p>RSL-RL currently features two extensions for <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a>. Those are
-<a class="reference internal" href="../api/extensions.html#rsl_rl.extensions.rnd.RandomNetworkDistillation" title="rsl_rl.extensions.rnd.RandomNetworkDistillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomNetworkDistillation</span></code></a> and <code class="xref py py-class docutils literal notranslate"><span class="pre">Symmetry</span></code>, which may be configured as follows.</p>
+<a class="reference internal" href="../api/extensions.html#rsl_rl.extensions.rnd.RandomNetworkDistillation" title="rsl_rl.extensions.rnd.RandomNetworkDistillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomNetworkDistillation</span></code></a> and <code class="xref py py-class docutils literal notranslate"><span class="pre">Symmetry</span></code>, which may be configured as follows.(RSL-RL 目前为 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> 提供了两个扩展：<a class="reference internal" href="../api/extensions.html#rsl_rl.extensions.rnd.RandomNetworkDistillation" title="rsl_rl.extensions.rnd.RandomNetworkDistillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomNetworkDistillation</span></code></a> 和 <code class="xref py py-class docutils literal notranslate"><span class="pre">Symmetry</span></code>，它们可以如下配置：)</p>
 <section id="random-network-distillation">
 <h3>Random Network Distillation<a class="headerlink" href="#random-network-distillation" title="Link to this heading">¶</a></h3>
 <div class="table-wrapper no-wrap-type-column docutils container">
@@ -800,47 +802,47 @@ configuration includes the following parameters:</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">weight</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
-<td><p>Initial weight of the RND reward.</p></td>
+<td><p>Initial weight of the RND reward.(RND 奖励的初始权重。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">weight_schedule</span></code></p></td>
 <td><p>dict | None</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
-<td><p>Weight schedule for the RND reward. Valid values: see <a class="reference internal" href="../api/extensions.html#rsl_rl.extensions.rnd.RandomNetworkDistillation" title="rsl_rl.extensions.rnd.RandomNetworkDistillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomNetworkDistillation</span></code></a>.</p></td>
+<td><p>Weight schedule for the RND reward. Valid values: see <a class="reference internal" href="../api/extensions.html#rsl_rl.extensions.rnd.RandomNetworkDistillation" title="rsl_rl.extensions.rnd.RandomNetworkDistillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomNetworkDistillation</span></code></a>.(RND 奖励的权重调度。有效值：参见 <a class="reference internal" href="../api/extensions.html#rsl_rl.extensions.rnd.RandomNetworkDistillation" title="rsl_rl.extensions.rnd.RandomNetworkDistillation"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomNetworkDistillation</span></code></a>。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code></p></td>
 <td><p>float</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.001</span></code></p></td>
-<td><p>Learning rate for the RND optimizer.</p></td>
+<td><p>Learning rate for the RND optimizer.(RND 优化器的学习率。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">predictor_hidden_dims</span></code></p></td>
 <td><p>tuple[int] | list[int]</p></td>
 <td><p>required</p></td>
-<td><p>Hidden dimensions of the RND predictor network.</p></td>
+<td><p>Hidden dimensions of the RND predictor network.(RND 预测网络的隐藏层维度。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">target_hidden_dims</span></code></p></td>
 <td><p>tuple[int] | list[int]</p></td>
 <td><p>required</p></td>
-<td><p>Hidden dimensions of the RND target network.</p></td>
+<td><p>Hidden dimensions of the RND target network.(RND 目标网络的隐藏层维度。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">num_outputs</span></code></p></td>
 <td><p>int</p></td>
 <td><p>required</p></td>
-<td><p>Number of outputs of the RND networks.</p></td>
+<td><p>Number of outputs of the RND networks.(RND 网络的输出数量。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">activation</span></code></p></td>
 <td><p>str</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">&quot;elu&quot;</span></code></p></td>
-<td><p>Activation function for the RND networks. Valid values: see <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_nn_activation" title="rsl_rl.utils.utils.resolve_nn_activation"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_nn_activation()</span></code></a>.</p></td>
+<td><p>Activation function for the RND networks. Valid values: see <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_nn_activation" title="rsl_rl.utils.utils.resolve_nn_activation"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_nn_activation()</span></code></a>.(RND 网络的激活函数。有效值：参见 <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_nn_activation" title="rsl_rl.utils.utils.resolve_nn_activation"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_nn_activation()</span></code></a>。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">state_normalization</span></code></p></td>
 <td><p>bool</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
-<td><p>Whether to normalize the RND state.</p></td>
+<td><p>Whether to normalize the RND state.(是否对 RND 状态进行归一化。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reward_normalization</span></code></p></td>
 <td><p>bool</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
-<td><p>Whether to normalize the RND reward.</p></td>
+<td><p>Whether to normalize the RND reward.(是否对 RND 奖励进行归一化。)</p></td>
 </tr>
 </tbody>
 </table>
@@ -861,22 +863,22 @@ configuration includes the following parameters:</p>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">use_data_augmentation</span></code></p></td>
 <td><p>bool</p></td>
 <td><p>required</p></td>
-<td><p>Whether to add symmetric trajectories to the batch.</p></td>
+<td><p>Whether to add symmetric trajectories to the batch.(是否向批次中添加对称轨迹。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">data_augmentation_func</span></code></p></td>
 <td><p>str | callable | None</p></td>
 <td><p>required</p></td>
-<td><p>Function to generate symmetric trajectories. Resolved using <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_callable" title="rsl_rl.utils.utils.resolve_callable"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_callable()</span></code></a>.</p></td>
+<td><p>Function to generate symmetric trajectories. Resolved using <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_callable" title="rsl_rl.utils.utils.resolve_callable"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_callable()</span></code></a>.(生成对称轨迹的函数。使用 <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_callable" title="rsl_rl.utils.utils.resolve_callable"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_callable()</span></code></a> 解析。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">use_mirror_loss</span></code></p></td>
 <td><p>bool</p></td>
 <td><p>required</p></td>
-<td><p>Whether to add a symmetry loss term to the loss function.</p></td>
+<td><p>Whether to add a symmetry loss term to the loss function.(是否向损失函数中添加对称损失项。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mirror_loss_coeff</span></code></p></td>
 <td><p>float</p></td>
 <td><p>required</p></td>
-<td><p>Coefficient for the symmetry loss.</p></td>
+<td><p>Coefficient for the symmetry loss.(对称损失的系数。)</p></td>
 </tr>
 </tbody>
 </table>
@@ -887,7 +889,7 @@ configuration includes the following parameters:</p>
 <span id="id2"></span><h2>Example Configuration<a class="headerlink" href="#example-configuration" title="Link to this heading">¶</a></h2>
 <p>While the previous sections make it seem rather complicated to set up a configuration, the required configuration to run
 a training with, e.g., <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> is actually quite simple. The following configuration is
-already sufficient:</p>
+already sufficient:(尽管前面的部分让配置看起来相当复杂，但运行例如 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> 训练所需的配置实际上相当简单。以下配置已经足够：)</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">runner</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">num_steps_per_env</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">24</span>
 <span class="w">  </span><span class="nt">obs_groups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="s">&quot;actor&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;policy&quot;</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="s">&quot;critic&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;policy&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;privileged&quot;</span><span class="p p-Indicator">]}</span>
@@ -907,13 +909,13 @@ already sufficient:</p>
 <span id="id3"></span><h2>Observation Configuration<a class="headerlink" href="#observation-configuration" title="Link to this heading">¶</a></h2>
 <p>RSL-RL expects the <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv.step" title="rsl_rl.env.vec_env.VecEnv.step"><code class="xref py py-func docutils literal notranslate"><span class="pre">step()</span></code></a> method of the environment to return observations as a
 <code class="xref py py-class docutils literal notranslate"><span class="pre">TensorDict</span></code>. This dictionary contains one or more tensors with observation data, referred
-to as <em>observation groups</em> in RSL-RL and Isaac Lab.</p>
+to as <em>observation groups</em> in RSL-RL and Isaac Lab.(RSL-RL 期望环境的 <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv.step" title="rsl_rl.env.vec_env.VecEnv.step"><code class="xref py py-func docutils literal notranslate"><span class="pre">step()</span></code></a> 方法返回的观测值是一个 <code class="xref py py-class docutils literal notranslate"><span class="pre">TensorDict</span></code>。该字典包含一个或多个带有观测数据的张量，在 RSL-RL 和 Isaac Lab 中被称为<em>观测组</em>。)</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> dictionary of the <a class="reference internal" href="#runner-configuration"><span class="std std-ref">runner configuration</span></a> defines which observation groups
 are used for which purpose. Each purpose defines its own <em>observation set</em>, which is simply a list of observation
-groups. In other words, the <code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> dictionary maps from <em>observation sets</em> to lists of <em>observation groups</em>.</p>
+groups. In other words, the <code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> dictionary maps from <em>observation sets</em> to lists of <em>observation groups</em>.(<a class="reference internal" href="#runner-configuration"><span class="std std-ref">运行器配置</span></a> 中的 <code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> 字典定义了哪些观测组用于哪些目的。每个目的定义了自己的<em>观测集</em>，它只是一个观测组的列表。换句话说，<code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> 字典将<em>观测集</em>映射到<em>观测组</em>的列表。)</p>
 <p>As the above definition is quite abstract, let’s consider a simple example for a
 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> training. The <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv.step" title="rsl_rl.env.vec_env.VecEnv.step"><code class="xref py py-func docutils literal notranslate"><span class="pre">step()</span></code></a> method of our environment
-might return the following observations:</p>
+might return the following observations:(由于上述定义相当抽象，让我们考虑一个 <a class="reference internal" href="../api/algorithms.html#rsl_rl.algorithms.ppo.PPO" title="rsl_rl.algorithms.ppo.PPO"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPO</span></code></a> 训练的简单示例。我们环境的 <a class="reference internal" href="../api/env.html#rsl_rl.env.vec_env.VecEnv.step" title="rsl_rl.env.vec_env.VecEnv.step"><code class="xref py py-func docutils literal notranslate"><span class="pre">step()</span></code></a> 方法可能返回以下观测值：)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span> <span class="o">=</span> <span class="n">TensorDict</span><span class="p">(</span>
   <span class="p">{</span>
     <span class="s2">&quot;policy&quot;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]),</span> <span class="c1"># available during robot deployment</span>
@@ -924,14 +926,14 @@ might return the following observations:</p>
 </div>
 <p>Let’s assume the “policy” observation group is meant for both actor and critic. The “privileged” observation group is
 only available during training and therefore cannot be used by the actor model, but may still improve learning
-performance when passed to the critic. Thus, the <code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> dictionary would be configured as follows:</p>
+performance when passed to the critic. Thus, the <code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> dictionary would be configured as follows:(假设“policy”观测组是用于策略网络和价值网络的。“privileged”观测组仅在训练期间可用，因此不能被策略模型使用，但当传递给价值网络时仍可能提高学习性能。因此，<code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> 字典将如下配置：)</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">obs_groups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="s">&quot;actor&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;policy&quot;</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="s">&quot;critic&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;policy&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;privileged&quot;</span><span class="p p-Indicator">]}</span>
 </pre></div>
 </div>
 <p>With this configuration, the actor would receive the “policy” tensor as input, while the critic would receive both the
-“policy” and the “privileged” tensor as input.</p>
+“policy” and the “privileged” tensor as input.(使用此配置，策略网络将接收“policy”张量作为输入，而价值网络将同时接收“policy”和“privileged”张量作为输入。)</p>
 <p>Depending on the algorithm and extensions used, RSL-RL expects different observation sets to be present in the
-<code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> dictionary. Currently, the following observation sets may be required, depending on the configuration:</p>
+<code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> dictionary. Currently, the following observation sets may be required, depending on the configuration:(根据所使用的算法和扩展，RSL-RL 期望 <code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> 字典中存在不同的观测集。目前，根据配置，可能需要以下观测集：)</p>
 <div class="table-wrapper no-wrap-type-column docutils container">
 <table class="no-wrap-type-column docutils align-default">
 <thead>
@@ -941,25 +943,25 @@ performance when passed to the critic. Thus, the <code class="docutils literal n
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">actor</span></code></p></td>
-<td><p>Observations used as input to the actor model.</p></td>
+<td><p>Observations used as input to the actor model.(用作策略模型输入的观测值。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">critic</span></code></p></td>
-<td><p>Observations used as input to the critic model.</p></td>
+<td><p>Observations used as input to the critic model.(用作价值模型输入的观测值。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">student</span></code></p></td>
-<td><p>Observations used as input to the student model.</p></td>
+<td><p>Observations used as input to the student model.(用作学生模型输入的观测值。)</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">teacher</span></code></p></td>
-<td><p>Observations used as input to the teacher model.</p></td>
+<td><p>Observations used as input to the teacher model.(用作教师模型输入的观测值。)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rnd_state</span></code></p></td>
-<td><p>Observations used as input to the RND extension.</p></td>
+<td><p>Observations used as input to the RND extension.(用作 RND 扩展输入的观测值。)</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <p>Incomplete or incorrect configurations are handled in <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_obs_groups" title="rsl_rl.utils.utils.resolve_obs_groups"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_obs_groups()</span></code></a>, which provides
-detailed information on how errors are resolved.</p>
+detailed information on how errors are resolved.(不完整或不正确的配置在 <a class="reference internal" href="../api/utils.html#rsl_rl.utils.utils.resolve_obs_groups" title="rsl_rl.utils.utils.resolve_obs_groups"><code class="xref py py-func docutils literal notranslate"><span class="pre">resolve_obs_groups()</span></code></a> 中处理，该函数提供了关于如何解决错误的详细信息。)</p>
 </section>
 </section>
 

@@ -1,5 +1,5 @@
-<!doctype html>
-<html class="no-js" lang="en" data-content_root="../">
+<!DOCTYPE html>
+<html class="no-js" lang="zh" data-content_root="../">
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,8 +13,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=2a5a7561" />
-    
-    
+
+
 
 
 <style>
@@ -22,31 +22,31 @@
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
   --color-highlight-on-target: rgba(12, 121, 190, 0.5);
-  
+
       }
     }
   }
 </style></head>
   <body>
-    
+
     <script>
       document.body.dataset.theme = localStorage.getItem("theme") || "auto";
     </script>
-    
+
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="svg-toc" viewBox="0 0 24 24">
@@ -185,14 +185,14 @@
   </header>
   <aside class="sidebar-drawer">
     <div class="sidebar-container">
-      
+
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   <div class="sidebar-logo-container">
     <img class="sidebar-logo only-light" src="../_static/rsl_rl_logo_light.svg" alt="Light Logo"/>
     <img class="sidebar-logo only-dark" src="../_static/rsl_rl_logo_dark.svg" alt="Dark Logo"/>
   </div>
-  
-  
+
+
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
   <input type="hidden" name="check_keywords" value="yes">
@@ -227,7 +227,7 @@
 </div>
 
       </div>
-      
+
     </div>
   </aside>
   <div class="main">
@@ -269,12 +269,12 @@
 <dl class="py function" id="module-rsl_rl.utils.utils">
 <dt class="sig sig-object py" id="rsl_rl.utils.utils.get_param">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">get_param</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/utils.html#get_param"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.utils.get_param" title="Link to this definition">¶</a></dt>
-<dd><p>Get a parameter for the given index.</p>
+<dd><p>Get a parameter for the given index. (获取给定索引的参数。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>param</strong> (<em>Any</em>) – Parameter or list/tuple of parameters.</p></li>
-<li><p><strong>idx</strong> (<em>int</em>) – Index to get the parameter for.</p></li>
+<li><p><strong>param</strong> (<em>Any</em>) – Parameter or list/tuple of parameters. (参数或参数的列表/元组。)</p></li>
+<li><p><strong>idx</strong> (<em>int</em>) – Index to get the parameter for. (要获取参数的索引。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -286,18 +286,18 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="rsl_rl.utils.utils.resolve_nn_activation">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">resolve_nn_activation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">act_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/utils.html#resolve_nn_activation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.utils.resolve_nn_activation" title="Link to this definition">¶</a></dt>
-<dd><p>Resolve the activation function from the name.</p>
+<dd><p>Resolve the activation function from the name. (根据名称解析激活函数。)</p>
 <p>Valid activation function names are: <code class="docutils literal notranslate"><span class="pre">&quot;elu&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;selu&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;relu&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;crelu&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;lrelu&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;tanh&quot;</span></code>,
-<code class="docutils literal notranslate"><span class="pre">&quot;sigmoid&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;softplus&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;gelu&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;swish&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;mish&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;identity&quot;</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">&quot;sigmoid&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;softplus&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;gelu&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;swish&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;mish&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;identity&quot;</span></code>. (有效的激活函数名称有：<code class="docutils literal notranslate"><span class="pre">&quot;elu&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;selu&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;relu&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;crelu&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;lrelu&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;tanh&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;sigmoid&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;softplus&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;gelu&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;swish&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;mish&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;identity&quot;</span></code>。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>act_name</strong> (<em>str</em>) – Name of the activation function.</p>
+<dd class="field-odd"><p><strong>act_name</strong> (<em>str</em>) – Name of the activation function. (激活函数的名称。)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The activation function.</p>
+<dd class="field-even"><p>The activation function. (激活函数。)</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – If the activation function is not found.</p>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the activation function is not found. (如果找不到激活函数。)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>torch.nn.Module</p>
@@ -308,17 +308,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="rsl_rl.utils.utils.resolve_optimizer">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">resolve_optimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimizer_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/utils.html#resolve_optimizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.utils.resolve_optimizer" title="Link to this definition">¶</a></dt>
-<dd><p>Resolve the optimizer from the name.</p>
-<p>Valid optimizer names are: <code class="docutils literal notranslate"><span class="pre">&quot;adam&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;adamw&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;sgd&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;rmsprop&quot;</span></code>.</p>
+<dd><p>Resolve the optimizer from the name. (根据名称解析优化器。)</p>
+<p>Valid optimizer names are: <code class="docutils literal notranslate"><span class="pre">&quot;adam&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;adamw&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;sgd&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;rmsprop&quot;</span></code>. (有效的优化器名称有：<code class="docutils literal notranslate"><span class="pre">&quot;adam&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;adamw&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;sgd&quot;</span></code>、<code class="docutils literal notranslate"><span class="pre">&quot;rmsprop&quot;</span></code>。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>optimizer_name</strong> (<em>str</em>) – Name of the optimizer.</p>
+<dd class="field-odd"><p><strong>optimizer_name</strong> (<em>str</em>) – Name of the optimizer. (优化器的名称。)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The optimizer.</p>
+<dd class="field-even"><p>The optimizer. (优化器。)</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – If the optimizer is not found.</p>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the optimizer is not found. (如果找不到优化器。)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>torch.optim.Optimizer</p>
@@ -329,27 +329,27 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="rsl_rl.utils.utils.resolve_callable">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">resolve_callable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callable_or_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/utils.html#resolve_callable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.utils.resolve_callable" title="Link to this definition">¶</a></dt>
-<dd><p>Resolve a callable from a string, type, or return callable directly.</p>
-<p>This function supports resolving callables from a direct callable input or from a string in one of these formats:</p>
+<dd><p>Resolve a callable from a string, type, or return callable directly. (从字符串、类型解析可调用对象，或直接返回可调用对象。)</p>
+<p>This function supports resolving callables from a direct callable input or from a string in one of these formats: (此函数支持从直接的可调用输入或以下格式之一的字符串解析可调用对象：)</p>
 <ul class="simple">
-<li><p>Direct callable: pass a type or function directly (for example, <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> or <code class="docutils literal notranslate"><span class="pre">my_func</span></code>).</p></li>
-<li><p>Qualified name with colon: <code class="docutils literal notranslate"><span class="pre">&quot;module.path:Attr.Nested&quot;</span></code> (explicit, recommended).</p></li>
-<li><p>Qualified name with dot: <code class="docutils literal notranslate"><span class="pre">&quot;module.path.ClassName&quot;</span></code> (implicit).</p></li>
-<li><p>Simple name: for example <code class="docutils literal notranslate"><span class="pre">&quot;PPO&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;ActorCritic&quot;</span></code> (searched within <code class="docutils literal notranslate"><span class="pre">rsl_rl</span></code>).</p></li>
+<li><p>Direct callable: pass a type or function directly (for example, <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> or <code class="docutils literal notranslate"><span class="pre">my_func</span></code>). (直接可调用：直接传递类型或函数（例如 <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> 或 <code class="docutils literal notranslate"><span class="pre">my_func</span></code>）。)</p></li>
+<li><p>Qualified name with colon: <code class="docutils literal notranslate"><span class="pre">&quot;module.path:Attr.Nested&quot;</span></code> (explicit, recommended). (带冒号的限定名：<code class="docutils literal notranslate"><span class="pre">&quot;module.path:Attr.Nested&quot;</span></code>（显式，推荐）。)</p></li>
+<li><p>Qualified name with dot: <code class="docutils literal notranslate"><span class="pre">&quot;module.path.ClassName&quot;</span></code> (implicit). (带点的限定名：<code class="docutils literal notranslate"><span class="pre">&quot;module.path.ClassName&quot;</span></code>（隐式）。)</p></li>
+<li><p>Simple name: for example <code class="docutils literal notranslate"><span class="pre">&quot;PPO&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;ActorCritic&quot;</span></code> (searched within <code class="docutils literal notranslate"><span class="pre">rsl_rl</span></code>). (简单名称：例如 <code class="docutils literal notranslate"><span class="pre">&quot;PPO&quot;</span></code> 或 <code class="docutils literal notranslate"><span class="pre">&quot;ActorCritic&quot;</span></code>（在 <code class="docutils literal notranslate"><span class="pre">rsl_rl</span></code> 中搜索）。)</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>callable_or_name</strong> (<em>type</em><em> | </em><em>Callable</em><em> | </em><em>str</em>) – A callable (type/function) or string name.</p>
+<dd class="field-odd"><p><strong>callable_or_name</strong> (<em>type</em><em> | </em><em>Callable</em><em> | </em><em>str</em>) – A callable (type/function) or string name. (可调用对象（类型/函数）或字符串名称。)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The resolved callable.</p>
+<dd class="field-even"><p>The resolved callable. (解析后的可调用对象。)</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>TypeError</strong> – If input is neither a callable nor a string.</p></li>
-<li><p><strong>ImportError</strong> – If the module cannot be imported.</p></li>
-<li><p><strong>AttributeError</strong> – If the attribute cannot be found in the module.</p></li>
-<li><p><strong>ValueError</strong> – If a simple name cannot be found in rsl_rl packages.</p></li>
+<li><p><strong>TypeError</strong> – If input is neither a callable nor a string. (如果输入既不是可调用对象也不是字符串。)</p></li>
+<li><p><strong>ImportError</strong> – If the module cannot be imported. (如果无法导入模块。)</p></li>
+<li><p><strong>AttributeError</strong> – If the attribute cannot be found in the module. (如果在模块中找不到属性。)</p></li>
+<li><p><strong>ValueError</strong> – If a simple name cannot be found in rsl_rl packages. (如果在 rsl_rl 包中找不到简单名称。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -361,10 +361,10 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="rsl_rl.utils.utils.resolve_obs_groups">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">resolve_obs_groups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obs_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_sets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/utils.html#resolve_obs_groups"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.utils.resolve_obs_groups" title="Link to this definition">¶</a></dt>
-<dd><p>Validate the observation configuration and resolve missing observation sets.</p>
+<dd><p>Validate the observation configuration and resolve missing observation sets. (验证观测配置并解析缺失的观测集。)</p>
 <p>The input is an observation dictionary <cite>obs</cite> containing observation groups and a configuration dictionary
-<cite>obs_groups</cite> where the keys are the observation sets and the values are lists of observation groups.</p>
-<p>The configuration dictionary could for example look like:</p>
+<cite>obs_groups</cite> where the keys are the observation sets and the values are lists of observation groups. (输入是一个观测字典 <cite>obs</cite>，包含观测组，以及一个配置字典 <cite>obs_groups</cite>，其中键是观测集，值是观测组的列表。)</p>
+<p>The configuration dictionary could for example look like: (配置字典例如可能如下所示：)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;actor&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;group_1&quot;</span><span class="p">,</span> <span class="s2">&quot;group_2&quot;</span><span class="p">],</span>
     <span class="s2">&quot;critic&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;group_1&quot;</span><span class="p">,</span> <span class="s2">&quot;group_3&quot;</span><span class="p">],</span>
@@ -374,31 +374,31 @@
 <p>This means that the ‘actor’ observation set will contain the observations “group_1” and “group_2” and the ‘critic’
 observation set will contain the observations “group_1” and “group_3”. This function will check that all the
 observations in the ‘actor’ and ‘critic’ observation sets are present in the observation dictionary from the
-environment.</p>
+environment. (这意味着“actor”观测集将包含观测值“group_1”和“group_2”，“critic”观测集将包含观测值“group_1”和“group_3”。此函数将检查“actor”和“critic”观测集中的所有观测值是否都存在于来自环境的观测字典中。)</p>
 <p>Additionally, if one of the <cite>default_sets</cite>, e.g. “critic”, is not present in the configuration dictionary, this
-function will:</p>
+function will: (此外，如果 <cite>default_sets</cite> 中的某一个（例如“critic”）不存在于配置字典中，此函数将：)</p>
 <ol class="arabic simple">
-<li><p>Check if a group with the same name exists in the observations and assign this group to the observation set.</p></li>
-<li><p>If 1. fails, it will assign the ‘policy’ observation group to the missing observation set.</p></li>
-<li><p>If 2. fails, an error is raised.</p></li>
+<li><p>Check if a group with the same name exists in the observations and assign this group to the observation set. (检查观测中是否存在同名的组，并将该组分配给观测集。)</p></li>
+<li><p>If 1. fails, it will assign the ‘policy’ observation group to the missing observation set. (如果步骤 1 失败，它将把“policy”观测组分配给缺失的观测集。)</p></li>
+<li><p>If 2. fails, an error is raised. (如果步骤 2 失败，则引发错误。)</p></li>
 </ol>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>obs</strong> (<em>tensordict.TensorDict</em>) – Observations from the environment in the form of a dictionary.</p></li>
-<li><p><strong>obs_groups</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Dictionary mapping observation sets to lists of observation groups.</p></li>
+<li><p><strong>obs</strong> (<em>tensordict.TensorDict</em>) – Observations from the environment in the form of a dictionary. (来自环境的观测值，以字典形式呈现。)</p></li>
+<li><p><strong>obs_groups</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em>) – Dictionary mapping observation sets to lists of observation groups. (将观测集映射到观测组列表的字典。)</p></li>
 <li><p><strong>default_sets</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Default observation set names used by the algorithm. If not provided in <code class="docutils literal notranslate"><span class="pre">obs_groups</span></code>, a
-default behavior gets triggered.</p></li>
+default behavior gets triggered. (算法使用的默认观测集名称。如果未在 <code class="docutils literal notranslate"><span class="pre">obs_groups</span></code> 中提供，则会触发默认行为。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The resolved observation groups.</p>
+<dd class="field-even"><p>The resolved observation groups. (解析后的观测组。)</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ValueError</strong> – If any observation set is an empty list.</p></li>
-<li><p><strong>ValueError</strong> – If any observation set contains an observation term that is not present in the observations.</p></li>
-<li><p><strong>ValueError</strong> – If a default observation set cannot be resolved according to the rules above.</p></li>
+<li><p><strong>ValueError</strong> – If any observation set is an empty list. (如果任何观测集是空列表。)</p></li>
+<li><p><strong>ValueError</strong> – If any observation set contains an observation term that is not present in the observations. (如果任何观测集包含的观测项在观测中不存在。)</p></li>
+<li><p><strong>ValueError</strong> – If a default observation set cannot be resolved according to the rules above. (如果无法根据上述规则解析默认观测集。)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -410,7 +410,7 @@ default behavior gets triggered.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="rsl_rl.utils.utils.check_nan">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">check_nan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rewards</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dones</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/utils.html#check_nan"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.utils.check_nan" title="Link to this definition">¶</a></dt>
-<dd><p>Raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> if any environment output contains NaN.</p>
+<dd><p>Raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> if any environment output contains NaN. (如果任何环境输出包含 NaN，则引发 <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -428,14 +428,14 @@ default behavior gets triggered.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="rsl_rl.utils.utils.split_and_pad_trajectories">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">split_and_pad_trajectories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dones</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/utils.html#split_and_pad_trajectories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.utils.split_and_pad_trajectories" title="Link to this definition">¶</a></dt>
-<dd><p>Split trajectories at done indices.</p>
+<dd><p>Split trajectories at done indices. (在结束索引处分割轨迹。)</p>
 <p>Split trajectories, concatenate them and pad with zeros up to the length of the longest trajectory. Return masks
-corresponding to valid parts of the trajectories.</p>
+corresponding to valid parts of the trajectories. (分割轨迹，将它们连接起来，并用零填充到最长轨迹的长度。返回与轨迹有效部分对应的掩码。)</p>
 <dl class="simple">
-<dt>Example (transposed for readability):</dt><dd><dl class="simple">
-<dt>Input: [[a1, a2, a3, a4 | a5, a6],</dt><dd><p>[b1, b2 | b3, b4, b5 | b6]]</p>
+<dt>Example (transposed for readability): (示例（为可读性转置）：)</dt><dd><dl class="simple">
+<dt>Input: [[a1, a2, a3, a4 | a5, a6], (输入：[[a1, a2, a3, a4 | a5, a6],)</dt><dd><p>[b1, b2 | b3, b4, b5 | b6]]</p>
 </dd>
-<dt>Output:[[a1, a2, a3, a4], | [[True, True, True, True],</dt><dd><p>[a5, a6, 0, 0],   |  [True, True, False, False],
+<dt>Output:[[a1, a2, a3, a4], | [[True, True, True, True], (输出：[[a1, a2, a3, a4], | [[True, True, True, True],)</dt><dd><p>[a5, a6, 0, 0],   |  [True, True, False, False],
 [b1, b2, 0, 0],   |  [True, True, False, False],
 [b3, b4, b5, 0],  |  [True, True, True, False],
 [b6, 0, 0, 0]]    |  [True, False, False, False]]</p>
@@ -443,7 +443,7 @@ corresponding to valid parts of the trajectories.</p>
 </dl>
 </dd>
 </dl>
-<p>Assumes that the input has the following order of dimensions: [time, number of envs, additional dimensions]</p>
+<p>Assumes that the input has the following order of dimensions: [time, number of envs, additional dimensions] (假设输入具有以下维度顺序：[时间，环境数量，额外维度])</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -460,7 +460,7 @@ corresponding to valid parts of the trajectories.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="rsl_rl.utils.utils.unpad_trajectories">
 <span class="sig-prename descclassname"><span class="pre">rsl_rl.utils.utils.</span></span><span class="sig-name descname"><span class="pre">unpad_trajectories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajectories</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masks</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/utils.html#unpad_trajectories"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.utils.unpad_trajectories" title="Link to this definition">¶</a></dt>
-<dd><p>Do the inverse operation of <cite>split_and_pad_trajectories()</cite>.</p>
+<dd><p>Do the inverse operation of <cite>split_and_pad_trajectories()</cite>. (执行 <cite>split_and_pad_trajectories()</cite> 的逆操作。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -480,11 +480,11 @@ corresponding to valid parts of the trajectories.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="rsl_rl.utils.wandb_utils.WandbSummaryWriter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rsl_rl.utils.wandb_utils.</span></span><span class="sig-name descname"><span class="pre">WandbSummaryWriter</span></span><a class="reference internal" href="../_modules/rsl_rl/utils/wandb_utils.html#WandbSummaryWriter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.wandb_utils.WandbSummaryWriter" title="Link to this definition">¶</a></dt>
-<dd><p>Summary writer for W&amp;B.</p>
+<dd><p>Summary writer for W&amp;B. (W&amp;B 的摘要写入器。)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.utils.wandb_utils.WandbSummaryWriter.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flush_secs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/wandb_utils.html#WandbSummaryWriter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.wandb_utils.WandbSummaryWriter.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Initialize a W&amp;B run for logging.</p>
+<dd><p>Initialize a W&amp;B run for logging. (初始化 W&amp;B 运行以进行日志记录。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -502,7 +502,7 @@ corresponding to valid parts of the trajectories.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.utils.wandb_utils.WandbSummaryWriter.store_config">
 <span class="sig-name descname"><span class="pre">store_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env_cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_cfg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/wandb_utils.html#WandbSummaryWriter.store_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.wandb_utils.WandbSummaryWriter.store_config" title="Link to this definition">¶</a></dt>
-<dd><p>Upload environment and training configuration to W&amp;B.</p>
+<dd><p>Upload environment and training configuration to W&amp;B. (将环境和训练配置上传到 W&amp;B。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -519,7 +519,7 @@ corresponding to valid parts of the trajectories.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.utils.wandb_utils.WandbSummaryWriter.add_scalar">
 <span class="sig-name descname"><span class="pre">add_scalar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tag</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walltime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/wandb_utils.html#WandbSummaryWriter.add_scalar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.wandb_utils.WandbSummaryWriter.add_scalar" title="Link to this definition">¶</a></dt>
-<dd><p>Log a scalar to both TensorBoard and W&amp;B.</p>
+<dd><p>Log a scalar to both TensorBoard and W&amp;B. (将标量记录到 TensorBoard 和 W&amp;B。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -539,7 +539,7 @@ corresponding to valid parts of the trajectories.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.utils.wandb_utils.WandbSummaryWriter.stop">
 <span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/wandb_utils.html#WandbSummaryWriter.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.wandb_utils.WandbSummaryWriter.stop" title="Link to this definition">¶</a></dt>
-<dd><p>Finish the active W&amp;B run.</p>
+<dd><p>Finish the active W&amp;B run. (完成活动的 W&amp;B 运行。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>None</p>
@@ -550,7 +550,7 @@ corresponding to valid parts of the trajectories.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.utils.wandb_utils.WandbSummaryWriter.save_model">
 <span class="sig-name descname"><span class="pre">save_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/wandb_utils.html#WandbSummaryWriter.save_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.wandb_utils.WandbSummaryWriter.save_model" title="Link to this definition">¶</a></dt>
-<dd><p>Upload a model checkpoint artifact to W&amp;B.</p>
+<dd><p>Upload a model checkpoint artifact to W&amp;B. (将模型检查点工件上传到 W&amp;B。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -567,7 +567,7 @@ corresponding to valid parts of the trajectories.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.utils.wandb_utils.WandbSummaryWriter.save_file">
 <span class="sig-name descname"><span class="pre">save_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/wandb_utils.html#WandbSummaryWriter.save_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.wandb_utils.WandbSummaryWriter.save_file" title="Link to this definition">¶</a></dt>
-<dd><p>Upload an arbitrary file artifact to W&amp;B.</p>
+<dd><p>Upload an arbitrary file artifact to W&amp;B. (将任意文件工件上传到 W&amp;B。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>path</strong> (<em>str</em>)</p>
@@ -581,7 +581,7 @@ corresponding to valid parts of the trajectories.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rsl_rl.utils.wandb_utils.WandbSummaryWriter.save_video">
 <span class="sig-name descname"><span class="pre">save_video</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">video</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">it</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rsl_rl/utils/wandb_utils.html#WandbSummaryWriter.save_video"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rsl_rl.utils.wandb_utils.WandbSummaryWriter.save_video" title="Link to this definition">¶</a></dt>
-<dd><p>Upload a video artifact once per filename to W&amp;B.</p>
+<dd><p>Upload a video artifact once per filename to W&amp;B. (每个文件名将视频工件上传到 W&amp;B 一次。)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -606,18 +606,18 @@ corresponding to valid parts of the trajectories.</p>
         </article>
       </div>
       <footer>
-        
+
         <div class="related-pages">
-          
+
           <a class="prev-page" href="storage.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
-                
+
                 <div class="title">Storage</div>
-                
+
               </div>
             </a>
         </div>
@@ -627,20 +627,20 @@ corresponding to valid parts of the trajectories.</p>
                 Copyright &#169; 2021-2026, ETH Zurich and NVIDIA CORPORATION
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
-            
+
             <a href="https://github.com/pradyunsg/furo">Furo</a>
-            
+
           </div>
           <div class="right-details">
-            
+
           </div>
         </div>
-        
+
       </footer>
     </div>
     <aside class="toc-drawer">
-      
-      
+
+
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
@@ -684,8 +684,8 @@ corresponding to valid parts of the trajectories.</p>
           </div>
         </div>
       </div>
-      
-      
+
+
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
