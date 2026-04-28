@@ -28,7 +28,7 @@ extensions = [
 ]
 
 # Paths
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["build", "Thumbs.db", ".DS_Store"]
 templates_path = ["_templates"]
 html_static_path = ["_static"]
 

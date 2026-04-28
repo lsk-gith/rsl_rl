@@ -33,4 +33,47 @@ tests/algorithms/test_ppo.py::TestAdaptiveLearningRate::test_lr_unchanged_in_sta
 ======================================================================== 9 passed in 0.12s =========================================================================
  
  
+ /data1/anaconda3/envs/py310/bin/pytest -v -s tests/runners/test_on_policy_runner.py 
+
+ tests/runners/test_on_policy_runner.py::TestCNNRunner::test_cnn_save_load_restores_parameters --------------------------------------------------------------------------------
+Resolved observation sets: 
+         actor :  ['policy', 'image']
+         critic :  ['policy', 'image']
+--------------------------------------------------------------------------------
+Actor Model: CNNModel(
+  (obs_normalizer): Identity()
+  (distribution): GaussianDistribution()
+  (mlp): MLP(
+    (0): Linear(in_features=204, out_features=32, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=32, out_features=4, bias=True)
+  )
+  (cnns): ModuleDict(
+    (image): CNN(
+      (0): Conv2d(1, 4, kernel_size=(3, 3), stride=(2, 2))
+      (1): ELU(alpha=1.0)
+      (2): Flatten(start_dim=1, end_dim=-1)
+    )
+  )
+)
+Critic Model: CNNModel(
+  (obs_normalizer): Identity()
+  (mlp): MLP(
+    (0): Linear(in_features=204, out_features=32, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=32, out_features=1, bias=True)
+  )
+  (cnns): ModuleDict(
+    (image): CNN(
+      (0): Conv2d(1, 4, kernel_size=(3, 3), stride=(2, 2))
+      (1): ELU(alpha=1.0)
+      (2): Flatten(start_dim=1, end_dim=-1)
+    )
+  )
+)
+PASSED
+ 
+ 
+ 
+ 
 ```
